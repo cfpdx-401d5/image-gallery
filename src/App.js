@@ -88,3 +88,9 @@ export default class App extends React.Component {
     )
   }
 }
+
+export {
+    ListView,
+    ThumbnailView,
+    GalleryView
+}

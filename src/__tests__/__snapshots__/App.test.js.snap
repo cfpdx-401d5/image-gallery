@@ -13,3 +13,50 @@ exports[`App runs my test 1`] = `
     selectedView="" />
 </div>
 `;
+
+exports[`GalleryView displays list 1`] = `
+<div>
+  <p>
+    Title: 
+    a
+  </p>
+  <img
+    alt="Cute Bunny"
+    className="gallery"
+    src="b" />
+  <p>
+    Description: 
+    c
+  </p>
+</div>
+`;
+
+exports[`ListView displays list 1`] = `
+<div>
+  <p>
+    Title: 
+    a
+  </p>
+  <p>
+    Url: 
+    b
+  </p>
+  <p>
+    Description: 
+    c
+  </p>
+</div>
+`;
+
+exports[`ThumbnailView displays list 1`] = `
+<div>
+  <p>
+    Title: 
+    a
+  </p>
+  <img
+    alt="Cute Bunny"
+    className="thumbnail"
+    src="b" />
+</div>
+`;
