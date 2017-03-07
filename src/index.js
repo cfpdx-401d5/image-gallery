@@ -34,14 +34,13 @@ function List(props) {
   return (
     <ul>
       <li>{props.image.title}</li>
-      <li>stuff2</li>
     </ul>
   );
 }
 
 function Thumbnail(props) {
   return (
-    <img alt='image is here' />
+    <img src={props.image.url} alt='image is here' />
   );
 }
 
