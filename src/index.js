@@ -115,6 +115,9 @@ function Selector(props) {
     </div>
   );
 }
+Selector.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+};
 
 
 ReactDOM.render(
