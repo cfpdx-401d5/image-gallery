@@ -12,19 +12,25 @@ class Wrapper extends React.Component {
 
   //logic
 
-  render() {    
+  render() {
     return (
-      <div><List/></div>
+      <div><Thumbnail /></div>
     );
   }
 }
 
-function List(props){
+function List(props) {
   return (
     <ul>
       <li>stuff1</li>
       <li>stuff2</li>
     </ul>
+  );
+}
+
+function Thumbnail(props) {
+  return (
+    <img alt='image is here' />
   );
 }
 
