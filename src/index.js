@@ -16,12 +16,16 @@ class Wrapper extends React.Component {
     // e.preventDefault();
 
     alert('i was clicked ' + viewType);
+    this.setState({ viewType });
 
   }
 
   render() {
     return (
-      <div><Selector clickHandler={this.clickHandler} /></div>
+      <div>
+        <p>{this.state.viewType}</p>
+        <Selector clickHandler={this.clickHandler} />
+      </div>
     );
   }
 }
