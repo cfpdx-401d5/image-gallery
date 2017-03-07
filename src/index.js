@@ -50,7 +50,13 @@ function Thumbnail(props) {
 
 function Gallery(props) {
   return (
-    <img src={props.image.url} alt='gallery image' />
+    <div>
+      <img src={props.image.url} alt='gallery image' />
+      <p>
+        {props.image.title} <br/>
+        {props.image.description}
+      </p>
+    </div>
   );
 }
 
