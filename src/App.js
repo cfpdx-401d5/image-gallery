@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import images from './Images.js';
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    };
 
     viewList() {
         return (
