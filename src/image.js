@@ -16,8 +16,7 @@ const bunnies = [
     }
 ];
 
-function bunnyList() {
+export default function bunnyList() {
     return bunnies;
 }
 
-module.exports = bunnyList;
