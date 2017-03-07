@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import images from './Images.js';
+import './App.css';
 
 const ListView = () => {
     return(
@@ -10,6 +11,15 @@ const ListView = () => {
                 <li>{images[0].url}</li>
             </ul>
         </div>
+    )
+}
+
+const ThumbnailView = () => {
+    return(
+        <div>
+            <h1>{images[0].title}</h1>
+            <img className='thumbnail' src={images[0].url} alt={images[0].title}/>
+        </div>    
     )
 }
 
@@ -24,7 +34,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <ListView />
+                <ThumbnailView />
             </div>
         )
     }
