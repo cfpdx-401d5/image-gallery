@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import List from './List';
 
 class Wrapper extends React.Component {
   constructor(props) {
@@ -35,22 +36,6 @@ class Wrapper extends React.Component {
     );
   }
 }
-
-function List(props) {
-  return (
-    <ul>
-      <li><a href={props.image.url}>{props.image.title}</a>: {props.image.description}
-      </li>
-    </ul>
-  );
-}
-List.propTypes = {
-  image: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 function Thumbnail(props) {
   let altText = props.title + ' thumbnail';
