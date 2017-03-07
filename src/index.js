@@ -44,25 +44,43 @@ function Thumbnail(props) {
   );
 }
 
+function Gallery(props) {
+  return (
+    <img src={props.image.url} alt='gallery image' />
+  );
+}
+
 function ImageViewer(props) {
   if (props.type === 'list') return <List image={props.image}/>;
   else if (props.type === 'thumbnail') return <Thumbnail image={props.image}/>;
+  else if (props.type === 'gallery') return <Gallery image={props.image}/>;
 }
 
 function Selector(props) {
   return (
     <div>
-      <button onClick={() => {
-        props.clickHandler('list');
-      }}
+      <button
+        onClick={() => {
+          props.clickHandler('list');
+        }}
       >
         List
       </button>
-      <button onClick={() => {
-        props.clickHandler('thumbnail');
-      }}
+
+      <button 
+        onClick={() => {
+          props.clickHandler('thumbnail');
+        }}
       >
         Thumbnail
+      </button>
+
+      <button
+        onClick={() => {
+          props.clickHandler('gallery');
+        }}
+      >
+        Gallery
       </button>
     </div>
   );
