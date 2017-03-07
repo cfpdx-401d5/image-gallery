@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -44,6 +44,13 @@ function List(props) {
     </ul>
   );
 }
+List.propTypes = {
+  image: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    des: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 function Thumbnail(props) {
   return (
