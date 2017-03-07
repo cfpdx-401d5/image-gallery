@@ -33,7 +33,8 @@ class Wrapper extends React.Component {
 function List(props) {
   return (
     <ul>
-      <li>{props.image.title}</li>
+      <li><a href={props.image.url}>{props.image.title}</a>: {props.image.description}
+      </li>
     </ul>
   );
 }
