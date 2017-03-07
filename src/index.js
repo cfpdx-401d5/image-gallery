@@ -24,8 +24,8 @@ class Wrapper extends React.Component {
     let displayType;
 
     if (this.state.viewType === 'list') displayType = <List image={this.state.image}/>;
-    else if (this.state.viewType === 'thumbnail') displayType = <Thumbnail image={this.state.image}/>;
-    else if (this.state.viewType === 'gallery') displayType = <Gallery image={this.state.image}/>;
+    else if (this.state.viewType === 'thumbnail') displayType = <Thumbnail title={this.state.image.title} url={this.state.image.url}/>;
+    else if (this.state.viewType === 'gallery') displayType = <Gallery title={this.state.image.title} url={this.state.image.url} description={this.state.image.description}/>;
 
     return (
         <div>
@@ -48,30 +48,43 @@ List.propTypes = {
   image: PropTypes.shape({
     url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    des: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
 };
 
 function Thumbnail(props) {
+  let altText = props.title + ' thumbnail';
+
   return (
     <div>
-      <img className='thumbnail' src={props.image.url} alt='cute bunny thumbnail' />
-      <p>{props.image.title}</p>
+      <img className='thumbnail' src={props.url} alt={altText} />
+      <p>{props.title}</p>
     </div>
   );
 }
+Thumbnail.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 function Gallery(props) {
+  let altText = props.title + ' gallery view';
+
   return (
     <div>
-      <img src={props.image.url} alt='cute bunny gallery view' />
+      <img src={props.url} alt={altText} />
       <p>
-        {props.image.title} <br/>
-        {props.image.description}
+        {props.title} <br/>
+        {props.description}
       </p>
     </div>
   );
 }
+Gallery.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 function Selector(props) {
   return (
