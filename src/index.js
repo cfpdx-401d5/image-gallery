@@ -21,10 +21,16 @@ class Wrapper extends React.Component {
   }
 
   render() {
+    let displayType;
+
+    if (this.state.viewType === 'list') displayType = <List image={this.state.image}/>;
+    else if (this.state.viewType === 'thumbnail') displayType = <Thumbnail image={this.state.image}/>;
+    else if (this.state.viewType === 'gallery') displayType = <Gallery image={this.state.image}/>;
+
     return (
         <div>
           <Selector clickHandler={this.clickHandler} />
-          <ImageViewer type={this.state.viewType} image={this.state.image}/>
+          {displayType}
         </div>
     );
   }
@@ -58,12 +64,6 @@ function Gallery(props) {
       </p>
     </div>
   );
-}
-
-function ImageViewer(props) {
-  if (props.type === 'list') return <List image={props.image}/>;
-  else if (props.type === 'thumbnail') return <Thumbnail image={props.image}/>;
-  else if (props.type === 'gallery') return <Gallery image={props.image}/>;
 }
 
 function Selector(props) {
