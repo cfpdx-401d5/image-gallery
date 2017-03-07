@@ -8,7 +8,7 @@ import Selector from './Selector';
 
 import './index.css';
 
-class Wrapper extends React.Component {
+export default class Wrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
