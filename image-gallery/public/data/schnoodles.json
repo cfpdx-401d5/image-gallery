@@ -1,25 +1,30 @@
 [{ 
   "title": "Breezy",
   "description": "Breezy saying hi",
-  "url": "breezy-odemen.JPG"
+  "url": "breezy-odemen.JPG",
+  "id": 0
 },
 { 
   "title": "Two naughty dogs",
   "description": "Breezy and Princess at the dog park",
-  "url": "dog-park.JPG"
+  "url": "dog-park.JPG",
+  "id": 1
 },
 { 
   "title": "Cutie pie",
   "description": "Princess just lounging",
-  "url": "princess-cat-bed.JPG"
+  "url": "princess-cat-bed.JPG",
+  "id": 2
 },
 { 
   "title": "Cuddling",
   "description": "Sharing the dog bed",
-  "url": "schnoodles-cat-bed.JPG"
+  "url": "schnoodles-cat-bed.JPG",
+  "id": 3
 },
 { 
   "title": "Merry Christmas",
   "description": "Princess wearing her Santa suite",
-  "url": "princess-santa.JPG"
+  "url": "princess-santa.JPG",
+  "id": 4
 }]
