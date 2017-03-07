@@ -11,18 +11,16 @@ class Wrapper extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
   }
 
-  //logic
   clickHandler(whatView) {
-
     this.setState({ viewType: whatView });
   }
 
   render() {
     return (
-      <div>
-        <p>{this.state.viewType}</p>
-        <Selector clickHandler={this.clickHandler} />
-      </div>
+        <div>
+          <Selector clickHandler={this.clickHandler} />
+          <ImageViewer type={this.state.viewType} />
+        </div>
     );
   }
 }
@@ -40,6 +38,11 @@ function Thumbnail(props) {
   return (
     <img alt='image is here' />
   );
+}
+
+function ImageViewer(props) {
+  if (props.type === 'list') return <List/>;
+  else if (props.type === 'thumbnail') return <Thumbnail />;
 }
 
 function Selector(props) {
