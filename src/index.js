@@ -41,7 +41,10 @@ function List(props) {
 
 function Thumbnail(props) {
   return (
-    <img className='thumbnail' src={props.image.url} alt='image is here' />
+    <div>
+      <img className='thumbnail' src={props.image.url} alt='image is here' />
+      <p>{props.image.title}</p>
+    </div>
   );
 }
 
