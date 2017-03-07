@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // import App from './App';
-// import './index.css';
+import './index.css';
 
 function ViewSelector(props) {
   return (
@@ -18,10 +18,10 @@ function ViewDisplay(props) {
     return <ListView resource={props.resource}/>
   }
   else if (selectedView === 'Thumbnail') {
-    return <ThumbnailView/>
+    return <ThumbnailView resource={props.resource}/>
   }
   else if (selectedView === 'Gallery') {
-    return <GalleryView/>
+    return <GalleryView resource={props.resource}/>
   }
   else {
     return <p>Choose View!</p>
@@ -29,16 +29,32 @@ function ViewDisplay(props) {
 }
 
 function ListView(props) {
-  console.log('pr',props.resource)
-  return (<p>{props.resource.title}</p>)  
+  return (
+    <div>
+      <p>Title: {props.resource.title}</p>
+      <p>Url: {props.resource.url}</p>
+      <p>Description: {props.resource.description}</p>
+    </div>
+  )  
 }
 
 function ThumbnailView(props) {
-  return (<p>ThumbnailView</p>)  
+  return (
+    <div>
+      <p>Title: {props.resource.title}</p>
+      <img className='thumbnail' src={props.resource.url}/>
+    </div>
+  )    
 }
 
 function GalleryView(props) {
-  return (<p>GalleryView</p>)  
+  return (
+    <div>
+      <p>Title: {props.resource.title}</p>
+      <img className='gallery' src={props.resource.url}/>
+      <p>Description: {props.resource.description}</p>
+    </div>
+  ) 
 }
 
 export default class App extends React.Component {
