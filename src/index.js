@@ -1,7 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import List from './List';
+import Thumbnail from './Thumbnail';
+import Gallery from './Gallery';
+import Selector from './Selector';
+
+import './index.css';
 
 class Wrapper extends React.Component {
   constructor(props) {
@@ -24,8 +29,10 @@ class Wrapper extends React.Component {
   render() {
     let displayType;
 
-    if (this.state.viewType === 'list') displayType = <List image={this.state.image}/>;
-    else if (this.state.viewType === 'thumbnail') displayType = <Thumbnail title={this.state.image.title} url={this.state.image.url}/>;
+    if (this.state.viewType === 'list') {
+      // You can pass the whole object in (this.state.image) but it's clearer when they're their separate properties (see else ifs)
+      displayType = <List image={this.state.image}/>; 
+    } else if (this.state.viewType === 'thumbnail') displayType = <Thumbnail title={this.state.image.title} url={this.state.image.url}/>;
     else if (this.state.viewType === 'gallery') displayType = <Gallery title={this.state.image.title} url={this.state.image.url} description={this.state.image.description}/>;
 
     return (
@@ -36,74 +43,6 @@ class Wrapper extends React.Component {
     );
   }
 }
-
-function Thumbnail(props) {
-  let altText = props.title + ' thumbnail';
-
-  return (
-    <div>
-      <img className='thumbnail' src={props.url} alt={altText} />
-      <p>{props.title}</p>
-    </div>
-  );
-}
-Thumbnail.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-function Gallery(props) {
-  let altText = props.title + ' gallery view';
-
-  return (
-    <div>
-      <img src={props.url} alt={altText} />
-      <p>
-        {props.title} <br/>
-        {props.description}
-      </p>
-    </div>
-  );
-}
-Gallery.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
-
-function Selector(props) {
-  return (
-    <div>
-      <button
-        onClick={() => {
-          props.clickHandler('list');
-        }}
-      >
-        List
-      </button>
-
-      <button 
-        onClick={() => {
-          props.clickHandler('thumbnail');
-        }}
-      >
-        Thumbnail
-      </button>
-
-      <button
-        onClick={() => {
-          props.clickHandler('gallery');
-        }}
-      >
-        Gallery
-      </button>
-    </div>
-  );
-}
-Selector.propTypes = {
-  clickHandler: PropTypes.func.isRequired,
-};
-
 
 ReactDOM.render(
   <Wrapper />,
