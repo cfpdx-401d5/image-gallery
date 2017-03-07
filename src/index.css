@@ -12,3 +12,14 @@ body {
 .gallery {
   width: 100%;
 }
+
+.view-selector {
+  width: 800px;
+  margin: 0 auto;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+}
