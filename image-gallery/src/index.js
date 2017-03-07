@@ -26,7 +26,9 @@ class App extends Component {
             return (
                 <div>
                     <ul>
-                        {this.state.images.map((image) => <li key={image.id}>{image.title}</li>)}
+                        {this.state.images.map((image) => <li key={image.id}>
+                            <a href={image.url}>{image.url}</a>
+                            </li>)}
                     </ul>
                 </div>
             )
