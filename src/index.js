@@ -42,7 +42,7 @@ function List(props) {
 function Thumbnail(props) {
   return (
     <div>
-      <img className='thumbnail' src={props.image.url} alt='image is here' />
+      <img className='thumbnail' src={props.image.url} alt='cute bunny thumbnail' />
       <p>{props.image.title}</p>
     </div>
   );
@@ -51,7 +51,7 @@ function Thumbnail(props) {
 function Gallery(props) {
   return (
     <div>
-      <img src={props.image.url} alt='gallery image' />
+      <img src={props.image.url} alt='cute bunny gallery view' />
       <p>
         {props.image.title} <br/>
         {props.image.description}
