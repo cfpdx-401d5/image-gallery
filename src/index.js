@@ -12,12 +12,9 @@ class Wrapper extends React.Component {
   }
 
   //logic
-  clickHandler(viewType) {
-    // e.preventDefault();
+  clickHandler(whatView) {
 
-    alert('i was clicked ' + viewType);
-    this.setState({ viewType });
-
+    this.setState({ viewType: whatView });
   }
 
   render() {
