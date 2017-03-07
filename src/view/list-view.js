@@ -15,6 +15,10 @@ function List(props) {
     );
 }
 
+List.propTypes = {
+    array: React.PropTypes.array
+};
+
 export {
     List
 };

@@ -8,8 +8,8 @@ import bunnies from './image';
 function ViewSelector(props) {
     return (
       <div>
-        <button onClick={() => props.onClick('list')}>Gallery View</button>
-        <button onClick={() => props.onClick('gallery')}>List View</button>
+        <button onClick={() => props.onClick('gallery')}>Gallery View</button>
+        <button onClick={() => props.onClick('list')}>List View</button>
         <button onClick={() => props.onClick('thumbnail')}>Thumbnail View</button>
       </div>
     );

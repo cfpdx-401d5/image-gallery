@@ -14,6 +14,10 @@ function Thumbnail(props) {
     );
 }
 
+Thumbnail.propTypes = {
+    array: React.PropTypes.array
+};
+
 export {
     Thumbnail
 };
