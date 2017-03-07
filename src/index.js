@@ -8,13 +8,19 @@ class Wrapper extends React.Component {
     this.state = {
       viewType: 'list',
     };
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   //logic
+  clickHandler(e){
+    e.preventDefault();
+
+    alert('i was clicked');
+  }
 
   render() {
     return (
-      <div><Thumbnail /></div>
+      <div><Selector clickHandler={this.clickHandler}/></div>
     );
   }
 }
@@ -31,6 +37,15 @@ function List(props) {
 function Thumbnail(props) {
   return (
     <img alt='image is here' />
+  );
+}
+
+function Selector(props) {
+  return (
+    <div>
+      <button onClick={props.clickHandler}>List</button>
+      <button onClick={props.clickHandler}>Thumbnail</button>
+    </div>
   );
 }
 
