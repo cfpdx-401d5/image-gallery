@@ -6,9 +6,10 @@ export default class EditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            description: '',
-            url: ''
+            title: this.props.item.title,
+            description: this.props.item.description,
+            url: this.props.item.url,
+            id: this.props.item.id
         };
         this.handleClearForm = this.handleClearForm.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -42,17 +43,17 @@ export default class EditForm extends React.Component {
         e.preventDefault();
 
         const formPayload = {
-            id: new Date(),
+            id: this.state.id,
             title: this.state.title,
             description: this.state.description,
             url: this.state.url
         };
-        this.props.onChange(formPayload);
+
+        this.props.onEdit(formPayload);
         this.handleClearForm(e);
     }
 
     render() {
-        console.log('props: ', this.props);
         return (
             <form>
                 <fieldset>
@@ -89,5 +90,7 @@ export default class EditForm extends React.Component {
 
 EditForm.constructor.propTypes = {
     onChange: React.PropTypes.func,
-    item: React.PropTypes.object
+    onDelete: React.PropTypes.func,
+    item: React.PropTypes.object,
+    onEdit: React.PropTypes.func
 };

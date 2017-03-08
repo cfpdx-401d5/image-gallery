@@ -21,7 +21,7 @@ class GalleryDisplay extends React.Component {
             <p><b>Description:</b> {this.props.item.description}</p>
             <button className='buttons' onClick={() => this.props.onDelete(this.props.item.id)}>Delete</button>
             <button className='buttons' onClick={() => this.editForm(this.props.item)}>Edit</button>
-            <div style={this.state.isEditable}><EditForm item={this.props.item} onChange={this.props.onChange} /></div>
+            <div style={this.state.isEditable}><EditForm item={this.props.item} onChange={this.props.onChange} onDisplay={this.editForm} onEdit={this.props.onEdit} /></div>
             <hr />
           </li>
         );
@@ -31,7 +31,7 @@ class GalleryDisplay extends React.Component {
 function GalleryList(props) {
     const galleryItem = props.array.map((item, index) => {
         return (
-            <GalleryDisplay key={index} item={item} onDelete={props.onDelete} onChange={props.onChange} />
+            <GalleryDisplay key={index} item={item} onDelete={props.onDelete} onChange={props.onChange} onEdit={props.onEdit} />
         );
     });
     return (
@@ -42,13 +42,15 @@ function GalleryList(props) {
 GalleryList.propTypes = {
     array: React.PropTypes.array,
     onDelete: React.PropTypes.func,
-    onChange: React.PropTypes.func
+    onChange: React.PropTypes.func,
+    onEdit: React.PropTypes.func
 };
 
 GalleryDisplay.propTypes = {
     item: React.PropTypes.object,
     onDelete: React.PropTypes.func,
-    onChange: React.PropTypes.func
+    onChange: React.PropTypes.func,
+    onEdit: React.PropTypes.func
 };
 
 export {

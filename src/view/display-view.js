@@ -26,6 +26,7 @@ export default class ImageView extends React.Component {
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleBunnyChange = this.handleBunnyChange.bind(this);
+        this.handleBunnyEdit = this.handleBunnyEdit.bind(this);
         this.state = {
             bunnies: bunnies()
         };
@@ -49,6 +50,16 @@ export default class ImageView extends React.Component {
         });
     }
 
+    handleBunnyEdit(value) {
+        this.state.bunnies.forEach((item, index) => {
+            if (value.id === item.id) {
+                let newBunnyArray = this.state.bunnies;
+                newBunnyArray[index] = value;
+                this.setState({ bunnies: newBunnyArray });
+            } 
+        });
+    }
+
     render() {
         const outputs = {
             [LIST_TYPE]: DetailList,
@@ -63,7 +74,11 @@ export default class ImageView extends React.Component {
             <div>
                 <ViewSelector onClick={this.props.onClick}/>
                 {OutputComponent 
-                    ? <OutputComponent array={this.state.bunnies} onDelete={this.handleDelete} onChange={this.handleBunnyChange}/>
+                    ? <OutputComponent 
+                        array={this.state.bunnies} 
+                        onDelete={this.handleDelete} 
+                        onChange={this.handleBunnyChange} 
+                        onEdit={this.handleBunnyEdit} />
                     : <h3>Click a button to view bunnies!</h3>
                 }          
             </div>
