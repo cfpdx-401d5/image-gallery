@@ -44,25 +44,36 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentDisplay: ListView,
+            currentDisplay: ListView
         };
+
+    this.viewList = this.viewList.bind(this);
+    this.viewThumbnail = this.viewThumbnail.bind(this);
+    this.viewGallery = this.viewGallery.bind(this);
     };
 
-    clickHandler(e) {
-        e.preventDefault();
-        alert('button was clicked');
+    viewList() {
+        this.setState({currentDisplay: ListView});
+    }
+
+    viewThumbnail() {
+        this.setState({currentDisplay: ThumbnailView});
+    }
+
+    viewGallery() {
+        this.setState({currentDisplay: GalleryView});
     }
 
     render() {
         return (
             <div>
                 <div>
-                    <button onClick={this.clickHandler}>List View</button>
-                    <button>Thumbnail View</button>
-                    <button>Gallery View</button>
+                    <button onClick={this.viewList}>List View</button>
+                    <button onClick={this.viewThumbnail}>Thumbnail View</button>
+                    <button onClick={this.viewGallery}>Gallery View</button>
                 </div>
                 <div>
-                    <p>THIS IS WHERE THE VIEW APPEARS</p>
+                    <this.state.currentDisplay />
                 </div>
             </div>
         )
