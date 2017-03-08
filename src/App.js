@@ -26,17 +26,15 @@ const ThumbnailView = () => {
 
 const GalleryView = () => {
     return (
-        <div>
-            <tr>
-                <td>
-                    <h1>{images[0].title}</h1>
-                    <p>{images[0].description}</p>
-                </td>
-                <td>
-                    <img src={images[0].url} alt={images[0].title}/>
-                </td>
-            </tr>
-        </div>
+        <tr>
+            <td>
+                <h1>{images[0].title}</h1>
+                <p>{images[0].description}</p>
+            </td>
+            <td>
+                <img src={images[0].url} alt={images[0].title}/>
+            </td>
+        </tr>
     )
 }
 
