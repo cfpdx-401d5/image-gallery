@@ -2,12 +2,14 @@ import React from 'react';
 import { DetailList } from './list-view';
 import { GalleryList } from './gallery-view';
 import { ThumbnailList } from './thumbnail-view';
+import { BunnyForm } from './form';
 
 import bunnies from '../image';
 
 const GALLERY_TYPE    = 'gallery';
 const LIST_TYPE       = 'list';
 const THUMBNAIL_TYPE  = 'thumbnail';
+const BUNNYFORM_TYPE  = 'bunnyForm';
 
 function ViewSelector(props) {
     return (
@@ -15,6 +17,7 @@ function ViewSelector(props) {
         <button onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
         <button onClick={() => props.onClick(LIST_TYPE)}>Detail View</button>
         <button onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
+        <button onClick={() => props.onClick(BUNNYFORM_TYPE)}>Add a new Bunny</button>
       </div>
     );
 }
@@ -45,6 +48,7 @@ export default class ImageView extends React.Component {
             [LIST_TYPE]: DetailList,
             [GALLERY_TYPE]: GalleryList,
             [THUMBNAIL_TYPE]: ThumbnailList,
+            [BUNNYFORM_TYPE]: BunnyForm
         };    
     
         const OutputComponent = outputs[this.props.view];
