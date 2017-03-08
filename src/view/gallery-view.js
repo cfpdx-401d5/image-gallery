@@ -5,12 +5,15 @@ class GalleryDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isEditable: { display: 'none' }
+            isEditable: false
         };
+        this.editForm = this.editForm.bind(this);
     }
 
-    editForm(value) {
-        this.setState({ isEditable: { display: 'block' } });
+    editForm() {
+        this.setState({
+            isEditable: !this.state.isEditable
+        });
     }
 
     render() {
@@ -20,8 +23,8 @@ class GalleryDisplay extends React.Component {
             <img className='gallery' src={this.props.item.url} alt='cute bunnys'/>
             <p><b>Description:</b> {this.props.item.description}</p>
             <button className='buttons' onClick={() => this.props.onDelete(this.props.item.id)}>Delete</button>
-            <button className='buttons' onClick={() => this.editForm(this.props.item)}>Edit</button>
-            <div style={this.state.isEditable}><EditForm item={this.props.item} onChange={this.props.onChange} onDisplay={this.editForm} onEdit={this.props.onEdit} /></div>
+            <button className='buttons' onClick={() => this.editForm()}>Edit</button>
+            <div>{this.state.isEditable && <EditForm item={this.props.item} onChange={this.props.onChange} onDisplay={this.editForm} onEdit={this.props.onEdit} />}</div>
             <hr />
           </li>
         );

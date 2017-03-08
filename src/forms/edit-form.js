@@ -51,6 +51,7 @@ export default class EditForm extends React.Component {
 
         this.props.onEdit(formPayload);
         this.handleClearForm(e);
+        this.props.onDisplay();
     }
 
     render() {
@@ -92,5 +93,6 @@ EditForm.constructor.propTypes = {
     onChange: React.PropTypes.func,
     onDelete: React.PropTypes.func,
     item: React.PropTypes.object,
-    onEdit: React.PropTypes.func
+    onEdit: React.PropTypes.func,
+    onDisplay: React.PropTypes.func
 };
