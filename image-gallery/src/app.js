@@ -2,20 +2,22 @@
 import React from 'react';
 import { List } from './view/list';
 import { Gallery } from './view/gallery';
+import { Thumbnail } from './view/thumbnail'
 
 import puppies from './schnoodle';
 
-const GALLERY_TYPE    = 'gallery';
-const LIST_TYPE       = 'list';
-// const THUMBNAIL_TYPE  = 'thumbnail';
+const GALLERY_TYPE = 'gallery';
+const LIST_TYPE = 'list';
+const THUMBNAIL_TYPE = 'thumbnail';
 
 
 function ViewSelector(props) {
     return (
-      <div>
-        <button onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
-        <button onClick={() => props.onClick(LIST_TYPE)}>List View</button>
-      </div>
+        <div>
+            <button onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
+            <button onClick={() => props.onClick(LIST_TYPE)}>List View</button>
+            <button onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
+        </div>
     );
 }
 
@@ -23,20 +25,20 @@ function ImageView(props) {
     const schnoodleArray = puppies();
 
     const outputs = {
-      [LIST_TYPE]: List,
-      [GALLERY_TYPE]: Gallery,
-    //   [THUMBNAIL_TYPE]: Thumbnail,
-    };    
-    
+        [LIST_TYPE]: List,
+        [GALLERY_TYPE]: Gallery,
+        [THUMBNAIL_TYPE]: Thumbnail,
+    };
+
     const OutputComponent = outputs[props.view];
 
     return (
         <div>
-            <ViewSelector onClick={props.onClick}/>
-            {OutputComponent 
-              ? <OutputComponent array={schnoodleArray} />
-              : 'Click a button to view schnoodles!'
-            }          
+            <ViewSelector onClick={props.onClick} />
+            {OutputComponent
+                ? <OutputComponent array={schnoodleArray} />
+                : 'Click a button to view schnoodles!'
+            }
         </div>
     );
 }
@@ -58,9 +60,9 @@ export default class App extends React.Component {
 
     render() {
         return (
-          <div>
-            <ImageView view={this.state.view} onClick={this.handleClick}/>
-          </div>
+            <div>
+                <ImageView view={this.state.view} onClick={this.handleClick} />
+            </div>
         );
     }
 }
