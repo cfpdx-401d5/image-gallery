@@ -5,6 +5,7 @@ function ThumbnailDisplay(props) {
           <li>
             <p>title: {props.item.title}</p>
             <img className='thumbnail' src={props.item.url} alt='cute bunnys'/>
+            <button onClick={() => props.onDelete(props.item.id)}>Delete</button>
           </li>
     );
 }
@@ -12,7 +13,7 @@ function ThumbnailDisplay(props) {
 function ThumbnailList(props) {
     const thumbnail = props.array.map((item, index) => {
         return (
-            <ThumbnailDisplay key={index} item={item} />
+            <ThumbnailDisplay key={index} item={item} onDelete={props.onDelete}/>
         );
     });
     return (
@@ -21,11 +22,13 @@ function ThumbnailList(props) {
 }
 
 ThumbnailList.propTypes = {
-    array: React.PropTypes.array
+    array: React.PropTypes.array,
+    onDelete: React.PropTypes.func
 };
 
 ThumbnailDisplay.propTypes = {
-    item: React.PropTypes.object
+    item: React.PropTypes.object,
+    onDelete: React.PropTypes.func
 };
 
 export {
