@@ -14,6 +14,10 @@ For this assignment, your need to work on improving you app through more:
 
 See the canvas assignment for additional submission requirements for this lab
 
+## Bonus
+
+Hook up your image data to a server
+
 ## Rubric *10pts*
 
 Refactorings:
