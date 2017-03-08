@@ -1,4 +1,4 @@
-const babyBunBuns = [
+module.exports = [
     {
         title: 'Baby Bunny Goes Flop',
         description: 'Adorable bunny flopped over on its side',

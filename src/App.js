@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import babyBunBuns from '../data/bunnyimages';
 import Thumbnail from './Thumbnail';
 import List from './List';
 import Gallery from './Gallery';
 
 
-function Selector(props) {
+export function Selector(props) {
   return (
     <div>
       <button onClick={() => props.handleClick('thumbnail')}>Thumbnail View</button>
@@ -19,20 +19,20 @@ Selector.propTypes = {
   
 }
 
-function View(props) {
+export function View(props) {
   if (props.viewStyle === 'thumbnail') {
     return (
-      <Thumbnail images={props.babyBunBuns}/>
+      <Thumbnail babyBunBuns={props.babyBunBuns[0]}/>
     )
   }
   else if (props.viewStyle === 'list') {
     return (
-      <List images={props.babyBunBuns}/>
+      <List babyBunBuns={props.babyBunBuns[1]}/>
     )
   }
   else if (props.viewStyle === 'gallery') {
     return (
-      <Gallery images={props.babyBunBuns}/>
+      <Gallery babyBunBuns={props.babyBunBuns[2]}/>
     )
   }
   else {
