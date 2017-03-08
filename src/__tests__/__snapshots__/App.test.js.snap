@@ -1,3 +1,21 @@
+exports[`App tests GalleryView 1`] = `
+<tr>
+  <td>
+    <h1>
+      dachsund puppy
+    </h1>
+    <p>
+      Aren\'t puppies the best?
+    </p>
+  </td>
+  <td>
+    <img
+      alt="dachsund puppy"
+      src="http://www.easypetmd.com/sites/default/files/Miniature%20Dachshund%20Smooth%20haired%20(1).jpg" />
+  </td>
+</tr>
+`;
+
 exports[`App tests ListView 1`] = `
 <div>
   <ul>
@@ -11,6 +29,18 @@ exports[`App tests ListView 1`] = `
       http://www.easypetmd.com/sites/default/files/Miniature%20Dachshund%20Smooth%20haired%20(1).jpg
     </li>
   </ul>
+</div>
+`;
+
+exports[`App tests ThumbnailView 1`] = `
+<div>
+  <h1>
+    dachsund puppy
+  </h1>
+  <img
+    alt="dachsund puppy"
+    className="thumbnail"
+    src="http://www.easypetmd.com/sites/default/files/Miniature%20Dachshund%20Smooth%20haired%20(1).jpg" />
 </div>
 `;
 
