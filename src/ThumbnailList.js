@@ -1,14 +1,13 @@
 import React, { PropTypes } from 'react';
 
-import ImagesList from './images.js';
-
 function ThumbnailList(props) {
-  const listThumb = ImagesList.array.map((listItem, Date) => {
+  const listThumb = props.images.map((imageObject, Date) => {
     return (
-      <div key={props.id} className='image-divs'>
-        <p> Title: {props.title} </p>
-        <img className='thumbnail' src={props.url} alt='cute bunny'/>       
-      </div>
+      <li key={imageObject.id} className='image-divs'>
+        Title: {imageObject.title}
+        <br />
+        <img className='thumbnail' src={imageObject.url} alt='cute bunny'/>       
+      </li>
     );
   });
   return (
@@ -17,10 +16,7 @@ function ThumbnailList(props) {
 }
 
 ThumbnailList.propTypes = {
-  array: PropTypes.array.isRequired,
-  id: PropTypes.date.isRequired,
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  images: PropTypes.array.isRequired,
 };
 
 export default ThumbnailList;
