@@ -2,7 +2,7 @@ import React from 'react';
 import { DetailList } from './list-view';
 import { GalleryList } from './gallery-view';
 import { ThumbnailList } from './thumbnail-view';
-import { BunnyForm } from './form';
+import BunnyForm from '../forms/form';
 
 import bunnies from '../image';
 
@@ -26,6 +26,7 @@ export default class ImageView extends React.Component {
     constructor(props) {
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleBunnyChange = this.handleBunnyChange.bind(this);
         this.state = {
             bunnies: bunnies()
         };
@@ -42,8 +43,14 @@ export default class ImageView extends React.Component {
         });
     }
 
-    render() {
+    handleBunnyChange(value) {
+        const newBunnyArray = this.state.bunnies.concat(value);
+        this.setState({
+            bunnies: newBunnyArray
+        });
+    }
 
+    render() {
         const outputs = {
             [LIST_TYPE]: DetailList,
             [GALLERY_TYPE]: GalleryList,
@@ -57,7 +64,7 @@ export default class ImageView extends React.Component {
             <div>
                 <ViewSelector onClick={this.props.onClick}/>
                 {OutputComponent 
-                    ? <OutputComponent array={this.state.bunnies} onDelete={this.handleDelete}/>
+                    ? <OutputComponent array={this.state.bunnies} onDelete={this.handleDelete} onChange={this.handleBunnyChange}/>
                     : 'Click a button to view bunnies!'
                 }          
             </div>
