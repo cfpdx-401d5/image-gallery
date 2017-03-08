@@ -9,7 +9,7 @@ import ListDisplayBits from '../ListDisplayBits';
 
 describe('ListDisplayBits component', function () {
     it('renders the ListDisplayBits component', () => {
-        const rendered = shallow(<ListDisplayBits image={{url:'_url', title: '_title', description: 'desc'}}/>);
+        const rendered = shallow(<ListDisplayBits id='_someId' url='_url' title='_title' description='desc'/>);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });
