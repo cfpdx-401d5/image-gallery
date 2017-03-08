@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ListDisplay from './ListDisplay';
 import ThumbnailDisplay from './ThumbnailDisplay';
-// import Gallery from './Gallery';
+import GalleryDisplay from './GalleryDisplay';
 import Selector from './Selector';
 
 export default class App extends React.Component {
@@ -43,7 +43,7 @@ export default class App extends React.Component {
     if (this.state.viewType === 'list') {
       displayType = <ListDisplay images={this.state.images}/>; 
     } else if (this.state.viewType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images}/>;
-    // else if (this.state.viewType === 'gallery') displayType = <Gallery title={this.state.image.title} url={this.state.image.url} description={this.state.image.description}/>;
+    else if (this.state.viewType === 'gallery') displayType = <GalleryDisplay images={this.state.images}/>;
 
     return (
         <div>
