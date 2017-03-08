@@ -5,11 +5,11 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import Thumbnail from '../Thumbnail';
+import ThumbnailDisplayBits from '../ThumbnailDisplayBits';
 
-describe('Thumbnail component', function () {
-    it('renders the Thumbnail component', () => {
-        const rendered = shallow(<Thumbnail url='_url' title='_title'/>);
+describe('ThumbnailDisplayBits component', function () {
+    it('renders the ThumbnailDisplayBits component', () => {
+        const rendered = shallow(<ThumbnailDisplayBits url='_url' title='_title'/>);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });
