@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import images from './images.js';
+import images from './images.js';
 
 function ListView(props) {
   return (
@@ -49,13 +49,9 @@ export default class ImageGallery extends Component {
     super(props);
     this.state = {
       currentView: 'list',
-      image: {
-        title: 'Cute Bunny',
-        description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
-        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
-      }
     };
     this.clickHandler = this.clickHandler.bind(this);
+    this.images = images;
   }
 
   clickHandler(newView) {
@@ -66,14 +62,15 @@ export default class ImageGallery extends Component {
 
   render() {
     let contents;
+    
     if (this.state.currentView === 'thumbnail') {
-      contents = < ThumbnailView image={this.state.image} />;
+      contents = < ThumbnailView images={this.images} />;
     }
     else if (this.state.currentView === 'gallery') {
-      contents = < GalleryView image={this.state.image} />;
+      contents = < GalleryView images={this.images} />;
     }
     else {
-      contents = < ListView image={this.state.image} />;
+      contents = < ListView images={this.images} />;
     }
     return (
       <div>
