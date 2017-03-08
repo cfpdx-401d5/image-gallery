@@ -15,11 +15,27 @@ const ListView = () => {
 }
 
 const ThumbnailView = () => {
-    return(
+    return (
         <div>
             <h1>{images[0].title}</h1>
             <img className='thumbnail' src={images[0].url} alt={images[0].title}/>
         </div>    
+    )
+}
+
+const GalleryView = () => {
+    return (
+        <div>
+            <tr>
+                <td>
+                    <h1>{images[0].title}</h1>
+                    <p>{images[0].description}</p>
+                </td>
+                <td>
+                    <img src={images[0].url} alt={images[0].title}/>
+                </td>
+            </tr>
+        </div>
     )
 }
 
@@ -34,7 +50,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <ThumbnailView />
+                <GalleryView />
             </div>
         )
     }
