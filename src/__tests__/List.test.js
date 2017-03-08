@@ -5,11 +5,11 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import List from '../List';
+import ListDisplayBits from '../ListDisplayBits';
 
-describe('List component', function () {
-    it('renders the List component', () => {
-        const rendered = shallow(<List image={{url:'_url', title: '_title', description: 'desc'}}/>);
+describe('ListDisplayBits component', function () {
+    it('renders the ListDisplayBits component', () => {
+        const rendered = shallow(<ListDisplayBits image={{url:'_url', title: '_title', description: 'desc'}}/>);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });
