@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import images from './Images.js';
 import './App.css';
 
+
 const ListView = () => {
     return(
         <div>
@@ -50,7 +51,14 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <GalleryView />
+                <div>
+                    <button>List View</button>
+                    <button>Thumbnail View</button>
+                    <button>Gallery View</button>
+                </div>
+                <div>
+                    <p>THIS IS WHERE THE VIEW APPEARS</p>
+                </div>
             </div>
         )
     }
