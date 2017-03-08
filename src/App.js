@@ -77,3 +77,9 @@ export default class App extends Component {
         )
     }
 }
+
+export {
+    ListView,
+    ThumbnailView,
+    GalleryView
+};
