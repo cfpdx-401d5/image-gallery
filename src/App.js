@@ -48,11 +48,16 @@ export default class App extends Component {
         };
     };
 
+    clickHandler(e) {
+        e.preventDefault();
+        alert('button was clicked');
+    }
+
     render() {
         return (
             <div>
                 <div>
-                    <button>List View</button>
+                    <button onClick={this.clickHandler}>List View</button>
                     <button>Thumbnail View</button>
                     <button>Gallery View</button>
                 </div>
