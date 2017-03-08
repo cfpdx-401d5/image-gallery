@@ -4,6 +4,7 @@ import ListDisplay from './ListDisplay';
 import ThumbnailDisplay from './ThumbnailDisplay';
 import GalleryDisplay from './GalleryDisplay';
 import Selector from './Selector';
+import FormContainer from './image_form/FormContainer';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ export default class App extends React.Component {
 
     return (
         <div>
+          <FormContainer message='i am doing magic' />
           <Selector clickHandler={this.clickHandler} />
           {displayType}
         </div>
