@@ -10,7 +10,9 @@ function ThumbnailDisplay(props) {
 
   return (
     <table>
-        {imagesAsTableRows}
+        <tbody>
+            {imagesAsTableRows}
+        </tbody>
     </table>
   );
 }

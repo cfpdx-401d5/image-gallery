@@ -6,7 +6,7 @@ function ListDisplayBits(props) {
 }
 
 ListDisplayBits.propTypes = {
-  key: PropTypes.instanceOf(Date),
+  id: PropTypes.instanceOf(Date),
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

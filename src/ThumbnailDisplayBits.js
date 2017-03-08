@@ -5,10 +5,12 @@ function ThumbnailDisplayBits(props) {
 
   return (
     <tr>
-      <figure>
-        <img className='thumbnail' src={props.url} alt={altText} />
-        <figcaption>{props.title}</figcaption>
-      </figure>
+      <td>
+        <figure>
+          <img className='thumbnail' src={props.url} alt={altText} />
+          <figcaption>{props.title}</figcaption>
+        </figure>
+      </td>
     </tr>
   );
 }
