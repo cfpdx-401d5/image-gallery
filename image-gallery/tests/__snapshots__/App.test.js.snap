@@ -1,0 +1,7 @@
+exports[`schnoodle lists runs my test! 1`] = `
+<div>
+  <ImageView
+    onClick={[Function]}
+    view={null} />
+</div>
+`;
