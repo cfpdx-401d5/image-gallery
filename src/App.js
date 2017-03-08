@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import EditSelector from './edit-selector'
 
 const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
@@ -31,6 +32,7 @@ export default class App extends React.Component {
       <div>
         < ViewSelector onViewSelect={this.onViewSelect}/>
         < ViewDisplay selectedView={this.state.selectedView} resources={this.state.resources}/>
+        < EditSelector />
       </div>
     )
   }
