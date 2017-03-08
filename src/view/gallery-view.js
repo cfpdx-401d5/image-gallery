@@ -13,7 +13,7 @@ function GalleryDisplay(props) {
 function GalleryList(props) {
     const galleryItem = props.array.map((item, index) => {
         return (
-            <GalleryDisplay key={index} item={item} index={index} />
+            <GalleryDisplay key={index} item={item} />
         );
     });
     return (
@@ -26,7 +26,6 @@ GalleryList.propTypes = {
 };
 
 GalleryDisplay.propTypes = {
-    index: React.PropTypes.number,
     item: React.PropTypes.object
 };
 

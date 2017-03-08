@@ -1,12 +1,18 @@
 import React from 'react';
 
-function Thumbnail(props) {
+function ThumbnailDisplay(props) {
+    return (
+          <li>
+            <p>title: {props.item.title}</p>
+            <img className='thumbnail' src={props.item.url} alt='cute bunnys'/>
+          </li>
+    );
+}
+
+function ThumbnailList(props) {
     const thumbnail = props.array.map((item, index) => {
         return (
-          <li key={index}>
-            <p>title: {item.title}</p>
-            <img className='thumbnail' src={item.url} alt='cute bunnys'/>
-          </li>
+            <ThumbnailDisplay key={index} item={item} />
         );
     });
     return (
@@ -14,10 +20,14 @@ function Thumbnail(props) {
     );
 }
 
-Thumbnail.propTypes = {
+ThumbnailList.propTypes = {
     array: React.PropTypes.array
 };
 
+ThumbnailDisplay.propTypes = {
+    item: React.PropTypes.object
+};
+
 export {
-    Thumbnail
+    ThumbnailList
 };
