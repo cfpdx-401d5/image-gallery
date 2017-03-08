@@ -2,8 +2,7 @@ import React from 'react';
 import { DetailList } from './detail-view';
 import { GalleryList } from './gallery-view';
 import { ThumbnailList } from './thumbnail-view';
-import BunnyForm from '../forms/form';
-
+import BunnyForm from '../forms/new-form';
 import bunnies from '../image';
 
 const GALLERY_TYPE    = 'gallery';
