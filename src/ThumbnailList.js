@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 function ThumbnailList(props) {
-  const listThumbnail = props.images.map((imageObject, Date) => {
+  const listThumbnail = props.images.map((imageObject, id) => {
     return (
       <li key={imageObject.id} className='image-divs'>
         Title: {imageObject.title}
