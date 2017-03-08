@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from './view/list-view';
+import { DetailList } from './view/list-view';
 import { GalleryList } from './view/gallery-view';
 import { ThumbnailList } from './view/thumbnail-view';
 
@@ -13,7 +13,7 @@ function ViewSelector(props) {
     return (
       <div>
         <button onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
-        <button onClick={() => props.onClick(LIST_TYPE)}>List View</button>
+        <button onClick={() => props.onClick(LIST_TYPE)}>Detail View</button>
         <button onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
       </div>
     );
@@ -23,7 +23,7 @@ function ImageView(props) {
     const bunnyArray = bunnies();
 
     const outputs = {
-        [LIST_TYPE]: List,
+        [LIST_TYPE]: DetailList,
         [GALLERY_TYPE]: GalleryList,
         [THUMBNAIL_TYPE]: ThumbnailList,
     };    

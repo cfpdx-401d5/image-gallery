@@ -1,13 +1,19 @@
 import React from 'react';
 
-function List(props) {
+function DetailDisplay(props) {
+    return (
+          <li>
+            <p>title: {props.item.title}</p>
+            <p>description: {props.item.description}</p>
+            <p>url: <a href={props.item.url}>{props.item.url}</a></p>
+          </li>
+    );
+}
+
+function DetailList(props) {
     const listItem = props.array.map((item, index) => {
         return (
-          <li key={index}>
-            <p>title: {item.title}</p>
-            <p>description: {item.description}</p>
-            <p>url: <a href={item.url}>{item.url}</a></p>
-          </li>
+            <DetailDisplay key={index} item={item} />
         );
     });
     return (
@@ -15,10 +21,14 @@ function List(props) {
     );
 }
 
-List.propTypes = {
+DetailList.propTypes = {
     array: React.PropTypes.array
 };
 
+DetailDisplay.propTypes = {
+    item: React.PropTypes.object
+};
+
 export {
-    List
+    DetailList
 };
