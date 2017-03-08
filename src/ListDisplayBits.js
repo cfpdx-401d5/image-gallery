@@ -2,11 +2,10 @@ import React, { PropTypes } from 'react';
 
 function ListDisplayBits(props) {
 
-  return <li key={props.id}><a href={props.url}>{props.title}</a>: {props.description}</li>;
+  return <li><a href={props.url}>{props.title}</a>: {props.description}</li>;
 }
 
 ListDisplayBits.propTypes = {
-  id: PropTypes.instanceOf(Date),
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
