@@ -1,20 +1,17 @@
-import React, { PropTypes } from 'react';
+// import React, { PropTypes } from 'react';
+import React from 'react';
 
 function ListDisplayBits(props) {
-  return (
-    <ul>
-      <li><a href={props.image[0].url}>{props.image[0].title}</a>: {props.image[0].description}
-      </li>
-    </ul>
-  );
+  let image = props.image;
+
+  return <li key={image.id}><a href={image.url}>{image.title}</a>: {image.description}</li>;
 }
-ListDisplayBits.propTypes = {
-  arrayWithShape: React.PropTypes.arrayOf(React.PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  })).isRequired
-};
+/* TODO: fix PropTypes  */
+// ListDisplayBits.PropTypes = {
+//   url: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+// };
 
 export default ListDisplayBits;
 

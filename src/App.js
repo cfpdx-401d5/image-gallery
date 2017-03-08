@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import ListDisplayBits from './ListDisplayBits';
-import Thumbnail from './Thumbnail';
-import Gallery from './Gallery';
+import ListDisplay from './ListDisplay';
+// import Thumbnail from './Thumbnail';
+// import Gallery from './Gallery';
 import Selector from './Selector';
 
 export default class App extends React.Component {
@@ -42,7 +42,7 @@ export default class App extends React.Component {
 
     if (this.state.viewType === 'list') {
       // You can pass the whole object in (this.state.image) but it's clearer when they're their separate properties (see else ifs)
-      displayType = <ListDisplayBits image={this.state.images}/>; 
+      displayType = <ListDisplay images={this.state.images}/>; 
     } 
     // else if (this.state.viewType === 'thumbnail') displayType = <Thumbnail title={this.state.image.title} url={this.state.image.url}/>;
     // else if (this.state.viewType === 'gallery') displayType = <Gallery title={this.state.image.title} url={this.state.image.url} description={this.state.image.description}/>;
