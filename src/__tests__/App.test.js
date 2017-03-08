@@ -5,13 +5,11 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import Wrapper from '../index';
+import App from '../App';
 
-jest.mock('react-dom');
-
-describe('Wrapper', function () {
-    it('runs the wrapper', function () {
-        const rendered = shallow(<Wrapper />);
+describe('App', function () {
+    it('runs the App', function () {
+        const rendered = shallow(<App />);
         expect(toJson(rendered)).toMatchSnapshot();
     })
 });
