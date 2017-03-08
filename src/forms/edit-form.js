@@ -11,7 +11,7 @@ export default class EditForm extends React.Component {
             url: this.props.item.url,
             id: this.props.item.id
         };
-        this.handleClearForm = this.handleClearForm.bind(this);
+        this.handleCancelForm = this.handleCancelForm.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -30,15 +30,6 @@ export default class EditForm extends React.Component {
         this.setState({ description: e.target.value });
     }
 
-    handleClearForm(e) {
-        e.preventDefault();
-        this.setState({
-            title: '',
-            description: '',
-            url: ''
-        });
-    }
-
     handleFormSubmit(e) {
         e.preventDefault();
 
@@ -50,7 +41,11 @@ export default class EditForm extends React.Component {
         };
 
         this.props.onEdit(formPayload);
-        this.handleClearForm(e);
+        this.props.onDisplay();
+    }
+
+    handleCancelForm(e) {
+        e.preventDefault();
         this.props.onDisplay();
     }
 
@@ -82,7 +77,7 @@ export default class EditForm extends React.Component {
                             content={this.state.url}
                             placeholder={this.props.item.url} />
                     <button className='buttons' onClick={this.handleFormSubmit}>Submit</button>
-                    <button className='buttons' onClick={this.handleClearForm}>Cancel</button>
+                    <button className='buttons' onClick={this.handleCancelForm}>Cancel</button>
                 </fieldset>
             </form>
         );
