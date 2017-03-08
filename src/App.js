@@ -1,42 +1,72 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+const GALLERY_TYPE = 'gallery';
+const LIST_TYPE = 'list';
+const THUMBNAIL_TYPE = 'thumbnail';
+
 function ViewSelector(props) {
   return (
     <div className='view-selector'>
-      <button onClick={(e, selected)=>props.onViewSelect(e, 'List')}>List View</button>
-      <button onClick={(e, selected)=>props.onViewSelect(e, 'Thumbnail')}>Thumbnail View</button>
-      <button onClick={(e, selected)=>props.onViewSelect(e, 'Gallery')}>Gallery View</button>
+      <button onClick={(e, selected) => props.onViewSelect(e, LIST_TYPE)}>List View</button>
+      <button onClick={(e, selected) => props.onViewSelect(e, THUMBNAIL_TYPE)}>Thumbnail View</button>
+      <button onClick={(e, selected) =>props.onViewSelect(e, GALLERY_TYPE)}>Gallery View</button>
     </div>)
 }
 
 function ViewDisplay(props) {
-  let selectedView = props.selectedView;
-  if (selectedView === 'List') {
-    return <ListView resource={props.resource}/>
-  }
-  else if (selectedView === 'Thumbnail') {
-    return <ThumbnailView resource={props.resource}/>
-  }
-  else if (selectedView === 'Gallery') {
-    return <GalleryView resource={props.resource}/>
-  }
-  else {
-    return <p>Choose View!</p>
-  }
+    let selectedView = props.selectedView;
+    if (selectedView === LIST_TYPE) {
+        return <DetailList resources={props.resources} />
+    }
+    else if (selectedView === THUMBNAIL_TYPE) {
+        return <ThumbnailList resources={props.resources} />
+    }
+    else if (selectedView === GALLERY_TYPE) {
+        return <GalleryList resources={props.resources} />
+    }
+    else {
+        return <p>Choose View!</p>
+    }
 }
 
-function ListView(props) {
+/////////   LIST COMPONENTS   /////////
+function DetailList(props) {
+        console.log(props.resources);
+    const detailList = props.resources.map(resource => {
+        return <DetailDisplay resource={resource}/>
+    })
+    return (
+        <div>{detailList}</div>
+    );
+}
+
+function ThumbnailList(props) {
+    return <ThumbnailDisplay resource={props.resources[0]}/>
+}
+
+function GalleryList(props) {
+    return <GalleryDisplay resource={props.resources[0]}/>
+}
+/////////   END LIST COMPONENTS   /////////
+
+///
+///
+///
+
+/////////   DISPLAY COMPONENTS   /////////
+function DetailDisplay(props) {
+console.log('here')
   return (
-    <div>
-      <p>Title: {props.resource.title}</p>
-      <p>Url: {props.resource.url}</p>
-      <p>Description: {props.resource.description}</p>
-    </div>
+    <ul>
+      <li>Title: {props.resource.title}</li>
+      <li>Url: {props.resource.url}</li>
+      <li>Description: {props.resource.description}</li>
+    </ul>
   )  
 }
 
-function ThumbnailView(props) {
+function ThumbnailDisplay(props) {
   return (
     <div>
       <p>Title: {props.resource.title}</p>
@@ -45,7 +75,7 @@ function ThumbnailView(props) {
   )    
 }
 
-function GalleryView(props) {
+function GalleryDisplay(props) {
   return (
     <div>
       <p>Title: {props.resource.title}</p>
@@ -54,25 +84,25 @@ function GalleryView(props) {
     </div>
   ) 
 }
+/////////   END DISPLAY COMPONENTS   /////////
 
+
+
+/////////   APP CLASS   /////////
 export default class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       selectedView: '',
-      resource: {
-        title: 'Cute Bunny',
-        description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
-        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
-      }
+      resources: props.resources
     };
     this.onViewSelect = this.onViewSelect.bind(this);
+
   }
 
   onViewSelect(e, selected) {
     e.preventDefault();
-    console.log('selected', selected)
     
     this.setState({
       selectedView: selected
@@ -83,14 +113,18 @@ export default class App extends React.Component {
     return (
       <div>
         < ViewSelector onViewSelect={this.onViewSelect}/>
-        < ViewDisplay selectedView={this.state.selectedView} resource={this.state.resource}/>
+        < ViewDisplay selectedView={this.state.selectedView} resources={this.state.resources}/>
       </div>
     )
   }
 }
+/////////   END APP CLASS   /////////
 
+
+
+/////////   EXPORT   /////////
 export {
-    ListView,
-    ThumbnailView,
-    GalleryView
+    DetailDisplay,
+    ThumbnailDisplay,
+    GalleryDisplay
 }
