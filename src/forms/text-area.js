@@ -3,7 +3,7 @@ import React from 'react';
 function TextArea(props) {
     return (
         <div>
-            <label>{props.title}</label>
+            <label>{props.title}</label><br />
             <textarea
                 style={props.resize ? null : {resize: 'none'}}
                 name={props.name}

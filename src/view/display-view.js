@@ -1,5 +1,5 @@
 import React from 'react';
-import { DetailList } from './list-view';
+import { DetailList } from './detail-view';
 import { GalleryList } from './gallery-view';
 import { ThumbnailList } from './thumbnail-view';
 import BunnyForm from '../forms/form';
@@ -13,11 +13,11 @@ const BUNNYFORM_TYPE  = 'bunnyForm';
 
 function ViewSelector(props) {
     return (
-      <div>
-        <button onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
-        <button onClick={() => props.onClick(LIST_TYPE)}>Detail View</button>
-        <button onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
-        <button onClick={() => props.onClick(BUNNYFORM_TYPE)}>Add a new Bunny</button>
+      <div className='main-buttons'>
+        <button className='buttons' onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
+        <button className='buttons' onClick={() => props.onClick(LIST_TYPE)}>Detail View</button>
+        <button className='buttons' onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
+        <button className='buttons' onClick={() => props.onClick(BUNNYFORM_TYPE)}>Add a new Bunny</button>
       </div>
     );
 }
@@ -65,7 +65,7 @@ export default class ImageView extends React.Component {
                 <ViewSelector onClick={this.props.onClick}/>
                 {OutputComponent 
                     ? <OutputComponent array={this.state.bunnies} onDelete={this.handleDelete} onChange={this.handleBunnyChange}/>
-                    : 'Click a button to view bunnies!'
+                    : <h3>Click a button to view bunnies!</h3>
                 }          
             </div>
         );

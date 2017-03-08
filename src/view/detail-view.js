@@ -3,10 +3,12 @@ import React from 'react';
 function DetailDisplay(props) {
     return (
           <li>
-            <p>title: {props.item.title}</p>
-            <p>description: {props.item.description}</p>
-            <p>url: <a href={props.item.url}>{props.item.url}</a></p>
-            <button onClick={() => props.onDelete(props.item.id)}>Delete</button>
+            <p><b>Title:</b> {props.item.title}</p>
+            <p><b>Description:</b> {props.item.description}</p>
+            <p><b>URL:</b> <a href={props.item.url}>{props.item.url}</a></p>
+            <button className='buttons' onClick={() => props.onDelete(props.item.id)}>Delete</button>
+            <button className='buttons'>Edit</button>
+            <hr />
           </li>
     );
 }

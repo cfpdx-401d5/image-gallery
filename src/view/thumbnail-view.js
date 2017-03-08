@@ -3,9 +3,11 @@ import React from 'react';
 function ThumbnailDisplay(props) {
     return (
           <li>
-            <p>title: {props.item.title}</p>
+            <p><b>Title:</b> {props.item.title}</p>
             <img className='thumbnail' src={props.item.url} alt='cute bunnys'/>
-            <button onClick={() => props.onDelete(props.item.id)}>Delete</button>
+            <button className='buttons' onClick={() => props.onDelete(props.item.id)}>Delete</button>
+            <button className='buttons'>Edit</button>
+            <hr />
           </li>
     );
 }

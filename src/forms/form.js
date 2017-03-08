@@ -54,30 +54,33 @@ export default class BunnyForm extends React.Component {
     render() {
         return (
             <form>
-                <TextField
-                    inputType={'text'}
-                        title={'Title: '}
-                        name={'title'}
-                        controlFunc={this.handleTitleChange}
-                        content={this.state.title}
-                        placeholder={'Type the title of your photo'} />
-                <TextArea
-					title={'Description: '}
-					rows={5}
-					resize={false}
-					content={this.state.description}
-					name={'description'}
-					controlFunc={this.handleDescriptionChange}
-					placeholder={'Please be thorough in your descriptions'} />
-                <TextField
-                    inputType={'text'}
-                        title={'URL: '}
-                        name={'url'}
-                        controlFunc={this.handleUrlChange}
-                        content={this.state.url}
-                        placeholder={'Paste the url to your photo here'} />
-                <button onClick={this.handleFormSubmit}>Submit</button>
-                <button onClick={this.handleClearForm}>Clear Form</button>
+                <fieldset>
+                    <legend>Add New Image Information: </legend>
+                    <TextField
+                        inputType={'text'}
+                            title={'Title: '}
+                            name={'title'}
+                            controlFunc={this.handleTitleChange}
+                            content={this.state.title}
+                            placeholder={'Type the title of your photo'} />
+                    <TextArea
+                        title={'Description: '}
+                        rows={5}
+                        resize={false}
+                        content={this.state.description}
+                        name={'description'}
+                        controlFunc={this.handleDescriptionChange}
+                        placeholder={'Please be thorough in your descriptions'} />
+                    <TextField
+                        inputType={'text'}
+                            title={'URL: '}
+                            name={'url'}
+                            controlFunc={this.handleUrlChange}
+                            content={this.state.url}
+                            placeholder={'Paste the url to your photo here'} />
+                    <button className='buttons' onClick={this.handleFormSubmit}>Submit</button>
+                    <button className='buttons' onClick={this.handleClearForm}>Clear Form</button>
+                </fieldset>
             </form>
         );
     }
