@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 function ThumbnailList(props) {
-  const listThumb = props.images.map((imageObject, Date) => {
+  const listThumbnail = props.images.map((imageObject, Date) => {
     return (
       <li key={imageObject.id} className='image-divs'>
         Title: {imageObject.title}
@@ -11,7 +11,7 @@ function ThumbnailList(props) {
     );
   });
   return (
-    <ul> {listThumb} </ul>
+    <ul> {listThumbnail} </ul>
   );
 }
 
