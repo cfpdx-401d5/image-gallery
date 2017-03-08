@@ -32,10 +32,16 @@ export default class App extends React.Component {
       ],
     };
     this.clickHandler = this.clickHandler.bind(this);
+    this.formClickHandler = this.formClickHandler.bind(this);
   }
 
   clickHandler(whatView) {
     this.setState({ viewType: whatView });
+  }
+
+  formClickHandler(imageSubmission) {
+    let newImgArray = this.state.images.push(imageSubmission);
+    this.setState({ images: newImgArray });
   }
 
   render() {
@@ -48,7 +54,7 @@ export default class App extends React.Component {
 
     return (
         <div>
-          <FormContainer message='i am doing magic' />
+          <FormContainer clickHandler={this.formClickHandler} message='i am doing magic' />
           <Selector clickHandler={this.clickHandler} />
           {displayType}
         </div>
