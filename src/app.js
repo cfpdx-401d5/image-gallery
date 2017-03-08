@@ -1,6 +1,6 @@
 import React from 'react';
 import { List } from './view/list-view';
-import { Gallery } from './view/gallery-view';
+import { GalleryList } from './view/gallery-view';
 import { Thumbnail } from './view/thumbnail-view';
 
 import bunnies from './image';
@@ -24,7 +24,7 @@ function ImageView(props) {
 
     const outputs = {
         [LIST_TYPE]: List,
-        [GALLERY_TYPE]: Gallery,
+        [GALLERY_TYPE]: GalleryList,
         [THUMBNAIL_TYPE]: Thumbnail,
     };    
     
