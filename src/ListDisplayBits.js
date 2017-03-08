@@ -8,6 +8,7 @@ function ListDisplayBits(props) {
 }
 /* TODO: fix PropTypes  */
 // ListDisplayBits.PropTypes = {
+//   key: , // what is new Date()? string?
 //   url: PropTypes.string.isRequired,
 //   title: PropTypes.string.isRequired,
 //   description: PropTypes.string.isRequired,
