@@ -1,46 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-
-class App extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            images: null,
-        };
-    }
-
-    componentWillMount() {
-        if (this.state.images) return;
-
-        fetch('/data/schnoodles.json')
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    images: res,
-                });
-            });
-    }
-    render() {
-        if (this.state.images) {
-            return (
-                <div>
-                    <ul>
-                        {this.state.images.map((image) => <li key={image.id}>
-                            <a href={image.url}>{image.url}</a>
-                            </li>)}
-                    </ul>
-                </div>
-            )
-        }
-        else {
-            return <p>Loading...</p>
-        }
-    }
-}
-
+import App from './app';
 
 ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-)
+  <App />,
+  document.getElementById('root')
+);

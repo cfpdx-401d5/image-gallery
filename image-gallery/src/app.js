@@ -1,14 +1,13 @@
 //the class work yesterday really helped me understand this
 import React from 'react';
-import { List } from './view/list-view';
-import { Gallery } from './view/gallery-view';
-import { Thumbnail } from './view/thumbnail-view';
+import { List } from './view/list';
+import { Gallery } from './view/gallery';
 
-import bunnies from './image';
+import puppies from './schnoodle';
 
 const GALLERY_TYPE    = 'gallery';
 const LIST_TYPE       = 'list';
-const THUMBNAIL_TYPE  = 'thumbnail';
+// const THUMBNAIL_TYPE  = 'thumbnail';
 
 
 function ViewSelector(props) {
@@ -16,18 +15,17 @@ function ViewSelector(props) {
       <div>
         <button onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
         <button onClick={() => props.onClick(LIST_TYPE)}>List View</button>
-        <button onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
       </div>
     );
 }
 
 function ImageView(props) {
-    const bunnyArray = bunnies();
+    const schnoodleArray = puppies();
 
     const outputs = {
       [LIST_TYPE]: List,
       [GALLERY_TYPE]: Gallery,
-      [THUMBNAIL_TYPE]: Thumbnail,
+    //   [THUMBNAIL_TYPE]: Thumbnail,
     };    
     
     const OutputComponent = outputs[props.view];
@@ -36,8 +34,8 @@ function ImageView(props) {
         <div>
             <ViewSelector onClick={props.onClick}/>
             {OutputComponent 
-              ? <OutputComponent array={bunnyArray} />
-              : 'Click a button to view bunnies!'
+              ? <OutputComponent array={schnoodleArray} />
+              : 'Click a button to view schnoodles!'
             }          
         </div>
     );

@@ -5,8 +5,8 @@ function Gallery(props) {
         return (
             <li key={index}>
                 <p>Title: {schnoodle.title}</p>
-                <img className='gallery-img' src={schnoodle.url} />
-                <p>description: {item.description}</p> 
+                <img className='gallery-img' src={schnoodle.url} alt='' />
+                <p>description: {schnoodle.description}</p> 
             </li>    
         )
     });
@@ -14,10 +14,6 @@ function Gallery(props) {
         <ul>{galleryObj}</ul>
     )
 }
-
-Gallery.protoTypes = {
-    array: React.protoTypes.array
-};
 
 export {
     Gallery
