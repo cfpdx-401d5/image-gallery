@@ -35,6 +35,11 @@ function View(props) {
       <Gallery images={props.babyBunBuns}/>
     )
   }
+  else {
+    return (
+      <p>Click a Button to Get Started</p>
+    )
+  }
 }
 
 export default class ImageGallery extends React.Component {
@@ -43,7 +48,7 @@ export default class ImageGallery extends React.Component {
     this.state = {
       viewStyle: null
     };
-    this.handleClick = this.handleclick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.babyBunBuns = babyBunBuns;
   }
 
@@ -57,6 +62,8 @@ export default class ImageGallery extends React.Component {
   render() {
     return (
       <div>
+        <Selector handleClick={this.handleClick}/>
+        <View babyBunBuns={this.babyBunBuns} viewStyle={this.state.viewStyle}/>
       </div>
     );
   }
