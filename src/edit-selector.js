@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function EditSelector(props) {
-    return (
-        <div>
-            <AddResource />
-            <DeleteResource />
-        </div>
-    )
+export default class EditSelector extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isEditing: false
+        }
+    }
+
+    render() {
+        return(
+            <div>
+                <AddResource />
+            </div>
+        )
+    }
 }
 
 function AddResource(props) {
-    return <button>Add</button>
+    return (
+        <div>
+            <form>
+                <input placeholder='title'></input>
+                <input placeholder='url'></input>
+                <input placeholder='description'></input>
+            </form>
+            <button>Add</button>
+        </div>
+    )
 }
-
-function DeleteResource(props) {
-    return <button>Delete</button>
-}
-
-export default EditSelector;

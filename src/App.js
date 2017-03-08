@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import EditSelector from './edit-selector'
 
 const GALLERY_TYPE = 'gallery';
@@ -7,7 +6,7 @@ const LIST_TYPE = 'list';
 const THUMBNAIL_TYPE = 'thumbnail';
 
 /////////   APP CLASS   /////////
-export default class App extends React.Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
@@ -16,7 +15,7 @@ export default class App extends React.Component {
       resources: props.resources
     };
     this.onViewSelect = this.onViewSelect.bind(this);
-
+    this.onDelete = this.onDelete.bind(this);
   }
 
   onViewSelect(e, selected) {
@@ -27,11 +26,23 @@ export default class App extends React.Component {
     })
   }
 
+  onDelete(id) {
+      let currentResources = [...this.state.resources];
+
+      currentResources = currentResources.filter(resource => {
+          return resource.id !== id;
+      })
+
+      this.setState({
+          resources: currentResources
+      })
+  }
+
   render() {
     return (
       <div>
         < ViewSelector onViewSelect={this.onViewSelect}/>
-        < ViewDisplay selectedView={this.state.selectedView} resources={this.state.resources}/>
+        < ViewDisplay onDelete={this.onDelete} selectedView={this.state.selectedView} resources={this.state.resources}/>
         < EditSelector />
       </div>
     )
@@ -52,7 +63,7 @@ function ViewSelector(props) {
 function ViewDisplay(props) {
     let selectedView = props.selectedView;
     if (selectedView === LIST_TYPE) {
-        return <DetailList resources={props.resources} />
+        return <DetailList resources={props.resources} onDelete={props.onDelete}/>
     }
     else if (selectedView === THUMBNAIL_TYPE) {
         return <ThumbnailList resources={props.resources} />
@@ -68,7 +79,7 @@ function ViewDisplay(props) {
 /////////   LIST COMPONENTS   /////////
 function DetailList(props) {
     const detailList = props.resources.map(resource => {
-        return <DetailDisplay resource={resource}/>
+        return <DetailDisplay key={resource.id} resource={resource} onDelete={props.onDelete}/>
     })
     return (
         <div>{detailList}</div>
@@ -98,11 +109,14 @@ function GalleryList(props) {
 function DetailDisplay(props) {
 console.log('here')
   return (
-    <ul>
-      <li>Title: {props.resource.title}</li>
-      <li>Url: {props.resource.url}</li>
-      <li>Description: {props.resource.description}</li>
-    </ul>
+    <div>
+        <ul>
+        <li>Title: {props.resource.title}</li>
+        <li>Url: {props.resource.url}</li>
+        <li>Description: {props.resource.description}</li>
+        </ul>
+        <button onClick={() => props.onDelete(props.resource.id)}>delete</button>
+    </div>
   )  
 }
 
