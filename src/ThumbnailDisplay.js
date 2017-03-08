@@ -3,15 +3,14 @@ import React, { PropTypes } from 'react';
 function ThumbnailDisplay(props) {
   return (
     <div className='image-divs'>
-      <p> Title: {props.title} </p>
-      <img className='thumbnail' src={props.url} alt='cute bunny'/>
+      <p> Title: {props.image.title} </p>
+      <img className='thumbnail' src={props.image.url} alt='cute bunny'/>
     </div>
   );
 }
 
 ThumbnailDisplay.propTypes = {
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 export default ThumbnailDisplay;
