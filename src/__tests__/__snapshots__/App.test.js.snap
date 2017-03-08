@@ -1,0 +1,21 @@
+exports[`App tests verifies App render 1`] = `
+<div>
+  <div>
+    <button
+      onClick={[Function]}>
+      List View
+    </button>
+    <button
+      onClick={[Function]}>
+      Thumbnail View
+    </button>
+    <button
+      onClick={[Function]}>
+      Gallery View
+    </button>
+  </div>
+  <div>
+    <ListView />
+  </div>
+</div>
+`;
