@@ -1,0 +1,16 @@
+exports[`Selector component renders the Selector component 1`] = `
+<div>
+  <button
+    onClick={[Function]}>
+    List
+  </button>
+  <button
+    onClick={[Function]}>
+    Thumbnail
+  </button>
+  <button
+    onClick={[Function]}>
+    Gallery
+  </button>
+</div>
+`;
