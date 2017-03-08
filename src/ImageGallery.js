@@ -1,35 +1,34 @@
 import React, { Component } from 'react';
 
-import image from './images.js';
+// import images from './images.js';
 
 function ListView(props) {
   return (
-    <div>
-      <h1> {props.image.title} </h1>
-      <h1> {props.image.description} </h1>
-      <h1> {props.image.url} </h1>
-      <h1> {props.image.img} </h1>
+    <div className='image-divs'>
+      <p> Title: {props.image.title} </p>
+      <p> Description: {props.image.description} </p>
+      <p> Link: {props.image.url} </p>
     </div>
   );
 }
 
-// 100x100 thumbnail image
+// max 100x100 thumbnail image
 function ThumbnailView(props) {
   return (
-    <div>
-      <h1> {props.image.title} </h1>
-      <h1> {props.image.url} </h1>
+    <div className='image-divs'>
+      <p> Title: {props.image.title} </p>
+      <img className='thumbnail' src={props.image.url} alt='cute bunny'/>
     </div>
   );
 }
 
-// full-size image
+// scaled large image
 function GalleryView(props) {
   return (
-    <div>
-      <h1> {props.image.title} </h1>
-      <h1> {props.image.description} </h1>
-      <h1> {props.image.img} </h1>
+    <div className='image-divs'>
+      <p> Title: {props.image.title} </p>
+      <p> Description: {props.image.description} </p>
+      <img className='gallery' src={props.image.url} alt='cute bunny'/>
     </div>
   );
 }
