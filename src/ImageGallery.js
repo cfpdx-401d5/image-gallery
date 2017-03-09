@@ -15,20 +15,26 @@ const images = [
     description: 'White Rabbit',
     url: 'http://im5.leaderhero.com/wallpaper/20140328/12835c9a-f.jpg'
   },
+  {
+    id: 3,
+    title: 'Floppy Bunny',
+    description: 'Can this floppy ear bunny fly?',
+    url: 'http://cdn.litlepups.net/2016/04/10/floppy-eared-bunny-365daysofdawn.jpg'
+  },
 ];
 
 import DetailList from './DetailList';
 import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
 
-import DetailDisplay from './DetailDisplay';
-import GalleryDisplay from './GalleryDisplay';
-import ThumbnailDisplay from './ThumbnailDisplay';
+// import DetailDisplay from './DetailDisplay';
+// import GalleryDisplay from './GalleryDisplay';
+// import ThumbnailDisplay from './ThumbnailDisplay';
 
 function ImageSelectorBar(props) {
   return (
-    <div>
-      <button onClick={() => props.clickHandler('detail')}> List View </button>
+    <div className='image-select'>
+      <button onClick={() => props.clickHandler('detail')}> Detail View </button>
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
     </div>
