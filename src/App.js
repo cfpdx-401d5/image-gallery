@@ -12,19 +12,19 @@ export default class App extends React.Component {
     this.state = {
       viewType: 'list',
       images: [{
-        id: new Date().getTime() + 1,
+        id: new Date().getTime() + 'a',
         title: 'Cute Bunny',
         description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
         url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
       },
       {
-        id: new Date().getTime() + 2,
+        id: new Date().getTime() + 'b',
         title: 'Upside Down Sloth',
         description: 'Sloths just love to hang out.',
         url: 'http://kids.nationalgeographic.com/content/dam/kids/photos/animals/Mammals/Q-Z/sloth-beach-upside-down.jpg.adapt.945.1.jpg'
       },
       {
-        id: new Date().getTime() + 3,
+        id: new Date().getTime() + 'c',
         title: 'Waving Panda',
         description: 'When a panda waves, you wave back!',
         url: 'http://media4.s-nbcnews.com/j/newscms/2016_36/1685951/ss-160826-twip-05_8cf6d4cb83758449fd400c7c3d71aa1f.nbcnews-ux-2880-1000.jpg'
@@ -33,6 +33,7 @@ export default class App extends React.Component {
     };
     this.clickHandler = this.clickHandler.bind(this);
     this.addImage = this.addImage.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
   }
 
   clickHandler(whatView) {
@@ -47,10 +48,21 @@ export default class App extends React.Component {
     this.setState({ images: newImgArray });
   }
 
+  deleteImage(imageID) {
+    // e.preventDefault();
+    let newImgArray = [...this.state.images];
+    console.log('currArr', newImgArray);
+    let filteredArray = newImgArray.filter(image => {
+      if (image.id !== imageID) return image;
+    });
+    console.log('filtrArr', filteredArray);
+    this.setState({ images: filteredArray });
+  }
+
   render() {
     let displayType;
 
-    if (this.state.viewType === 'list') displayType = <ListDisplay images={this.state.images}/>; 
+    if (this.state.viewType === 'list') displayType = <ListDisplay images={this.state.images} deleteImage={this.deleteImage}/>; 
     else if (this.state.viewType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images}/>;
     else if (this.state.viewType === 'gallery') displayType = <GalleryDisplay images={this.state.images}/>;
 
