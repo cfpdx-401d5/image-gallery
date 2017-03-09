@@ -18,17 +18,17 @@ export function Selector(props) {
 export function View(props) {
   if (props.viewStyle === 'thumbnail') {
     return (
-      <ThumbnailList babyBunBuns={props.babyBunBuns}/>
+      <ThumbnailList deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
     )
   }
   else if (props.viewStyle === 'detail') {
     return (
-      <DetailList babyBunBuns={props.babyBunBuns}/>
+      <DetailList deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
     )
   }
   else if (props.viewStyle === 'gallery') {
     return (
-      <GalleryList babyBunBuns={props.babyBunBuns}/>
+      <GalleryList deleteBunny={props.deleteBunny} showHandler={props.showHandler} showBun={props.showBun} babyBunBuns={props.babyBunBuns}/>
     )
   }
   else {
@@ -43,9 +43,10 @@ export default class ImageGallery extends React.Component {
     super(props);
     this.state = {
       viewStyle: null,
-      babyBunBuns: babyBunBuns
+      babyBunBuns: babyBunBuns,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.deleteBunny = this.deleteBunny.bind(this);
   }
 
   handleClick(viewValue) {
@@ -55,11 +56,22 @@ export default class ImageGallery extends React.Component {
     });
   }
 
+  deleteBunny(babyBunIndex){
+    let babyBunBunsFiltered = this.state.babyBunBuns.filter((element, i)=>{
+      if (i !== babyBunIndex) {
+        return element
+      }
+    });
+    this.setState({
+      babyBunBuns: babyBunBunsFiltered
+    })
+  }
+
   render() {
     return (
       <div>
         <Selector handleClick={this.handleClick}/>
-        <View babyBunBuns={this.state.babyBunBuns} viewStyle={this.state.viewStyle}/>
+        <View deleteBunny={this.deleteBunny} babyBunBuns={this.state.babyBunBuns} viewStyle={this.state.viewStyle}/>
       </div>
     );
   }
