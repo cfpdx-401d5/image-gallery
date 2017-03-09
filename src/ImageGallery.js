@@ -1,42 +1,34 @@
 import React, { Component } from 'react';
 
-import images from './images.js';
+// import images from './images';
 
-function ListView(props) {
-  return (
-    <div className='image-divs'>
-      <p> Title: {props.image.title} </p>
-      <p> Description: {props.image.description} </p>
-      <p> Link: {props.image.url} </p>
-    </div>
-  );
-}
+const images = [
+  {
+    id: 1,
+    title: 'Cute Bunny',
+    description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
+    url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'   
+  },
+  {
+    id: 2,
+    title: 'Snow Flake',
+    description: 'White Rabbit',
+    url: 'http://im5.leaderhero.com/wallpaper/20140328/12835c9a-f.jpg'
+  },
+];
 
-// max 100x100 thumbnail image
-function ThumbnailView(props) {
-  return (
-    <div className='image-divs'>
-      <p> Title: {props.image.title} </p>
-      <img className='thumbnail' src={props.image.url} alt='cute bunny'/>
-    </div>
-  );
-}
+import DetailList from './DetailList';
+import GalleryList from './GalleryList';
+import ThumbnailList from './ThumbnailList';
 
-// scaled large image
-function GalleryView(props) {
-  return (
-    <div className='image-divs'>
-      <p> Title: {props.image.title} </p>
-      <p> Description: {props.image.description} </p>
-      <img className='gallery' src={props.image.url} alt='cute bunny'/>
-    </div>
-  );
-}
+import DetailDisplay from './DetailDisplay';
+import GalleryDisplay from './GalleryDisplay';
+import ThumbnailDisplay from './ThumbnailDisplay';
 
 function ImageSelectorBar(props) {
   return (
     <div>
-      <button onClick={() => props.clickHandler('list')}> List View </button>
+      <button onClick={() => props.clickHandler('detail')}> List View </button>
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
     </div>
@@ -48,10 +40,10 @@ export default class ImageGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: 'list',
+      currentView: 'detail',
+      images: images,
     };
     this.clickHandler = this.clickHandler.bind(this);
-    this.images = images;
   }
 
   clickHandler(newView) {
@@ -64,13 +56,13 @@ export default class ImageGallery extends Component {
     let contents;
     
     if (this.state.currentView === 'thumbnail') {
-      contents = < ThumbnailView images={this.images} />;
+      contents = < ThumbnailList images={this.state.images} />;
     }
     else if (this.state.currentView === 'gallery') {
-      contents = < GalleryView images={this.images} />;
+      contents = < GalleryList images={this.state.images} />;
     }
     else {
-      contents = < ListView images={this.images} />;
+      contents = < DetailList images={this.state.images} />;
     }
     return (
       <div>
