@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import DetailDisplay from './DetailDisplay';
 
-import images from './images';
-
 function DetailList(props) {
 
   const listDetail = props.images.map((imageObject, id) => {
@@ -18,6 +16,7 @@ function DetailList(props) {
 
 DetailList.propTypes = {
   images: PropTypes.array.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 export default DetailList;

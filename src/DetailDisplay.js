@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 
-import images from './images';
-
 function DetailDisplay(props) {
   return (
     <div className='image-divs'>

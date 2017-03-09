@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import images from './images';
+
 import DetailList from './DetailList';
 import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
