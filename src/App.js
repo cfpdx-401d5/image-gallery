@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import AddResource from './add-resource'
+import AddResource from './add-resource';
+import GalleryDisplay from './DisplayComponents/Gallery';
+import ThumbnailDisplay from './DisplayComponents/Thumbnail';
+import DetailDisplay from './DisplayComponents/Detail';
 
 const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
 const THUMBNAIL_TYPE = 'thumbnail';
 
-/////////   APP CLASS   /////////
 export default class App extends Component {
 
   constructor(props) {
@@ -21,7 +23,6 @@ export default class App extends Component {
 
   onViewSelect(e, selected) {
     e.preventDefault();
-    
     this.setState({
       selectedView: selected
     })
@@ -29,11 +30,9 @@ export default class App extends Component {
 
   onDelete(id) {
       let currentResources = [...this.state.resources];
-
       currentResources = currentResources.filter(resource => {
           return resource.id !== id;
       })
-
       this.setState({
           resources: currentResources
       })
@@ -41,7 +40,6 @@ export default class App extends Component {
 
   onAdd(e, newResource) {
       e.preventDefault();
-
       let newData = this.state.resources.slice();
       newData.push(newResource);
       this.setState({
@@ -74,15 +72,11 @@ function ViewSelector(props) {
 function ViewDisplay(props) {
     let selectedView = props.selectedView;
     if (selectedView) {
-        return <ListView selectedView={selectedView} resources={props.resources} onDelete={props.onDelete}/>
-    }
-    // else if (selectedView === THUMBNAIL_TYPE) {
-    //     return <ThumbnailList resources={props.resources} onDelete={props.onDelete}/>
-    // }
-    // else if (selectedView === GALLERY_TYPE) {
-    //     return <GalleryList resources={props.resources} onDelete={props.onDelete}/>
-    // }
-    else {
+        return <ListView 
+            selectedView={selectedView} 
+            resources={props.resources} 
+            onDelete={props.onDelete}/>
+    } else {
         return <p>Choose View!</p>
     }
 }
@@ -96,7 +90,10 @@ function ListView(props) {
     else if (props.selectedView === THUMBNAIL_TYPE) { DisplayType = ThumbnailDisplay}
     
     const resourceList = props.resources.map(resource => {
-        return <DisplayType key={resource.id} resource={resource} onDelete={props.onDelete}/>
+        return <DisplayType 
+            key={resource.id} 
+            resource={resource} 
+            onDelete={props.onDelete}/>
     })
 
     return (
@@ -104,53 +101,10 @@ function ListView(props) {
     );
 }
 
-/////////   END LIST COMPONENTS   /////////
-
-/////////   DISPLAY COMPONENTS   /////////
-function DetailDisplay(props) {
-  return (
-    <div>
-        <ul>
-        <li>Title: {props.resource.title}</li>
-        <li>Url: {props.resource.url}</li>
-        <li>Description: {props.resource.description}</li>
-        </ul>
-        <button onClick={() => props.onDelete(props.resource.id)}>delete</button>
-    </div>
-  )  
-}
-
-function ThumbnailDisplay(props) {
-  return (
-    <div>
-      <p>Title: {props.resource.title}</p>
-      <img className='thumbnail' src={props.resource.url} alt='Cute Bunny'/>
-      <button onClick={() => props.onDelete(props.resource.id)}>delete</button>
-    </div>
-  )    
-}
-
-function GalleryDisplay(props) {
-  return (
-    <div>
-      <p>Title: {props.resource.title}</p>
-      <img className='gallery' src={props.resource.url} alt='Cute Bunny'/>
-      <p>Description: {props.resource.description}</p>
-      <button onClick={() => props.onDelete(props.resource.id)}>delete</button>
-    </div>
-  ) 
-}
-/////////   END DISPLAY COMPONENTS   /////////
-
 
 /////////   EXPORT   /////////
 export {
     ViewSelector,
     ViewDisplay,
-    // DetailList,
-    // ThumbnailList,
-    // GalleryList,
-    DetailDisplay,
-    ThumbnailDisplay,
-    GalleryDisplay
+    ListView,
 }
