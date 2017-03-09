@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EditSelector from './edit-selector'
+import AddResource from './add-resource'
 
 const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
@@ -16,6 +16,7 @@ export default class App extends Component {
     };
     this.onViewSelect = this.onViewSelect.bind(this);
     this.onDelete = this.onDelete.bind(this);
+    this.onAdd = this.onAdd.bind(this);
   }
 
   onViewSelect(e, selected) {
@@ -38,12 +39,22 @@ export default class App extends Component {
       })
   }
 
+  onAdd(e, newResource) {
+      e.preventDefault();
+
+      let newData = this.state.resources.slice();
+      newData.push(newResource);
+      this.setState({
+          resources: newData
+      })
+  }
+
   render() {
     return (
       <div>
         < ViewSelector onViewSelect={this.onViewSelect}/>
         < ViewDisplay onDelete={this.onDelete} selectedView={this.state.selectedView} resources={this.state.resources}/>
-        < EditSelector />
+        < AddResource onAdd={this.onAdd}/>
       </div>
     )
   }
@@ -88,7 +99,7 @@ function DetailList(props) {
 
 function ThumbnailList(props) {
     const thumbnailList = props.resources.map(resource => {
-        return <ThumbnailDisplay resource={resource} onDelete={props.onDelete}/>
+        return <ThumbnailDisplay key={resource.id} resource={resource} onDelete={props.onDelete}/>
     })
     return (
         <div>{thumbnailList}</div>
@@ -97,7 +108,7 @@ function ThumbnailList(props) {
 
 function GalleryList(props) {
     const galleryList = props.resources.map(resource => {
-        return <GalleryDisplay resource={resource} onDelete={props.onDelete}/>
+        return <GalleryDisplay  key={resource.id} resource={resource} onDelete={props.onDelete}/>
     })
     return (
         <div>{galleryList}</div>
