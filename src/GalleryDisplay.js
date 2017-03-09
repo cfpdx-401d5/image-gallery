@@ -5,7 +5,9 @@ function GalleryDisplay(props) {
     <div className='image-divs'>
       <p> Title: {props.image.title} </p>
       <p> Description: {props.image.description} </p>
-      <img className='gallery' src={props.image.url} alt='cute bunny'/>
+      <a href={props.image.url} >
+        <img className='gallery' alt='cute bunny' src={props.image.url} />
+      </a>
     </div>
   );
 }
