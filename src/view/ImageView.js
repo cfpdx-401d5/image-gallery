@@ -11,12 +11,15 @@ const THUMBNAIL_TYPE  = 'thumbnail';
 const BUNNYFORM_TYPE  = 'bunnyForm';
 
 function ViewSelector(props) {
+    const viewType = [GALLERY_TYPE, LIST_TYPE, THUMBNAIL_TYPE, BUNNYFORM_TYPE];
+
+    const viewButtons = viewType.map((item, index) => {
+        return <button className='buttons' key={index} onClick={() => props.onClick(item)}>{item} view</button>;
+    });
+
     return (
-      <div className='main-buttons'>
-        <button className='buttons' onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
-        <button className='buttons' onClick={() => props.onClick(LIST_TYPE)}>Detail View</button>
-        <button className='buttons' onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
-        <button className='buttons' onClick={() => props.onClick(BUNNYFORM_TYPE)}>Add a new Bunny</button>
+       <div className='main-buttons'>
+        { viewButtons }
       </div>
     );
 }
