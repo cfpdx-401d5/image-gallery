@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddResource from './add-resource';
-import GalleryDisplay from './DisplayComponents/Gallery';
-import ThumbnailDisplay from './DisplayComponents/Thumbnail';
-import DetailDisplay from './DisplayComponents/Detail';
+import AddResource from './components/editing/AddResource';
+import GalleryDisplay from './components/display/Gallery';
+import ThumbnailDisplay from './components/display/Thumbnail';
+import DetailDisplay from './components/display/Detail';
 
 const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
