@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 
 class FormContainer extends Component {
   constructor(props) {
@@ -22,13 +23,17 @@ class FormContainer extends Component {
     this.setState({
       [name]: value 
     });
+
+    // document.getElementById('add-image').reset();
   }
 
 
   render() {
     return (
-        <form onSubmit={(e) => {
-            this.props.addImage(e, this.state);}}
+        <form id='add-image' onSubmit={(e) => {
+          this.setState({ id: shortid.generate() });
+          this.props.addImage(e, this.state);
+        }}
         >
             <h4>Add a new image</h4>
             <input
