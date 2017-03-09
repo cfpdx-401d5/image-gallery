@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import ListDisplay from './displays/ListDisplay';
-import ThumbnailDisplay from './ThumbnailDisplay';
-import GalleryDisplay from './GalleryDisplay';
+import ThumbnailDisplay from './displays/ThumbnailDisplay';
+import GalleryDisplay from './displays/GalleryDisplay';
 import Selector from './Selector';
 import FormContainer from './image_form/FormContainer';
 
