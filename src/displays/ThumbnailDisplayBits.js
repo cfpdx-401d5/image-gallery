@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 
+import DeleteImageButton from '../DeleteImageButton';
+
 function ThumbnailDisplayBits(props) {
   let altText = props.title + ' thumbnail';
 
@@ -10,12 +12,7 @@ function ThumbnailDisplayBits(props) {
           <img className='thumbnail' src={props.url} alt={altText} />
           <figcaption>{props.title}</figcaption>
         </figure>
-        <button onClick={(e) => {
-          e.preventDefault();
-          props.deleteImage(props.id);
-        }}>
-          delete
-        </button>
+        <DeleteImageButton deleteImage={props.deleteImage} id={props.id} />
       </td>
     </tr>
   );
