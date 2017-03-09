@@ -9,6 +9,22 @@ Minimum API:
 * GET all images
 * DELETE an image
 
+You need to add CORS headers:
+
+```
+npm i cors
+```
+
+```
+const cors = require('cors')();
+
+// ...
+
+app.use(cors);
+
+```
+
+
 ## Bonus
 
 * PUT an image
