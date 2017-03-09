@@ -51,11 +51,10 @@ export default class App extends React.Component {
   deleteImage(imageID) {
     // e.preventDefault();
     let newImgArray = [...this.state.images];
-    console.log('currArr', newImgArray);
     let filteredArray = newImgArray.filter(image => {
       if (image.id !== imageID) return image;
     });
-    console.log('filtrArr', filteredArray);
+
     this.setState({ images: filteredArray });
   }
 
@@ -63,8 +62,8 @@ export default class App extends React.Component {
     let displayType;
 
     if (this.state.viewType === 'list') displayType = <ListDisplay images={this.state.images} deleteImage={this.deleteImage}/>; 
-    else if (this.state.viewType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images}/>;
-    else if (this.state.viewType === 'gallery') displayType = <GalleryDisplay images={this.state.images}/>;
+    else if (this.state.viewType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
+    else if (this.state.viewType === 'gallery') displayType = <GalleryDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
 
     return (
         <div>
