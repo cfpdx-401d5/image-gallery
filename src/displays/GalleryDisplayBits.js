@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 
+import DeleteImageButton from '../DeleteImageButton';
+
 function GalleryDisplayBits(props) {
   let altText = props.title + ' gallery view';
 
@@ -11,12 +13,7 @@ function GalleryDisplayBits(props) {
           {props.title} <br/>
           {props.description}
         </figcaption>
-        <button onClick={(e) => {
-          e.preventDefault();
-          props.deleteImage(props.id);
-        }}>
-          delete
-        </button>
+        <DeleteImageButton deleteImage={props.deleteImage} id={props.id} />
       </figure>
     </article>
   );
