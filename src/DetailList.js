@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import DetailDisplay from './DetailDisplay';
 
+import images from './images';
+
 function DetailList(props) {
 
   const listDetail = props.images.map((imageObject, id) => {
@@ -11,7 +13,7 @@ function DetailList(props) {
   return (
     <ul> {listDetail} </ul>
   );
-  
+
 }
 
 DetailList.propTypes = {
