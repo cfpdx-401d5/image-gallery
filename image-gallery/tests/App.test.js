@@ -8,9 +8,11 @@ import { List } from '../src/view/list';
 import { Gallery } from '../src/view/gallery';
 import { Thumbnail } from '../src/view/thumbnail'
 
-describe('schnoodle lists', () => {
+describe('my buttons click handlers', () => {
     it('runs my test!', () => {
         const rendered = shallow(<App />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });
+
+//none of my other tests will work

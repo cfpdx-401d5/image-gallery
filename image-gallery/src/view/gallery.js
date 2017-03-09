@@ -15,6 +15,10 @@ function Gallery(props) {
     )
 }
 
+Gallery.propTypes = {
+    array: React.PropTypes.array
+};
+
 export {
     Gallery
 };

@@ -66,6 +66,7 @@ export default class App extends React.Component {
         );
     }
 }
+// console.log(<ImageView ViewSelector onClick={[Function]} />)
 
 ViewSelector.propTypes = {
     onClick: React.PropTypes.func
@@ -76,3 +77,5 @@ ImageView.propTypes = {
     state: React.PropTypes.object,
     onClick: React.PropTypes.func
 };
+
+
