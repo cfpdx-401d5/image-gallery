@@ -18,17 +18,17 @@ export function Selector(props) {
 export function View(props) {
   if (props.viewStyle === 'thumbnail') {
     return (
-      <ThumbnailList deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
+      <ThumbnailList addBunny={props.addBunny} deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
     )
   }
   else if (props.viewStyle === 'detail') {
     return (
-      <DetailList deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
+      <DetailList addBunny={props.addBunny} deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
     )
   }
   else if (props.viewStyle === 'gallery') {
     return (
-      <GalleryList deleteBunny={props.deleteBunny} showHandler={props.showHandler} showBun={props.showBun} babyBunBuns={props.babyBunBuns}/>
+      <GalleryList addBunny={props.addBunny} deleteBunny={props.deleteBunny} showHandler={props.showHandler} showBun={props.showBun} babyBunBuns={props.babyBunBuns}/>
     )
   }
   else {
@@ -47,6 +47,7 @@ export default class ImageGallery extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.deleteBunny = this.deleteBunny.bind(this);
+    this.addBunny = this.addBunny.bind(this);
   }
 
   handleClick(viewValue) {
@@ -67,11 +68,19 @@ export default class ImageGallery extends React.Component {
     })
   }
 
+  addBunny(newBabyBun) {
+    let babyBunBunsMultiplied = [...this.state.babyBunBuns];
+    babyBunBunsMultiplied.push(newBabyBun);
+    this.setState({
+      babyBunBuns: babyBunBunsMultiplied
+    })
+  }
+
   render() {
     return (
       <div>
         <Selector handleClick={this.handleClick}/>
-        <View deleteBunny={this.deleteBunny} babyBunBuns={this.state.babyBunBuns} viewStyle={this.state.viewStyle}/>
+        <View addBunny={this.addBunny} deleteBunny={this.deleteBunny} babyBunBuns={this.state.babyBunBuns} viewStyle={this.state.viewStyle}/>
       </div>
     );
   }
