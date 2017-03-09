@@ -155,6 +155,11 @@ function GalleryDisplay(props) {
 
 /////////   EXPORT   /////////
 export {
+    ViewSelector,
+    ViewDisplay,
+    DetailList,
+    ThumbnailList,
+    GalleryList,
     DetailDisplay,
     ThumbnailDisplay,
     GalleryDisplay
