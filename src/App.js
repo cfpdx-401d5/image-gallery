@@ -32,29 +32,31 @@ export default class App extends React.Component {
       ],
     };
     this.clickHandler = this.clickHandler.bind(this);
-    this.formClickHandler = this.formClickHandler.bind(this);
+    this.addImage = this.addImage.bind(this);
   }
 
   clickHandler(whatView) {
     this.setState({ viewType: whatView });
   }
 
-  formClickHandler(imageSubmission) {
-    let newImgArray = this.state.images.push(imageSubmission);
+  addImage(e, imageSubmission) {
+    e.preventDefault();
+    let newImgArray = [...this.state.images]; // copy the images[] in the state
+    newImgArray = newImgArray.push(imageSubmission); // make new image array
+
     this.setState({ images: newImgArray });
   }
 
   render() {
     let displayType;
 
-    if (this.state.viewType === 'list') {
-      displayType = <ListDisplay images={this.state.images}/>; 
-    } else if (this.state.viewType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images}/>;
+    if (this.state.viewType === 'list') displayType = <ListDisplay images={this.state.images}/>; 
+    else if (this.state.viewType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images}/>;
     else if (this.state.viewType === 'gallery') displayType = <GalleryDisplay images={this.state.images}/>;
 
     return (
         <div>
-          <FormContainer clickHandler={this.formClickHandler} message='i am doing magic' />
+          <FormContainer addImage={this.addImage} />
           <Selector clickHandler={this.clickHandler} />
           {displayType}
         </div>
