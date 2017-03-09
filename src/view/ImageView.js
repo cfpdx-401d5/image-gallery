@@ -1,6 +1,6 @@
 import React from 'react';
 import { DisplayList } from './Display';
-import BunnyForm from '../forms/new-form';
+import BunnyForm from '../forms/BunnyForm';
 import bunnies from '../image';
 const constants = require('../constants');
 
@@ -27,6 +27,7 @@ export default class ImageView extends React.Component {
         };
     }
 
+    //TODO: Refactor all change handlers to one
     handleDelete(value) {
         const newBunnyArray = this.state.bunnies.filter(item => { //eslint-disable-line
             if (item.id !== value) {
