@@ -1,3 +1,15 @@
+exports[`App runs my app 1`] = `
+<div>
+  <ViewSelector
+    onViewSelect={[Function]} />
+  <ViewDisplay
+    onDelete={[Function]}
+    selectedView="" />
+  <AddResource
+    onAdd={[Function]} />
+</div>
+`;
+
 exports[`App runs my test 1`] = `
 <div>
   <ViewSelector
@@ -5,7 +17,7 @@ exports[`App runs my test 1`] = `
   <ViewDisplay
     resource={
       Object {
-        "description": "Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?",
+        "description": "Isn't it fuzzy-wuzzy cutest thing you've ever seen?",
         "title": "Cute Bunny",
         "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
       }
