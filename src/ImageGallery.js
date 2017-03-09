@@ -21,6 +21,12 @@ const images = [
     description: 'Can this floppy ear bunny fly?',
     url: 'http://cdn.litlepups.net/2016/04/10/floppy-eared-bunny-365daysofdawn.jpg'
   },
+  {
+    id: 4,
+    title: 'Crash Test Bunny',
+    description: 'This bunny is going bye bye for Delete test',
+    url: 'http://cdn.litlepups.net/2016/04/10/floppy-eared-bunny-365daysofdawn.jpg'
+  }, 
 ];
 
 import DetailList from './DetailList';
