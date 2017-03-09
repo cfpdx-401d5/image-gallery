@@ -49,13 +49,11 @@ export default class App extends React.Component {
   }
 
   deleteImage(imageID) {
-    // e.preventDefault();
-    let newImgArray = [...this.state.images];
-    let filteredArray = newImgArray.filter(image => {
+    let newImgArray = [...this.state.images].filter(image => {
       if (image.id !== imageID) return image;
     });
 
-    this.setState({ images: filteredArray });
+    this.setState({ images: newImgArray });
   }
 
   render() {
