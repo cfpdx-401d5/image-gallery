@@ -8,7 +8,7 @@ function DetailList(props) {
         <br />
         Description: {imageObject.description}
         <br />
-        Link: {imageObject.url}      
+        <a href={imageObject.url}> Image Link </a>     
       </li>
     );
   });
