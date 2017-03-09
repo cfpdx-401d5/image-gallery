@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import shortid from 'shortid';
 
 class FormContainer extends Component {
@@ -60,5 +60,9 @@ class FormContainer extends Component {
     );
   }
 }
-/* TODO: propType validation */
+
+FormContainer.propTypes = {
+  addImage: PropTypes.func.isRequired,
+};
+
 export default FormContainer;
