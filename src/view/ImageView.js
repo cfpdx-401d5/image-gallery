@@ -1,7 +1,5 @@
 import React from 'react';
-import { DetailList } from './detail-view';
-import { GalleryList } from './gallery-view';
-import { ThumbnailList } from './thumbnail-view';
+import { DisplayList } from './Display';
 import BunnyForm from '../forms/new-form';
 import bunnies from '../image';
 const constants = require('../constants');
@@ -59,9 +57,9 @@ export default class ImageView extends React.Component {
 
     render() {
         const outputs = {
-            [constants.LIST_TYPE]: DetailList,
-            [constants.GALLERY_TYPE]: GalleryList,
-            [constants.THUMBNAIL_TYPE]: ThumbnailList,
+            [constants.THUMBNAIL_TYPE]: DisplayList,
+            [constants.DETAILS_TYPE]: DisplayList,
+            [constants.GALLERY_TYPE]: DisplayList,
             [constants.BUNNYFORM_TYPE]: BunnyForm
         };    
     
@@ -72,6 +70,7 @@ export default class ImageView extends React.Component {
                 <ViewSelector onClick={this.props.onClick}/>
                 {OutputComponent 
                     ? <OutputComponent 
+                        view={this.props.view}
                         array={this.state.bunnies} 
                         onDelete={this.handleDelete} 
                         onChange={this.handleBunnyChange} 
