@@ -73,47 +73,37 @@ function ViewSelector(props) {
 
 function ViewDisplay(props) {
     let selectedView = props.selectedView;
-    if (selectedView === LIST_TYPE) {
-        return <DetailList resources={props.resources} onDelete={props.onDelete}/>
+    if (selectedView) {
+        return <ListView selectedView={selectedView} resources={props.resources} onDelete={props.onDelete}/>
     }
-    else if (selectedView === THUMBNAIL_TYPE) {
-        return <ThumbnailList resources={props.resources} onDelete={props.onDelete}/>
-    }
-    else if (selectedView === GALLERY_TYPE) {
-        return <GalleryList resources={props.resources} onDelete={props.onDelete}/>
-    }
+    // else if (selectedView === THUMBNAIL_TYPE) {
+    //     return <ThumbnailList resources={props.resources} onDelete={props.onDelete}/>
+    // }
+    // else if (selectedView === GALLERY_TYPE) {
+    //     return <GalleryList resources={props.resources} onDelete={props.onDelete}/>
+    // }
     else {
         return <p>Choose View!</p>
     }
 }
 
 /////////   LIST COMPONENTS   /////////
-function DetailList(props) {
-    const detailList = props.resources.map(resource => {
-        return <DetailDisplay key={resource.id} resource={resource} onDelete={props.onDelete}/>
+
+function ListView(props) {
+    let DisplayType;
+    if (props.selectedView === LIST_TYPE) { DisplayType = DetailDisplay}
+    else if (props.selectedView === GALLERY_TYPE) { DisplayType = GalleryDisplay}
+    else if (props.selectedView === THUMBNAIL_TYPE) { DisplayType = ThumbnailDisplay}
+    
+    const resourceList = props.resources.map(resource => {
+        return <DisplayType key={resource.id} resource={resource} onDelete={props.onDelete}/>
     })
+
     return (
-        <div>{detailList}</div>
+        <div>{resourceList}</div>
     );
 }
 
-function ThumbnailList(props) {
-    const thumbnailList = props.resources.map(resource => {
-        return <ThumbnailDisplay key={resource.id} resource={resource} onDelete={props.onDelete}/>
-    })
-    return (
-        <div>{thumbnailList}</div>
-    );
-}
-
-function GalleryList(props) {
-    const galleryList = props.resources.map(resource => {
-        return <GalleryDisplay  key={resource.id} resource={resource} onDelete={props.onDelete}/>
-    })
-    return (
-        <div>{galleryList}</div>
-    );
-}
 /////////   END LIST COMPONENTS   /////////
 
 /////////   DISPLAY COMPONENTS   /////////
@@ -157,9 +147,9 @@ function GalleryDisplay(props) {
 export {
     ViewSelector,
     ViewDisplay,
-    DetailList,
-    ThumbnailList,
-    GalleryList,
+    // DetailList,
+    // ThumbnailList,
+    // GalleryList,
     DetailDisplay,
     ThumbnailDisplay,
     GalleryDisplay
