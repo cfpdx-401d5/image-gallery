@@ -23,20 +23,33 @@ class FormContainer extends Component {
       [name]: value 
     });
   }
-//   setImageField(name, newValue) {
-//     this.setState({ name: newValue });
-//   }
+
 
   render() {
     return (
         <form onSubmit={(e) => {
-            this.props.addImage(e, this.state.title);}}
+            this.props.addImage(e, this.state);}}
         >
+            <h4>Add a new image</h4>
             <input
                 name='title'
                 type='text'
                 placeholder='Enter title'
                 defaultValue={this.state.title}
+                onChange={this.handleInputChange}
+            />
+              <input
+                name='description'
+                type='text'
+                placeholder='Enter description'
+                defaultValue={this.state.description}
+                onChange={this.handleInputChange}
+            />
+              <input
+                name='url'
+                type='text'
+                placeholder='Enter url'
+                defaultValue={this.state.url}
                 onChange={this.handleInputChange}
             />
             <button type='text'>Submit</button>

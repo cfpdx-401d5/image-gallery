@@ -42,7 +42,7 @@ export default class App extends React.Component {
   addImage(e, imageSubmission) {
     e.preventDefault();
     let newImgArray = [...this.state.images]; // copy the images[] in the state
-    newImgArray = newImgArray.push(imageSubmission); // make new image array
+    newImgArray.push(imageSubmission); // make new image array
 
     this.setState({ images: newImgArray });
   }
