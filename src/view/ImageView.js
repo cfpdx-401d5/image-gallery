@@ -4,19 +4,13 @@ import { GalleryList } from './gallery-view';
 import { ThumbnailList } from './thumbnail-view';
 import BunnyForm from '../forms/new-form';
 import bunnies from '../image';
-
-const GALLERY_TYPE    = 'gallery';
-const LIST_TYPE       = 'list';
-const THUMBNAIL_TYPE  = 'thumbnail';
-const BUNNYFORM_TYPE  = 'bunnyForm';
+const constants = require('../constants');
 
 function ViewSelector(props) {
-    const viewType = [GALLERY_TYPE, LIST_TYPE, THUMBNAIL_TYPE, BUNNYFORM_TYPE];
-
-    const viewButtons = viewType.map((item, index) => {
+    const viewTypes = Object.values(constants);
+    const viewButtons = viewTypes.map((item, index) => {
         return <button className='buttons' key={index} onClick={() => props.onClick(item)}>{item} view</button>;
     });
-
     return (
        <div className='main-buttons'>
         { viewButtons }
@@ -65,10 +59,10 @@ export default class ImageView extends React.Component {
 
     render() {
         const outputs = {
-            [LIST_TYPE]: DetailList,
-            [GALLERY_TYPE]: GalleryList,
-            [THUMBNAIL_TYPE]: ThumbnailList,
-            [BUNNYFORM_TYPE]: BunnyForm
+            [constants.LIST_TYPE]: DetailList,
+            [constants.GALLERY_TYPE]: GalleryList,
+            [constants.THUMBNAIL_TYPE]: ThumbnailList,
+            [constants.BUNNYFORM_TYPE]: BunnyForm
         };    
     
         const OutputComponent = outputs[this.props.view];
