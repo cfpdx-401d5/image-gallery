@@ -27,10 +27,6 @@ import DetailList from './DetailList';
 import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
 
-// import DetailDisplay from './DetailDisplay';
-// import GalleryDisplay from './GalleryDisplay';
-// import ThumbnailDisplay from './ThumbnailDisplay';
-
 function ImageSelectorBar(props) {
   return (
     <div className='image-select'>
