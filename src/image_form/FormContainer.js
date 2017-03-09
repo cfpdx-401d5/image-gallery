@@ -23,16 +23,14 @@ class FormContainer extends Component {
     this.setState({
       [name]: value 
     });
-
-    // document.getElementById('add-image').reset();
   }
-
 
   render() {
     return (
-        <form id='add-image' onSubmit={(e) => {
+        <form onSubmit={(e) => {
           this.setState({ id: shortid.generate() });
           this.props.addImage(e, this.state);
+          e.target.reset();
         }}
         >
             <h4>Add a new image</h4>
@@ -40,21 +38,21 @@ class FormContainer extends Component {
                 name='title'
                 type='text'
                 placeholder='Enter title'
-                defaultValue={this.state.title}
+                defaultValue=''
                 onChange={this.handleInputChange}
             />
               <input
                 name='description'
                 type='text'
                 placeholder='Enter description'
-                defaultValue={this.state.description}
+                defaultValue=''
                 onChange={this.handleInputChange}
             />
               <input
                 name='url'
                 type='text'
                 placeholder='Enter url'
-                defaultValue={this.state.url}
+                defaultValue=''
                 onChange={this.handleInputChange}
             />
             <button type='text'>Submit</button>
