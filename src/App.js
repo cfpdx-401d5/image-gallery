@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ListDisplay from './ListDisplay';
+import ListDisplay from './displays/ListDisplay';
 import ThumbnailDisplay from './ThumbnailDisplay';
 import GalleryDisplay from './GalleryDisplay';
 import Selector from './Selector';

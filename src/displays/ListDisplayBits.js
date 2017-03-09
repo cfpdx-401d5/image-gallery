@@ -16,6 +16,7 @@ function ListDisplayBits(props) {
 }
 
 ListDisplayBits.propTypes = {
+  deleteImage: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
