@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function List(props) {
+export default function DetailDisplay(props) {
     return (
         <div>
-            <h4>{props.babyBunBuns.title}</h4>
-            <a href={props.babyBunBuns.url}>See Here!</a>
-            <p>{props.babyBunBuns.description}</p>
+            <h4>{props.babyBunBun.title}</h4>
+            <a href={props.babyBunBun.url}>See Here!</a>
+            <p>{props.babyBunBun.description}</p>
         </div>
     )
 }

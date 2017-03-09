@@ -1,38 +1,34 @@
 import React from 'react';
 import babyBunBuns from '../data/bunnyimages';
-import Thumbnail from './Thumbnail';
-import List from './List';
-import Gallery from './Gallery';
+import ThumbnailList from './ThumbnailList';
+import DetailList from './DetailList';
+import GalleryList from './GalleryList';
 
 
 export function Selector(props) {
   return (
     <div>
       <button onClick={() => props.handleClick('thumbnail')}>Thumbnail View</button>
-      <button onClick={() => props.handleClick('list')}>List View</button>
+      <button onClick={() => props.handleClick('detail')}>Detail View</button>
       <button onClick={() => props.handleClick('gallery')}>Gallery View</button>
     </div>
   )
 }
 
-Selector.propTypes = {
-  
-}
-
 export function View(props) {
   if (props.viewStyle === 'thumbnail') {
     return (
-      <Thumbnail babyBunBuns={props.babyBunBuns[0]}/>
+      <ThumbnailList babyBunBuns={props.babyBunBuns}/>
     )
   }
-  else if (props.viewStyle === 'list') {
+  else if (props.viewStyle === 'detail') {
     return (
-      <List babyBunBuns={props.babyBunBuns[1]}/>
+      <DetailList babyBunBuns={props.babyBunBuns}/>
     )
   }
   else if (props.viewStyle === 'gallery') {
     return (
-      <Gallery babyBunBuns={props.babyBunBuns[2]}/>
+      <GalleryList babyBunBuns={props.babyBunBuns}/>
     )
   }
   else {
@@ -46,10 +42,10 @@ export default class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewStyle: null
+      viewStyle: null,
+      babyBunBuns: babyBunBuns
     };
     this.handleClick = this.handleClick.bind(this);
-    this.babyBunBuns = babyBunBuns;
   }
 
   handleClick(viewValue) {
@@ -63,7 +59,7 @@ export default class ImageGallery extends React.Component {
     return (
       <div>
         <Selector handleClick={this.handleClick}/>
-        <View babyBunBuns={this.babyBunBuns} viewStyle={this.state.viewStyle}/>
+        <View babyBunBuns={this.state.babyBunBuns} viewStyle={this.state.viewStyle}/>
       </div>
     );
   }

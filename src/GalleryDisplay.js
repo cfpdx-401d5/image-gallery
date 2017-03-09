@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function Gallery(props) {
+export default function GalleryDisplay(props) {
     return (
         <div>
-            <h4>{props.babyBunBuns.title}</h4>
-            <img alt={props.babyBunBuns.title} src={props.babyBunBuns.url}/>
-            <p>{props.babyBunBuns.description}</p>
+            <h4>{props.babyBunBun.title}</h4>
+            <img alt={props.babyBunBun.title} src={props.babyBunBun.url}/>
+            <p>{props.babyBunBun.description}</p>
         </div>
     )
 }
