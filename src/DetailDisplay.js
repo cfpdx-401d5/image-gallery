@@ -5,7 +5,7 @@ function DetailDisplay(props) {
     <div className='image-divs'>
       <p> Title: {props.image.title} </p>
       <p> Description: {props.image.description} </p>
-      <p> Link: {props.image.url} </p>
+      <a href={props.image.url}> Image Link </a>
     </div>
   );
 }
