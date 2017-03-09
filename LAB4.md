@@ -12,7 +12,7 @@ Minimum API:
 You need to add CORS headers:
 
 ```
-npm i cors
+> npm i cors -S
 ```
 
 ```
