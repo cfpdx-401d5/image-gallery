@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #222;
+  color: white;
+}
+
+div #root {
+  text-align: center;
+  width: 90%%;
+  margin-left: auto;
+  margin-right: auto;
+  border: .5em solid #bc640b;
+}
+
+.viewer {
+height: 80%;
+border: .5em solid #000;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  padding: 1em;
+}
