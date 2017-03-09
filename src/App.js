@@ -66,10 +66,10 @@ function ViewDisplay(props) {
         return <DetailList resources={props.resources} onDelete={props.onDelete}/>
     }
     else if (selectedView === THUMBNAIL_TYPE) {
-        return <ThumbnailList resources={props.resources} />
+        return <ThumbnailList resources={props.resources} onDelete={props.onDelete}/>
     }
     else if (selectedView === GALLERY_TYPE) {
-        return <GalleryList resources={props.resources} />
+        return <GalleryList resources={props.resources} onDelete={props.onDelete}/>
     }
     else {
         return <p>Choose View!</p>
@@ -88,7 +88,7 @@ function DetailList(props) {
 
 function ThumbnailList(props) {
     const thumbnailList = props.resources.map(resource => {
-        return <ThumbnailDisplay resource={resource}/>
+        return <ThumbnailDisplay resource={resource} onDelete={props.onDelete}/>
     })
     return (
         <div>{thumbnailList}</div>
@@ -97,7 +97,7 @@ function ThumbnailList(props) {
 
 function GalleryList(props) {
     const galleryList = props.resources.map(resource => {
-        return <GalleryDisplay resource={resource}/>
+        return <GalleryDisplay resource={resource} onDelete={props.onDelete}/>
     })
     return (
         <div>{galleryList}</div>
@@ -107,7 +107,6 @@ function GalleryList(props) {
 
 /////////   DISPLAY COMPONENTS   /////////
 function DetailDisplay(props) {
-console.log('here')
   return (
     <div>
         <ul>
@@ -125,6 +124,7 @@ function ThumbnailDisplay(props) {
     <div>
       <p>Title: {props.resource.title}</p>
       <img className='thumbnail' src={props.resource.url} alt='Cute Bunny'/>
+      <button onClick={() => props.onDelete(props.resource.id)}>delete</button>
     </div>
   )    
 }
@@ -135,6 +135,7 @@ function GalleryDisplay(props) {
       <p>Title: {props.resource.title}</p>
       <img className='gallery' src={props.resource.url} alt='Cute Bunny'/>
       <p>Description: {props.resource.description}</p>
+      <button onClick={() => props.onDelete(props.resource.id)}>delete</button>
     </div>
   ) 
 }
