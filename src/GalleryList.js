@@ -4,7 +4,7 @@ import GalleryDisplay from './GalleryDisplay';
 function GalleryList(props) {
   const listGallery = props.images.map((imageObject, id) => {
     return (
-      < GalleryDisplay image={imageObject} />
+      < GalleryDisplay key={imageObject.id} image={imageObject} />
     );
   });
   return (
@@ -17,11 +17,3 @@ GalleryList.propTypes = {
 };
 
 export default GalleryList;
-
-      /*<li key={imageObject.id} className='image-divs'>
-        Title: {imageObject.title}
-        <br />
-        Description: {imageObject.description}
-        <br />
-        <img className='gallery' src={imageObject.url} alt='cute bunny'/>       
-      </li>*/

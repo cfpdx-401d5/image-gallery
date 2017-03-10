@@ -3,9 +3,9 @@ import DetailDisplay from './DetailDisplay';
 
 function DetailList(props) {
 
-  const listDetail = props.images.map((imageObject, id) => {
+  const listDetail = props.images.map((imageObject) => {
     return (
-      <DetailDisplay image={imageObject}/>
+      <DetailDisplay key={imageObject.id} image={imageObject}/>
     );
   });
   return (
@@ -19,12 +19,3 @@ DetailList.propTypes = {
 };
 
 export default DetailList;
-
-
-      /*<li key={imageObject.id} className='image-divs'>
-        Title: {imageObject.title}
-        <br />
-        Description: {imageObject.description}
-        <br />
-        <a href={imageObject.url}> Image Link </a>     
-      </li>*/

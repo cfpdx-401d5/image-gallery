@@ -5,7 +5,7 @@ function ThumbnailList(props) {
 
   const listThumbnail = props.images.map((imageObject, id) => {
     return (
-      < ThumbnailDisplay image={imageObject} />
+      < ThumbnailDisplay key={imageObject.id} image={imageObject} />
     );
   });
   return (
@@ -19,9 +19,3 @@ ThumbnailList.propTypes = {
 };
 
 export default ThumbnailList;
-
-      /*<li key={imageObject.id} className='image-divs'>
-        Title: {imageObject.title}
-        <br />
-        <img className='thumbnail' src={imageObject.url} alt='cute bunny'/>       
-      </li>*/
