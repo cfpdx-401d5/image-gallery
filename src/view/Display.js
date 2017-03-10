@@ -76,6 +76,7 @@ class Display extends React.Component {
                     onChange={this.props.onChange} 
                     onEdit={this.props.onEdit}
                     item={this.props.item} />
+                    <hr />
             </li>
         );
     }
