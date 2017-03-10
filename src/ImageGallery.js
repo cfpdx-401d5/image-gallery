@@ -52,6 +52,7 @@ export default class ImageGallery extends Component {
       images: images,
     };
     this.clickHandler = this.clickHandler.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
   }
 
   clickHandler(newView) {
@@ -60,17 +61,28 @@ export default class ImageGallery extends Component {
     });
   }
 
+  deleteImage(imageToDelete) {
+    let newImages = this.state.images.filter((image, idx) => {
+      if (imageToDelete !== image) {
+        return image;
+      }
+    });
+    this.setState({
+      images: newImages
+    });
+  }
+
   render() {
     let contents;
     
     if (this.state.currentView === 'thumbnail') {
-      contents = < ThumbnailList images={this.state.images} />;
+      contents = < ThumbnailList images={this.state.images} deleteImage={this.deleteImage} />;
     }
     else if (this.state.currentView === 'gallery') {
-      contents = < GalleryList images={this.state.images} />;
+      contents = < GalleryList images={this.state.images} deleteImage={this.deleteImage} />;
     }
     else {
-      contents = < DetailList images={this.state.images} />;
+      contents = < DetailList images={this.state.images} deleteImage={this.deleteImage} />;
     }
     return (
       <div>
