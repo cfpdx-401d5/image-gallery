@@ -57,18 +57,18 @@ export default class App extends Component {
   }
 
   render() {
-    let displayType;
+    let DisplayType;
 
-    if (this.state.displayType === 'list') displayType = <ListDisplay images={this.state.images} deleteImage={this.deleteImage}/>; 
-    else if (this.state.displayType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
-    else if (this.state.displayType === 'gallery') displayType = <GalleryDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
+    if (this.state.displayType === 'list') DisplayType = ListDisplay;
+    else if (this.state.displayType === 'thumbnail') DisplayType = ThumbnailDisplay;
+    else if (this.state.displayType === 'gallery') DisplayType = GalleryDisplay;
 
     return (
         <div>
           <h1>Image Gallery</h1>
           <FormContainer addImage={this.addImage} />
           <DisplaySelector setDisplay={this.setDisplay} />
-          {displayType}
+          <DisplayType images={this.state.images} deleteImage={this.deleteImage} />
         </div>
     );
   }
