@@ -40,4 +40,3 @@ You also need to snapshot test your three view components
 - App component and general React setup *1pt*
 - Snapshot tests *10pts* (1 per 4 components)
 - Code quality *1pt*
-

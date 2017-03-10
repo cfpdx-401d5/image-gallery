@@ -1,0 +1,30 @@
+body {
+  margin-left: 150px;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  color: blue;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.image-divs {
+  border: 1px dotted gray;
+  padding: 10px;
+}
+
+.gallery {
+  width: 436px;
+  height: 292px;
+  border: 3px solid green;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 67px;
+  border: 2px solid green;
+}
