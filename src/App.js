@@ -3,6 +3,7 @@ import babyBunBuns from '../data/bunnyimages';
 import ThumbnailList from './ThumbnailList';
 import DetailList from './DetailList';
 import GalleryList from './GalleryList';
+import CreateBunnyForm from './NewBunnyForm';
 
 
 export function Selector(props) {
@@ -18,17 +19,28 @@ export function Selector(props) {
 export function View(props) {
   if (props.viewStyle === 'thumbnail') {
     return (
-      <ThumbnailList addBunny={props.addBunny} deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
+      <ThumbnailList 
+        deleteBunny={props.deleteBunny} 
+        babyBunBuns={props.babyBunBuns}
+      />
     )
   }
   else if (props.viewStyle === 'detail') {
     return (
-      <DetailList addBunny={props.addBunny} deleteBunny={props.deleteBunny} babyBunBuns={props.babyBunBuns}/>
+      <DetailList  
+        deleteBunny={props.deleteBunny} 
+        babyBunBuns={props.babyBunBuns}
+      />
     )
   }
   else if (props.viewStyle === 'gallery') {
     return (
-      <GalleryList addBunny={props.addBunny} deleteBunny={props.deleteBunny} showHandler={props.showHandler} showBun={props.showBun} babyBunBuns={props.babyBunBuns}/>
+      <GalleryList 
+        deleteBunny={props.deleteBunny} 
+        showHandler={props.showHandler} 
+        showBun={props.showBun} 
+        babyBunBuns={props.babyBunBuns}
+      />
     )
   }
   else {
@@ -68,9 +80,8 @@ export default class ImageGallery extends React.Component {
     })
   }
 
-  addBunny(newBabyBun) {
-    let babyBunBunsMultiplied = [...this.state.babyBunBuns];
-    babyBunBunsMultiplied.push(newBabyBun);
+  addBunny(newBunBun){
+    let babyBunBunsMultiplied = this.state.babyBunBuns.concat(newBunBun);
     this.setState({
       babyBunBuns: babyBunBunsMultiplied
     })
@@ -80,7 +91,12 @@ export default class ImageGallery extends React.Component {
     return (
       <div>
         <Selector handleClick={this.handleClick}/>
-        <View addBunny={this.addBunny} deleteBunny={this.deleteBunny} babyBunBuns={this.state.babyBunBuns} viewStyle={this.state.viewStyle}/>
+        <CreateBunnyForm addBunny={this.addBunny}/>
+        <View 
+          deleteBunny={this.deleteBunny} 
+          babyBunBuns={this.state.babyBunBuns} 
+          viewStyle={this.state.viewStyle}
+        />
       </div>
     );
   }
