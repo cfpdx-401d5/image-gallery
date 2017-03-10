@@ -1,0 +1,12 @@
+exports[`List component renders the List component 1`] = `
+<ul>
+  <li>
+    <a
+      href="_url">
+      _title
+    </a>
+    : 
+    desc
+  </li>
+</ul>
+`;
