@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-img {
+.thumbnail {
   height: 100px;
   width: 100px
 }

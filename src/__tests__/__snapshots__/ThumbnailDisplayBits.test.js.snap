@@ -1,0 +1,18 @@
+exports[`ThumbnailDisplayBits component renders the ThumbnailDisplayBits component 1`] = `
+<tr>
+  <td>
+    <figure>
+      <img
+        alt="_title thumbnail"
+        className="thumbnail"
+        src="_url" />
+      <figcaption>
+        _title
+      </figcaption>
+    </figure>
+    <DeleteImageButton
+      deleteImage={[Function]}
+      id="_id" />
+  </td>
+</tr>
+`;
