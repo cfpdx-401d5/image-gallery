@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 function DeleteImageButton(props) {
   return (
@@ -11,6 +11,10 @@ function DeleteImageButton(props) {
   );
 }
 
-/* TODO proptype validation */
+DeleteImageButton.propTypes = {
+  deleteImage: PropTypes.func.isRequired, 
+  id: PropTypes.string.isRequired,
+};
+
 
 export default DeleteImageButton;

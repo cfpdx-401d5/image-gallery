@@ -1,5 +1,4 @@
-// import React, { PropTypes } from 'react';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import ListDisplayBits from './ListDisplayBits';
 
@@ -11,7 +10,16 @@ function ListDisplay(props) {
   return <ul>{imagesAsListElements}</ul>;
 }
 
-/* TODO: add PropTypes  */
+ListDisplay.propTypes = {
+  deleteImage: PropTypes.func.isRequired, 
+  images: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
 
 export default ListDisplay;
 

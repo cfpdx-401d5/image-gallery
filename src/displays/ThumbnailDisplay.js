@@ -1,5 +1,4 @@
-// import React, { PropTypes } from 'react';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import ThumbnailDisplayBits from './ThumbnailDisplayBits';
 
@@ -17,6 +16,15 @@ function ThumbnailDisplay(props) {
   );
 }
 
-/* TODO: add PropTypes  */
+ThumbnailDisplay.propTypes = {
+  deleteImage: PropTypes.func.isRequired, 
+  images: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
 
 export default ThumbnailDisplay;
