@@ -6,7 +6,7 @@ import GalleryDisplay from './displays/GalleryDisplay';
 import Selector from './Selector';
 import FormContainer from './image_form/FormContainer';
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +50,7 @@ export default class App extends React.Component {
 
   deleteImage(imageID) {
     let newImgArray = [...this.state.images].filter(image => {
-      if (image.id !== imageID) return image;
+      return (image.id !== imageID);
     });
 
     this.setState({ images: newImgArray });
