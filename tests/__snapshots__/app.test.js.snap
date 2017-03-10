@@ -1,3 +1,33 @@
+exports[`CreateBunnyForm Component creates a new bunny 1`] = `
+<form
+  onSubmit={[Function]}>
+  <label>
+    Bunny Title: 
+    <input
+      onChange={[Function]}
+      type="text"
+      value="" />
+  </label>
+  <label>
+    Bunny Url: 
+    <input
+      onChange={[Function]}
+      type="text"
+      value="" />
+  </label>
+  <label>
+    Bunny Description: 
+    <input
+      onChange={[Function]}
+      type="text"
+      value="" />
+  </label>
+  <input
+    type="submit"
+    value="Add a Bunny!" />
+</form>
+`;
+
 exports[`Gallery Component creates full-sized, titled images of bunbuns with descriptions 1`] = `
 <div>
   <h4>
@@ -94,6 +124,23 @@ exports[`Thumbnail Component creates small titled images of babybunbuns 1`] = `
     alt="Baby Bunny Goes Flop"
     height="100px"
     src="https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg" />
+</div>
+`;
+
+exports[`ThumbnailDisplay Component creates small titled images of babybunbuns 1`] = `
+<div>
+  <h4>
+    Baby Bunny Goes Flop
+  </h4>
+  <img
+    alt="Baby Bunny Goes Flop"
+    height="100px"
+    src="https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg" />
+  <br />
+  <button
+    onClick={[Function]}>
+    Delete Bunny
+  </button>
 </div>
 `;
 
