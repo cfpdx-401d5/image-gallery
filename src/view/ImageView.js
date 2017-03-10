@@ -1,22 +1,17 @@
 import React from 'react';
-import { DetailList } from './detail-view';
-import { GalleryList } from './gallery-view';
-import { ThumbnailList } from './thumbnail-view';
-import BunnyForm from '../forms/new-form';
+import { DisplayList } from './Display';
+import BunnyForm from '../forms/BunnyForm';
 import bunnies from '../image';
-
-const GALLERY_TYPE    = 'gallery';
-const LIST_TYPE       = 'list';
-const THUMBNAIL_TYPE  = 'thumbnail';
-const BUNNYFORM_TYPE  = 'bunnyForm';
+const constants = require('../constants');
 
 function ViewSelector(props) {
+    const viewTypes = Object.values(constants);
+    const viewButtons = viewTypes.map((item, index) => {
+        return <button className='buttons' key={index} onClick={() => props.onClick(item)}>{item} view</button>;
+    });
     return (
-      <div className='main-buttons'>
-        <button className='buttons' onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
-        <button className='buttons' onClick={() => props.onClick(LIST_TYPE)}>Detail View</button>
-        <button className='buttons' onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
-        <button className='buttons' onClick={() => props.onClick(BUNNYFORM_TYPE)}>Add a new Bunny</button>
+       <div className='main-buttons'>
+        { viewButtons }
       </div>
     );
 }
@@ -32,6 +27,7 @@ export default class ImageView extends React.Component {
         };
     }
 
+    //TODO: Refactor all change handlers to one
     handleDelete(value) {
         const newBunnyArray = this.state.bunnies.filter(item => { //eslint-disable-line
             if (item.id !== value) {
@@ -62,10 +58,10 @@ export default class ImageView extends React.Component {
 
     render() {
         const outputs = {
-            [LIST_TYPE]: DetailList,
-            [GALLERY_TYPE]: GalleryList,
-            [THUMBNAIL_TYPE]: ThumbnailList,
-            [BUNNYFORM_TYPE]: BunnyForm
+            [constants.THUMBNAIL_TYPE]: DisplayList,
+            [constants.DETAILS_TYPE]: DisplayList,
+            [constants.GALLERY_TYPE]: DisplayList,
+            [constants.BUNNYFORM_TYPE]: BunnyForm
         };    
     
         const OutputComponent = outputs[this.props.view];
@@ -75,6 +71,7 @@ export default class ImageView extends React.Component {
                 <ViewSelector onClick={this.props.onClick}/>
                 {OutputComponent 
                     ? <OutputComponent 
+                        view={this.props.view}
                         array={this.state.bunnies} 
                         onDelete={this.handleDelete} 
                         onChange={this.handleBunnyChange} 

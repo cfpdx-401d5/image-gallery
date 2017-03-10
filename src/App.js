@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageView from './view/display-view';
+import ImageView from './view/ImageView';
 
 export default class App extends React.Component {
     constructor(props) {
