@@ -1,7 +1,7 @@
 import React from 'react';
-import { List } from './view/list-view';
-import { Gallery } from './view/gallery-view';
-import { Thumbnail } from './view/thumbnail-view';
+import List from './view/list-view';
+import Gallery from './view/gallery-view';
+import Thumbnail from './view/thumbnail-view';
 
 import bunnies from './image';
 

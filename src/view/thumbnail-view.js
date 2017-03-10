@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Thumbnail(props) {
+export default function Thumbnail(props) {
     const thumbnail = props.array.map((item, index) => {
         return (
           <li key={index}>
@@ -16,8 +16,4 @@ function Thumbnail(props) {
 
 Thumbnail.propTypes = {
     array: React.PropTypes.array
-};
-
-export {
-    Thumbnail
 };

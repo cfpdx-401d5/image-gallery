@@ -1,0 +1,7 @@
+exports[`Full App full app display 1`] = `
+<div>
+  <ImageView
+    onClick={[Function]}
+    view={null} />
+</div>
+`;
