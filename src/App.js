@@ -10,7 +10,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewType: 'list',
+      displayType: 'list',
       images: [{
         id: 'id1',
         title: 'Cute Bunny',
@@ -31,13 +31,13 @@ export default class App extends Component {
       }
       ],
     };
-    this.clickHandler = this.clickHandler.bind(this);
+    this.setDisplay = this.setDisplay.bind(this);
     this.addImage = this.addImage.bind(this);
     this.deleteImage = this.deleteImage.bind(this);
   }
 
-  clickHandler(whatView) {
-    this.setState({ viewType: whatView });
+  setDisplay(whatDisplay) {
+    this.setState({ displayType: whatDisplay });
   }
 
   addImage(e, imageSubmission) {
@@ -59,15 +59,15 @@ export default class App extends Component {
   render() {
     let displayType;
 
-    if (this.state.viewType === 'list') displayType = <ListDisplay images={this.state.images} deleteImage={this.deleteImage}/>; 
-    else if (this.state.viewType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
-    else if (this.state.viewType === 'gallery') displayType = <GalleryDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
+    if (this.state.displayType === 'list') displayType = <ListDisplay images={this.state.images} deleteImage={this.deleteImage}/>; 
+    else if (this.state.displayType === 'thumbnail') displayType = <ThumbnailDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
+    else if (this.state.displayType === 'gallery') displayType = <GalleryDisplay images={this.state.images} deleteImage={this.deleteImage}/>;
 
     return (
         <div>
           <h1>Image Gallery</h1>
           <FormContainer addImage={this.addImage} />
-          <DisplaySelector clickHandler={this.clickHandler} />
+          <DisplaySelector setDisplay={this.setDisplay} />
           {displayType}
         </div>
     );

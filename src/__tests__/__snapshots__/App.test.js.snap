@@ -6,7 +6,7 @@ exports[`App runs the App 1`] = `
   <FormContainer
     addImage={[Function]} />
   <DisplaySelector
-    clickHandler={[Function]} />
+    setDisplay={[Function]} />
   <ListDisplay
     deleteImage={[Function]}
     images={

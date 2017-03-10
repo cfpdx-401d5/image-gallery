@@ -7,13 +7,9 @@ import toJson from 'enzyme-to-json';
 
 import DisplaySelector from '../DisplaySelector';
 
-function testClickHandler(a) {
-    return a;
-}
-
 describe('DisplaySelector component', function () {
     it('renders the DisplaySelector component', () => {
-        const rendered = shallow(<DisplaySelector clickHandler={testClickHandler}/>);
+        const rendered = shallow(<DisplaySelector setDisplay={() => {}} />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });

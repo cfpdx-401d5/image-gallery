@@ -5,7 +5,7 @@ function DisplaySelector(props) {
     <div>
       <button
         onClick={() => {
-          props.clickHandler('list');
+          props.setDisplay('list');
         }}
       >
         List
@@ -13,7 +13,7 @@ function DisplaySelector(props) {
 
       <button 
         onClick={() => {
-          props.clickHandler('thumbnail');
+          props.setDisplay('thumbnail');
         }}
       >
         Thumbnail
@@ -21,7 +21,7 @@ function DisplaySelector(props) {
 
       <button
         onClick={() => {
-          props.clickHandler('gallery');
+          props.setDisplay('gallery');
         }}
       >
         Gallery
@@ -30,7 +30,7 @@ function DisplaySelector(props) {
   );
 }
 DisplaySelector.propTypes = {
-  clickHandler: PropTypes.func.isRequired,
+  setDisplay: PropTypes.func.isRequired,
 };
 
 export default DisplaySelector;
