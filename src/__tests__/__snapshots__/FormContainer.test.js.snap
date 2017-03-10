@@ -4,24 +4,15 @@ exports[`FormContainer runs the FormContainer 1`] = `
   <h4>
     Add a new image
   </h4>
-  <input
-    defaultValue=""
-    name="title"
-    onChange={[Function]}
-    placeholder="Enter title"
-    type="text" />
-  <input
-    defaultValue=""
-    name="description"
-    onChange={[Function]}
-    placeholder="Enter description"
-    type="text" />
-  <input
-    defaultValue=""
-    name="url"
-    onChange={[Function]}
-    placeholder="Enter url"
-    type="text" />
+  <InputField
+    handler={[Function]}
+    name="title" />
+  <InputField
+    handler={[Function]}
+    name="description" />
+  <InputField
+    handler={[Function]}
+    name="url" />
   <button
     type="text">
     Submit
