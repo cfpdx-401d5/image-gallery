@@ -1,5 +1,4 @@
-// import React, { PropTypes } from 'react';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import GalleryDisplayBits from './GalleryDisplayBits';
 
@@ -15,6 +14,15 @@ function GalleryDisplay(props) {
   );
 }
 
-/* TODO: add PropTypes  */
+GalleryDisplay.propTypes = {
+  deleteImage: PropTypes.func.isRequired, 
+  images: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
 
 export default GalleryDisplay;

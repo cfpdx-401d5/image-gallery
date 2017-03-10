@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import shortid from 'shortid';
 
+import InputField from './InputField';
+
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -33,29 +35,11 @@ class FormContainer extends Component {
           e.target.reset();
         }}
         >
-            <h4>Add a new image</h4>
-            <input
-                name='title'
-                type='text'
-                placeholder='Enter title'
-                defaultValue=''
-                onChange={this.handleInputChange}
-            />
-              <input
-                name='description'
-                type='text'
-                placeholder='Enter description'
-                defaultValue=''
-                onChange={this.handleInputChange}
-            />
-              <input
-                name='url'
-                type='text'
-                placeholder='Enter url'
-                defaultValue=''
-                onChange={this.handleInputChange}
-            />
-            <button type='text'>Submit</button>
+          <h4>Add a new image</h4>
+          <InputField name='title' handler={this.handleInputChange} />
+          <InputField name='description' handler={this.handleInputChange} />
+          <InputField name='url' handler={this.handleInputChange} />
+          <button type='text'>Submit</button>
         </form>
     );
   }

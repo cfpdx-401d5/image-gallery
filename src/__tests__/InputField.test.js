@@ -5,15 +5,11 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import Selector from '../Selector';
+import InputField from '../image_form/InputField';
 
-function testClickHandler(a) {
-    return a;
-}
-
-describe('Selector component', function () {
-    it('renders the Selector component', () => {
-        const rendered = shallow(<Selector clickHandler={testClickHandler}/>);
+describe('InputField component', function () {
+    it('renders the InputField component', () => {
+        const rendered = shallow(<InputField name='_name' handler={() => {}} />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });

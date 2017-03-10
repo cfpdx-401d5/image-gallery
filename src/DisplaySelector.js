@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 
-function Selector(props) {
+function DisplaySelector(props) {
   return (
     <div>
       <button
         onClick={() => {
-          props.clickHandler('list');
+          props.setDisplay('list');
         }}
       >
         List
@@ -13,7 +13,7 @@ function Selector(props) {
 
       <button 
         onClick={() => {
-          props.clickHandler('thumbnail');
+          props.setDisplay('thumbnail');
         }}
       >
         Thumbnail
@@ -21,7 +21,7 @@ function Selector(props) {
 
       <button
         onClick={() => {
-          props.clickHandler('gallery');
+          props.setDisplay('gallery');
         }}
       >
         Gallery
@@ -29,8 +29,8 @@ function Selector(props) {
     </div>
   );
 }
-Selector.propTypes = {
-  clickHandler: PropTypes.func.isRequired,
+DisplaySelector.propTypes = {
+  setDisplay: PropTypes.func.isRequired,
 };
 
-export default Selector;
+export default DisplaySelector;
