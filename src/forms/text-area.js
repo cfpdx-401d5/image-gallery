@@ -5,7 +5,7 @@ function TextArea(props) {
         <div>
             <label>{props.title}</label><br />
             <textarea
-                style={props.resize ? null : {resize: 'none'}}
+                style={props.resize ? null : { resize: 'none' }}
                 name={props.name}
                 rows={props.rows}
                 value={props.content}
