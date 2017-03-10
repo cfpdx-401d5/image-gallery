@@ -7,7 +7,7 @@ function ThumbnailDisplay(props) {
       <a href={props.image.url} > 
         <img className='thumbnail' alt='cute bunny' src={props.image.url} /> 
       </a>
-      <button className='kill-button' onClick={() => this.props.onDelete(this.props.image.id)}>
+      <button className='kill-button' onClick={() => props.deleteImage(props.image) }>
         Delete
       </button>      
     </div>
@@ -16,6 +16,7 @@ function ThumbnailDisplay(props) {
 
 ThumbnailDisplay.propTypes = {
   image: PropTypes.object.isRequired,
+  deleteImage: PropTypes.func.isRequired,
 };
 
 export default ThumbnailDisplay;
