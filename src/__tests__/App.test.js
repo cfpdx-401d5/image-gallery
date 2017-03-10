@@ -2,32 +2,83 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import App, { ListView, ThumbnailView, GalleryView } from '../App';
+import App, { 
+    ViewSelector, 
+    ViewDisplay, 
+    DetailList, 
+    ThumbnailList, 
+    GalleryList, 
+    DetailDisplay, 
+    ThumbnailDisplay, 
+    GalleryDisplay  } from '../App';
+import AddResource from '../add-resource';
 
 describe('App', () => {
-    it('runs my test', () => {
+    it('runs my app', () => {
         const renderer = shallow(<App />);
         expect(toJson(renderer)).toMatchSnapshot();
     })
 })
+url
+describe('ViewSelector', () => {
+    it('selects view', () => {
+        const renderer = shallow(<ViewSelector onViewSelect={()=>{}}/>);
+        expect(toJson(renderer)).toMatchSnapshot();
+    })
+})
 
-describe('ListView', () => {
-    it('displays list', () => {
-        let output = shallow(<ListView resource= {{title:'a', url: 'b', description: 'c'}}/>);
+describe('ViewDisplay', () => {
+    it('displays view', () => {
+        const renderer = shallow(<ViewDisplay selectedView={'gallery'} resources= {[{title:'a', url: 'b', description: 'c'},{title:'1', url: '2', description: '3'}]} onDelete={()=>{}}/>);
+        expect(toJson(renderer)).toMatchSnapshot();
+    })
+})
+
+describe('DetailList', () => {
+    it('displays detail list', () => {
+        let output = shallow(<DetailList resources= {[{title:'a', url: 'b', description: 'c'},{title:'1', url: '2', description: '3'}]} onDelete={()=>{}}/>);
         expect(toJson(output)).toMatchSnapshot();
     })
 })
 
-describe('ThumbnailView', () => {
-    it('displays list', () => {
-        let output = shallow(<ThumbnailView resource= {{title:'a', url: 'b', description: 'c'}}/>);
+describe('ThumbnailList', () => {
+    it('displays thumbnail list', () => {
+        let output = shallow(<ThumbnailList resources= {[{title:'a', url: 'b', description: 'c'},{title:'1', url: '2', description: '3'}]} onDelete={()=>{}}/>);
         expect(toJson(output)).toMatchSnapshot();
     })
 })
 
-describe('GalleryView', () => {
-    it('displays list', () => {
-        let output = shallow(<GalleryView resource= {{title:'a', url: 'b', description: 'c'}}/>);
+describe('GalleryList', () => {
+    it('displays gallery list', () => {
+        let output = shallow(<GalleryList resources= {[{title:'a', url: 'b', description: 'c'},{title:'1', url: '2', description: '3'}]} onDelete={()=>{}}/>);
+        expect(toJson(output)).toMatchSnapshot();
+    })
+})
+
+describe('DetailDisplay', () => {
+    it('displays one detail resource', () => {
+        let output = shallow(<DetailDisplay key={new Date()} resource= {{title:'a', url: 'b', description: 'c'}} onDelete={()=>{}}/>);
+        expect(toJson(output)).toMatchSnapshot();
+    })
+})
+
+describe('ThumbnailDisplay', () => {
+    it('displays one thumbnail resource', () => {
+        let output = shallow(<ThumbnailDisplay key={new Date()} resource= {{title:'a', url: 'b', description: 'c'}} onDelete={()=>{}}/>);
+        expect(toJson(output)).toMatchSnapshot();
+    })
+})
+
+describe('GalleryDisplay', () => {
+    it('displays one gallery resource', () => {
+        let output = shallow(<GalleryDisplay key={new Date()} resource= {{title:'a', url: 'b', description: 'c'}} onDelete={()=>{}}/>);
+        expect(toJson(output)).toMatchSnapshot();
+    })
+})
+
+describe('AddResource', () => {
+    it('adds a resource', () => {
+        let output = shallow(<AddResource onDelete={()=>{}}/>);
         expect(toJson(output)).toMatchSnapshot();
     })
 })

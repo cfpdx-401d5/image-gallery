@@ -1,20 +1,82 @@
-exports[`App runs my test 1`] = `
+exports[`AddResource adds a resource 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}>
+    <input
+      placeholder="title"
+      required={true} />
+    <input
+      placeholder="url"
+      required={true} />
+    <input
+      placeholder="description"
+      required={true} />
+    <button>
+      Add
+    </button>
+  </form>
+</div>
+`;
+
+exports[`App runs my app 1`] = `
 <div>
   <ViewSelector
     onViewSelect={[Function]} />
   <ViewDisplay
-    resource={
-      Object {
-        "description": "Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?",
-        "title": "Cute Bunny",
-        "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
-      }
-    }
+    onDelete={[Function]}
     selectedView="" />
+  <AddResource
+    onAdd={[Function]} />
 </div>
 `;
 
-exports[`GalleryView displays list 1`] = `
+exports[`DetailDisplay displays one detail resource 1`] = `
+<div>
+  <ul>
+    <li>
+      Title: 
+      a
+    </li>
+    <li>
+      Url: 
+      b
+    </li>
+    <li>
+      Description: 
+      c
+    </li>
+  </ul>
+  <button
+    onClick={[Function]}>
+    delete
+  </button>
+</div>
+`;
+
+exports[`DetailList displays detail list 1`] = `
+<div>
+  <DetailDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "c",
+        "title": "a",
+        "url": "b",
+      }
+    } />
+  <DetailDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "3",
+        "title": "1",
+        "url": "2",
+      }
+    } />
+</div>
+`;
+
+exports[`GalleryDisplay displays one gallery resource 1`] = `
 <div>
   <p>
     Title: 
@@ -28,27 +90,37 @@ exports[`GalleryView displays list 1`] = `
     Description: 
     c
   </p>
+  <button
+    onClick={[Function]}>
+    delete
+  </button>
 </div>
 `;
 
-exports[`ListView displays list 1`] = `
+exports[`GalleryList displays gallery list 1`] = `
 <div>
-  <p>
-    Title: 
-    a
-  </p>
-  <p>
-    Url: 
-    b
-  </p>
-  <p>
-    Description: 
-    c
-  </p>
+  <GalleryDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "c",
+        "title": "a",
+        "url": "b",
+      }
+    } />
+  <GalleryDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "3",
+        "title": "1",
+        "url": "2",
+      }
+    } />
 </div>
 `;
 
-exports[`ThumbnailView displays list 1`] = `
+exports[`ThumbnailDisplay displays one thumbnail resource 1`] = `
 <div>
   <p>
     Title: 
@@ -58,5 +130,69 @@ exports[`ThumbnailView displays list 1`] = `
     alt="Cute Bunny"
     className="thumbnail"
     src="b" />
+  <button
+    onClick={[Function]}>
+    delete
+  </button>
+</div>
+`;
+
+exports[`ThumbnailList displays thumbnail list 1`] = `
+<div>
+  <ThumbnailDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "c",
+        "title": "a",
+        "url": "b",
+      }
+    } />
+  <ThumbnailDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "3",
+        "title": "1",
+        "url": "2",
+      }
+    } />
+</div>
+`;
+
+exports[`ViewDisplay displays view 1`] = `
+<GalleryList
+  onDelete={[Function]}
+  resources={
+    Array [
+      Object {
+        "description": "c",
+        "title": "a",
+        "url": "b",
+      },
+      Object {
+        "description": "3",
+        "title": "1",
+        "url": "2",
+      },
+    ]
+  } />
+`;
+
+exports[`ViewSelector selects view 1`] = `
+<div
+  className="view-selector">
+  <button
+    onClick={[Function]}>
+    List View
+  </button>
+  <button
+    onClick={[Function]}>
+    Thumbnail View
+  </button>
+  <button
+    onClick={[Function]}>
+    Gallery View
+  </button>
 </div>
 `;
