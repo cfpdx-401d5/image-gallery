@@ -1,7 +1,7 @@
 import React from 'react';
 import EditForm from '../forms/edit-form';
 
-class GalleryDisplay extends React.Component {
+class DetailDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,10 +18,10 @@ class GalleryDisplay extends React.Component {
 
     render() {
         return (
-          <li> 
+          <li>
             <p><b>Title:</b> {this.props.item.title}</p>
-            <img className='gallery' src={this.props.item.url} alt='cute bunnys'/>
             <p><b>Description:</b> {this.props.item.description}</p>
+            <p><b>URL:</b> <a href={this.props.item.url}>{this.props.item.url}</a></p>
             <button className='buttons' onClick={() => this.props.onDelete(this.props.item.id)}>Delete</button>
             <button className='buttons' onClick={() => this.editForm()}>Edit</button>
             <div>{this.state.isEditable && <EditForm item={this.props.item} onChange={this.props.onChange} onDisplay={this.editForm} onEdit={this.props.onEdit} />}</div>
@@ -31,31 +31,31 @@ class GalleryDisplay extends React.Component {
     }
 }
 
-function GalleryList(props) {
-    const galleryItem = props.array.map((item, index) => {
+function DetailList(props) {
+    const listItem = props.array.map((item, index) => {
         return (
-            <GalleryDisplay key={index} item={item} onDelete={props.onDelete} onChange={props.onChange} onEdit={props.onEdit} />
+            <DetailDisplay key={index} item={item} onDelete={props.onDelete} onChange={props.onChange} onEdit={props.onEdit} />
         );
     });
     return (
-      <ul>{galleryItem}</ul>
+      <ul>{listItem}</ul>
     );
 }
 
-GalleryList.propTypes = {
+DetailList.propTypes = {
     array: React.PropTypes.array,
     onDelete: React.PropTypes.func,
-    onChange: React.PropTypes.func,
     onEdit: React.PropTypes.func
 };
 
-GalleryDisplay.propTypes = {
+DetailDisplay.propTypes = {
     item: React.PropTypes.object,
     onDelete: React.PropTypes.func,
+    onDisplay: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onEdit: React.PropTypes.func
 };
 
 export {
-    GalleryList
+    DetailList
 };
