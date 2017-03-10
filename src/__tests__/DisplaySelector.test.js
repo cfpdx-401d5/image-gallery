@@ -5,15 +5,15 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import Selector from '../Selector';
+import DisplaySelector from '../DisplaySelector';
 
 function testClickHandler(a) {
     return a;
 }
 
-describe('Selector component', function () {
-    it('renders the Selector component', () => {
-        const rendered = shallow(<Selector clickHandler={testClickHandler}/>);
+describe('DisplaySelector component', function () {
+    it('renders the DisplaySelector component', () => {
+        const rendered = shallow(<DisplaySelector clickHandler={testClickHandler}/>);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });

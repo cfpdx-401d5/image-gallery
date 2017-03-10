@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ListDisplay from './displays/ListDisplay';
 import ThumbnailDisplay from './displays/ThumbnailDisplay';
 import GalleryDisplay from './displays/GalleryDisplay';
-import Selector from './Selector';
+import DisplaySelector from './DisplaySelector';
 import FormContainer from './image_form/FormContainer';
 
 export default class App extends Component {
@@ -49,7 +49,7 @@ export default class App extends Component {
   }
 
   deleteImage(imageID) {
-    let newImgArray = [...this.state.images].filter(image => {
+    let newImgArray = this.state.images.filter(image => {
       return (image.id !== imageID);
     });
 
@@ -65,8 +65,9 @@ export default class App extends Component {
 
     return (
         <div>
+          <h1>Image Gallery</h1>
           <FormContainer addImage={this.addImage} />
-          <Selector clickHandler={this.clickHandler} />
+          <DisplaySelector clickHandler={this.clickHandler} />
           {displayType}
         </div>
     );

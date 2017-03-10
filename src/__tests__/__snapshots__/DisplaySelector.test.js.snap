@@ -1,4 +1,4 @@
-exports[`Selector component renders the Selector component 1`] = `
+exports[`DisplaySelector component renders the DisplaySelector component 1`] = `
 <div>
   <button
     onClick={[Function]}>

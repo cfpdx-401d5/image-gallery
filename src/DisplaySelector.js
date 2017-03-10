@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-function Selector(props) {
+function DisplaySelector(props) {
   return (
     <div>
       <button
@@ -29,8 +29,8 @@ function Selector(props) {
     </div>
   );
 }
-Selector.propTypes = {
+DisplaySelector.propTypes = {
   clickHandler: PropTypes.func.isRequired,
 };
 
-export default Selector;
+export default DisplaySelector;

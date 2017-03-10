@@ -1,8 +1,11 @@
 exports[`App runs the App 1`] = `
 <div>
+  <h1>
+    Image Gallery
+  </h1>
   <FormContainer
     addImage={[Function]} />
-  <Selector
+  <DisplaySelector
     clickHandler={[Function]} />
   <ListDisplay
     deleteImage={[Function]}
