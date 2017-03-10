@@ -31,7 +31,7 @@ class GalleryDisplay extends React.Component {
     }
 }
 
-function GalleryList(props) {
+export default function GalleryList(props) {
     const galleryItem = props.array.map((item, index) => {
         return (
             <GalleryDisplay key={index} item={item} onDelete={props.onDelete} onChange={props.onChange} onEdit={props.onEdit} />
@@ -54,8 +54,4 @@ GalleryDisplay.propTypes = {
     onDelete: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onEdit: React.PropTypes.func
-};
-
-export {
-    GalleryList
 };
