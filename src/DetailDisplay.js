@@ -16,7 +16,6 @@ function DetailDisplay(props) {
 DetailDisplay.propTypes = {
   image: PropTypes.object.isRequired,
   deleteImage: PropTypes.func.isRequired,
-  imageObjectIdx: PropTypes.number.isRequired,
 };
 
 export default DetailDisplay;
