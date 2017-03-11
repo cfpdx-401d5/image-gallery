@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // import images from './images';
 
@@ -32,7 +32,7 @@ const images = [
 import DetailList from './DetailList';
 import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
-// import NewImageForm from './NewImageForm';
+import NewImageForm from './NewImageForm';
 
 function ImageSelectorBar(props) {
   return (
@@ -40,7 +40,8 @@ function ImageSelectorBar(props) {
       <button onClick={() => props.clickHandler('detail')}> Detail View </button>
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
-      <button className='add-button' onClick={() => props.clickHandler('form')}> Add New Image </button>
+      <br />
+      {/*<button onClick={() => props.clickHandler('form')} className='add-button'> Add New Image </button>*/}
     </div>
   ); 
 }
@@ -97,12 +98,21 @@ export default class ImageGallery extends Component {
     }
     return (
       <div>
-        <ImageSelectorBar
-          clickHandler={this.clickHandler}
-        />
+        <ImageSelectorBar clickHandler={this.clickHandler} />
+        <br />
+        <NewImageForm addImage={this.addImage} />
         {contents}
       </div>
     );
   }
 
+}
+
+ImageGallery.propTypes = {
+  images: PropTypes.array.isRequired,
+  deleteImage: PropTypes.func.isRequired,
+};
+
+ImageSelectorBar.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
 }
