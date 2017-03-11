@@ -32,7 +32,7 @@ const images = [
 import DetailList from './DetailList';
 import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
-import NewImageForm from './NewImageForm';
+// import NewImageForm from './NewImageForm';
 
 function ImageSelectorBar(props) {
   return (
@@ -40,7 +40,7 @@ function ImageSelectorBar(props) {
       <button onClick={() => props.clickHandler('detail')}> Detail View </button>
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
-      <button onClick={() => props.clickHandler('form')}> Add New Image </button>
+      <button className='add-button' onClick={() => props.clickHandler('form')}> Add New Image </button>
     </div>
   ); 
 }

@@ -32,6 +32,16 @@ button {
   background: lightgreen;
 }
 
+.add-button {
+  border: 2px solid magenta;
+  margin-left: 25px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px;
+  background: lightblue; 
+}
+
 .kill-button {
   border: 2px solid blue;
   margin-left: 25px;
@@ -39,11 +49,15 @@ button {
   font-size: 14px;
   font-weight: bold;
   padding: 6px;
-  background: magenta;
+  background: hotpink;
+}
+
+div button:hover {
+  border: 4px solid blue;
 }
 
 .image-select {
-  margin-left: 160px;
+  margin-left: 80px;
 }
 
 .image-divs {
