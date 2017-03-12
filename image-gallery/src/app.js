@@ -10,17 +10,6 @@ const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
 const THUMBNAIL_TYPE = 'thumbnail';
 
-
-function ViewSelector(props) {
-    return (
-        <div>
-            <button onClick={() => props.onClick(GALLERY_TYPE)} className="action-button shadow animate red">Gallery View</button>
-            <button onClick={() => props.onClick(LIST_TYPE)} className="action-button shadow animate green">List View</button>
-            <button onClick={() => props.onClick(THUMBNAIL_TYPE)} className="action-button shadow animate yellow">Thumbnail View</button>
-        </div>
-    );
-}
-
 function ImageView(props) {
     const schnoodleArray = puppies();
 
@@ -34,14 +23,25 @@ function ImageView(props) {
 
     return (
         <div>
-            <ViewSelector onClick={props.onClick} />
             {OutputComponent
                 ? <OutputComponent array={schnoodleArray} />
-                : 'Click a button to view schnoodles!'
+                : <text className="view">Click a button to view schnoodles:</text>
             }
+            <ViewSelector onClick={props.onClick} />
         </div>
     );
 }
+
+function ViewSelector(props) {
+    return (
+        <div className="button-holder">
+            <button onClick={() => props.onClick(GALLERY_TYPE)} className="action-button shadow animate red">Gallery View</button>
+            <button onClick={() => props.onClick(LIST_TYPE)} className="action-button shadow animate green">List View</button>
+            <button onClick={() => props.onClick(THUMBNAIL_TYPE)} className="action-button shadow animate yellow">Thumbnail View</button>
+        </div>
+    );
+}
+
 
 export default class App extends React.Component {
     constructor(props) {
@@ -67,15 +67,15 @@ export default class App extends React.Component {
     }
 }
 // console.log(<ImageView ViewSelector onClick={[Function]} />)
-
-ViewSelector.propTypes = {
-    onClick: React.PropTypes.func
-};
-
 ImageView.propTypes = {
     view: React.PropTypes.string,
     state: React.PropTypes.object,
     onClick: React.PropTypes.func
 };
+
+ViewSelector.propTypes = {
+    onClick: React.PropTypes.func
+};
+
 
 
