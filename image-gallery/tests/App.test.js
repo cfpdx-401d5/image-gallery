@@ -17,9 +17,16 @@ describe('my buttons click handlers', () => {
 
 describe('gallery view', () => {
     it('displays gallery list', () => {
-        const rendered = shallow(<Gallery array={[]} />);
+        const rendered = shallow(<Gallery array= {[]} />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });
+
+describe('list view', () => {
+    it('displays list w correct properties', () => {
+        const rendered = shallow(<List array= {[]} />);
+        expect(toJson(rendered)).toMatchSnapshot();
+    })
+})
 
 //none of my other tests will work
