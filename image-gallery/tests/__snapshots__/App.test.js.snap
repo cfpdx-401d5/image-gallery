@@ -1,0 +1,69 @@
+exports[`adding a new schnoodle adds a shcnoodle 1`] = `
+<form>
+  <fieldset>
+    <legend
+      className="view">
+      Add your schnoodle 
+    </legend>
+    <div
+      className="formz">
+      <TextField
+        content=""
+        controlFunc={[Function]}
+        inputType="text"
+        name="title"
+        placeholder="Please type the name of your schnoodle for the title"
+        title="Title: " />
+      <TextArea
+        content=""
+        controlFunc={[Function]}
+        name="description"
+        placeholder="Describe your schnoodle"
+        resize={false}
+        rows={5}
+        title="Description: " />
+      <TextField
+        content=""
+        controlFunc={[Function]}
+        inputType="text"
+        name="url"
+        placeholder="Put the link to your picture here"
+        title="URL: " />
+    </div>
+    <button
+      className="action-button shadow animate green"
+      onClick={[Function]}>
+      Submit
+    </button>
+    <button
+      className="action-button shadow animate red"
+      onClick={[Function]}>
+      Clear Form
+    </button>
+  </fieldset>
+</form>
+`;
+
+exports[`gallery view gallery display 1`] = `<ul />`;
+
+exports[`list view list display 1`] = `<ul />`;
+
+exports[`my buttons click handlers runs my test! 1`] = `
+<div>
+  <ImageView
+    onClick={[Function]}
+    view={null} />
+</div>
+`;
+
+exports[`rendering list displays list 1`] = `
+<div>
+  <text
+    className="view">
+    Click a button to view schnoodles:
+  </text>
+  <ViewSelector />
+</div>
+`;
+
+exports[`thumbnail view thumbnail display 1`] = `<ul />`;
