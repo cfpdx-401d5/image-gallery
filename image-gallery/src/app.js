@@ -1,8 +1,8 @@
 //the class work yesterday really helped me understand this
 import React from 'react';
-import { List } from './view/list';
-import { Gallery } from './view/gallery';
-import { Thumbnail } from './view/thumbnail'
+import List from './view/list';
+import Gallery from './view/gallery';
+import Thumbnail from './view/thumbnail'
 
 import puppies from './schnoodle';
 
@@ -14,9 +14,9 @@ const THUMBNAIL_TYPE = 'thumbnail';
 function ViewSelector(props) {
     return (
         <div>
-            <button onClick={() => props.onClick(GALLERY_TYPE)}>Gallery View</button>
-            <button onClick={() => props.onClick(LIST_TYPE)}>List View</button>
-            <button onClick={() => props.onClick(THUMBNAIL_TYPE)}>Thumbnail View</button>
+            <button onClick={() => props.onClick(GALLERY_TYPE)} className="action-button shadow animate red">Gallery View</button>
+            <button onClick={() => props.onClick(LIST_TYPE)} className="action-button shadow animate green">List View</button>
+            <button onClick={() => props.onClick(THUMBNAIL_TYPE)} className="action-button shadow animate yellow">Thumbnail View</button>
         </div>
     );
 }

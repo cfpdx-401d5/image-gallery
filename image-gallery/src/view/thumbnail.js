@@ -1,19 +1,21 @@
 import React from 'react';
 
 export default function Thumbnail(props) {
-    const thumbnail = props.array.map((schnoodle, index) => {
-        return (
-          <li key={index}>
-            <p>title: {schnoodle.title}</p>
-            <img className='thumbnail' src={schnoodle.url} alt='' height='100' width='100' />
-          </li>
-        );
-    });
+  const thumbnail = props.array.map((schnoodle, index) => {
     return (
-      <ul>{thumbnail}</ul>
+      <div className="clearfix" key={index}>
+        <li key={index}>
+          <p height='20px' width='200'>title: {schnoodle.title}</p>
+          <img className='thumbnail' src={schnoodle.url} alt='' height='100' width='100' />
+        </li>
+      </div>
     );
+  });
+  return (
+    <ul>{thumbnail}</ul>
+  );
 }
 
 Thumbnail.propTypes = {
-    array: React.PropTypes.array
+  array: React.PropTypes.array
 };
