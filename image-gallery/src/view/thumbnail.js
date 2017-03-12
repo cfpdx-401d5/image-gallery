@@ -12,7 +12,7 @@ function ThumbnailDisplay(props) {
   );
 }
 
-function Thumbnail(props) {
+export default function Thumbnail(props) {
     const thumbnail = props.array.map((schnoodle, index) => {
         return (
             <ThumbnailDisplay key={index} schnoodle={schnoodle} onDelete={props.onDelete}/>
@@ -33,6 +33,3 @@ ThumbnailDisplay.propTypes = {
     onDelete: React.PropTypes.func
 };
 
-export {
-    Thumbnail
-};

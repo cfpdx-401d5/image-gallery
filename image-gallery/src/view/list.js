@@ -13,7 +13,7 @@ function ListDisplay(props) {
     );
 }
 
-function List(props) {
+export default function List(props) {
     const listItem = props.array.map((schnoodle, index) => {
         return (
             <ListDisplay key={index} schnoodle={schnoodle} onDelete={props.onDelete}/>
@@ -34,6 +34,3 @@ ListDisplay.propTypes = {
     onDelete: React.PropTypes.func
 };
 
-export {
-    List
-};

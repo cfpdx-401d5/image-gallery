@@ -13,7 +13,7 @@ function GalleryDisplay(props) {
     );
 }
 
-function Gallery(props) {
+export default function Gallery(props) {
     const galleryObj = props.array.map((schnoodle, index) => {
         return (
             <GalleryDisplay key={index} schnoodle={schnoodle} onDelete={props.onDelete} />
@@ -35,6 +35,3 @@ Gallery.propTypes = {
     onDelete: React.PropTypes.func
 };
 
-export {
-    Gallery
-};
