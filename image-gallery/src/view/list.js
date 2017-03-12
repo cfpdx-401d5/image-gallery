@@ -1,6 +1,6 @@
 import React from 'react';
 
-function List(props) {
+export default function List(props) {
     const listObj = props.array.map((schnoodle, index) => {
         return (
           <li key={index}>
@@ -17,8 +17,4 @@ function List(props) {
 
 List.propTypes = {
     array: React.PropTypes.array
-};
-
-export {
-    List
 };

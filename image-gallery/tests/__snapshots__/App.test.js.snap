@@ -5,3 +5,5 @@ exports[`my buttons click handlers runs my test! 1`] = `
     view={null} />
 </div>
 `;
+
+exports[`gallery view displays gallery list 1`] = `<ul />`;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Gallery(props) {
+export default function Gallery(props) {
     const galleryObj = props.array.map((schnoodle, index) => {
         return (
             <li key={index}>
@@ -17,8 +17,4 @@ function Gallery(props) {
 
 Gallery.propTypes = {
     array: React.PropTypes.array
-};
-
-export {
-    Gallery
 };
