@@ -13,8 +13,8 @@ div .button
 {
 	position: relative;
 	padding: 20px 40px;
-  margin: 0px 10px 10px 0px;
-  float: left;
+  	margin: 0px 10px 10px 0px;
+  	float: left;
 	border-radius: 10px;
 	font-family: 'Pacifico', cursive;
 	font-size: 25px;
@@ -25,26 +25,47 @@ div .button
 .red
 {
 	background-color: #E74C3C;
-	border-bottom: 5px solid #BD3E31;
 	text-shadow: 0px -2px #BD3E31;
-	height: 100px; 
-	width: 256px;
+	height: 75px; 
+	width: 150px;
 }
 
 .green
 {
 	background-color: #82BF56;
-	border-bottom: 5px solid #669644;
 	text-shadow: 0px -2px #669644;
-	height: 100px; 
-	width: 256px;
+	height: 75px; 
+	width: 150px;
 }
 
 .yellow
 {
 	background-color: #F2CF66;
-	border-bottom: 5px solid #D1B358;
 	text-shadow: 0px -2px #D1B358;
+	height: 100px;
+	width: 256px;
+}
+
+.blue
+{
+	background-color: #3498DB;
+	text-shadow: 0px -2px #2980B9;
+	height: 100px;
+	width: 256px;
+}
+
+.purple 
+{
+	background-color:  #9400D3;
+	text-shadow: 0px -2px #BA55D3;
+	height: 100px;
+	width: 256px;
+}
+
+.orange 
+{
+	background-color: #FFA500;
+	text-shadow: 0px -2px #FF7F50;
 	height: 100px;
 	width: 256px;
 }
@@ -52,7 +73,7 @@ div .button
 .action-button:active
 {
 	transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
+  	-webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
 
@@ -76,3 +97,28 @@ div .button
 	padding-top: 25px;
 	padding-right: 1200px;
 }
+
+.formz {
+	font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	font-size: .4em;
+	letter-spacing: .02em;
+	line-height: .2 em;
+	margin: 0px;
+	text-align: center;
+	text-transform: uppercase;
+	padding-bottom: 5px;
+}
+
+input {
+	width: 500px;
+	height: 50px;
+}
+
+textarea {
+	width: 500px;
+	height: 50px;
+}
+
+
+
