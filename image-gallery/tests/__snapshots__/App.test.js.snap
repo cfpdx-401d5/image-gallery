@@ -9,3 +9,5 @@ exports[`my buttons click handlers runs my test! 1`] = `
     view={null} />
 </div>
 `;
+
+exports[`thumbnail view display thumbnail list 1`] = `<ul />`;

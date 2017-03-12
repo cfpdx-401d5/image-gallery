@@ -26,7 +26,14 @@ describe('list view', () => {
     it('displays list w correct properties', () => {
         const rendered = shallow(<List array= {[]} />);
         expect(toJson(rendered)).toMatchSnapshot();
-    })
-})
+    });
+});
+
+describe('thumbnail view', () => {
+    it('display thumbnail list', () => {
+        const rendered = shallow(<Thumbnail array = {[]} />);
+        expect(toJson(rendered)).toMatchSnapshot();
+    });
+});
 
 //none of my other tests will work
