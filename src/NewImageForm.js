@@ -7,11 +7,12 @@ export default class NewImageForm extends Component {
       title: '',
       description: '',
       url: '',
+      id: '',
     };
     this.addNewTitle = this.addNewTitle.bind(this);
     this.addNewDescription = this.addNewDescription.bind(this);
     this.addNewUrl = this.addNewUrl.bind(this);
-    this.addNewImageObject = this.addNewImageObject.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   addNewTitle(e) {
@@ -32,34 +33,35 @@ export default class NewImageForm extends Component {
     });
   }
 
-  addNewImageObject(e) {
+  handleSubmit(e) {
     e.preventDefault();
     const newImage = {
       title: this.state.title,
       description: this.state.description,
-      url: this.state.url
+      url: this.state.url,
+      id: Date.now(),
     };
     this.props.addImage(newImage);
     this.setState({
       title: '',
       description: '',
-      url: ''
+      url: '',
     });
   }
 
   render() {
     return (
-      <form submitNew={this.addNewImageObject} className='form'>
+      <form onSubmit={this.handleSubmit} className='form'>
         <label>
-          Title: <input type='text' value='' placeholderValue='' changeImage={this.addNewImageObject} />
+          Title: <input type='text' defaultValue={this.state.title} onChange={this.addNewTitle} />
         </label>
         <br />
         <label>
-          Description: <input type='text' value={this.state.description} changeImage={this.addNewImageObject} />
+          Description: <input type='text' defaultValue={this.state.description} onChange={this.addNewDescription} />
         </label>
         <br />
         <label>
-          Url: <input type='text' value={this.state.url} changeImage={this.addNewImageObject} />
+          Url: <input type='text' defaultValue={this.state.url} onChange={this.addNewUrl} />
         </label>
         <br /> <br />
         <button type='text'> Add New Image </button>
@@ -70,9 +72,5 @@ export default class NewImageForm extends Component {
 }
 
 NewImageForm.propTypes = {
-  addNewTitle: PropTypes.string.isRequired,
-  addNewDescription: PropTypes.string.isRequired,
-  addNewUrl: PropTypes.string.isRequired,
-  addNewImageObject: PropTypes.array.isRequired,
-  addImage: PropTypes.array.isRequired,
+  addImage: PropTypes.func.isRequired,
 };

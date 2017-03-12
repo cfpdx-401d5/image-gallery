@@ -41,7 +41,6 @@ function ImageSelectorBar(props) {
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
       <br />
-      {/*<button onClick={() => props.clickHandler('form')} className='add-button'> Add New Image </button>*/}
     </div>
   ); 
 }
@@ -66,7 +65,8 @@ export default class ImageGallery extends Component {
   }
 
   addImage(imageToAdd) {
-    let newImages = this.state.images.splice();
+    // let newImages = this.state.images.splice();
+    let newImages = [...this.state.images]; // makes copy of images array
     newImages.push(imageToAdd);
     this.setState({
       images: newImages
@@ -88,13 +88,13 @@ export default class ImageGallery extends Component {
     let contents;
     
     if (this.state.currentView === 'thumbnail') {
-      contents = < ThumbnailList images={this.state.images} deleteImage={this.deleteImage} />;
+      contents = < ThumbnailList images={this.state.images} deleteImage={this.deleteImage} addImage={this.addImage} />;
     }
     else if (this.state.currentView === 'gallery') {
-      contents = < GalleryList images={this.state.images} deleteImage={this.deleteImage} />;
+      contents = < GalleryList images={this.state.images} deleteImage={this.deleteImage} addImage={this.addImage} />;
     }
     else {
-      contents = < DetailList images={this.state.images} deleteImage={this.deleteImage} />;
+      contents = < DetailList images={this.state.images} deleteImage={this.deleteImage} addImage={this.addImage} />;
     }
     return (
       <div>
@@ -108,11 +108,6 @@ export default class ImageGallery extends Component {
 
 }
 
-ImageGallery.propTypes = {
-  images: PropTypes.array.isRequired,
-  deleteImage: PropTypes.func.isRequired,
-};
-
 ImageSelectorBar.propTypes = {
   clickHandler: PropTypes.func.isRequired,
-}
+};
