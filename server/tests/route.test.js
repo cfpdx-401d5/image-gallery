@@ -3,9 +3,9 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const assert = chai.assert;
-const app = require('../../lib/app');
+const app = require('../lib/app');
 const request = chai.request(app);
-const Image = require('../../lib/models/image-schema');
+const Image = require('../lib/models/image-schema');
 
 process.env.MONGODB_URI = 'mongodb://localhost:27017/image-test';
 require('../../lib/connection');
