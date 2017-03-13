@@ -14,6 +14,6 @@ export default function GalleryList(props) {
 GalleryList.propTypes = {
   deleteBunny: React.PropTypes.func,
   showHandler: React.PropTypes.func,
-  showBun: React.PropTypes.boolean,
+  showBun: React.PropTypes.func,
   babyBunBuns: React.PropTypes.array
 };
