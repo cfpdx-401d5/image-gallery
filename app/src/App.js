@@ -50,7 +50,6 @@ export default class App extends Component {
     }
 
     onDelete(id) {
-        let currentResources = [...this.state.resources];
         fetcher({
             path: `/resources/${id}`,
             method: 'DELETE'
