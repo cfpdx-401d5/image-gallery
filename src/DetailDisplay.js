@@ -10,3 +10,9 @@ export default function DetailDisplay(props) {
         </div>
     )
 }
+
+DetailDisplay.propTypes = {
+    deleteBunny: React.PropTypes.func,
+    babyBunIndex: React.PropTypes.number,
+    babyBunBun: React.PropTypes.object
+};
