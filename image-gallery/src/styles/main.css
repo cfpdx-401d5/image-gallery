@@ -26,12 +26,20 @@ div .button
 {
 	background-color: #E74C3C;
 	text-shadow: 0px -2px #BD3E31;
-	height: 75px; 
-	width: 150px;
+	height: 100px;
+	width: 256px;
 }
 
 .green
 {
+	position: relative;
+	padding: 20px 40px;
+  	margin: 0px 10px 10px 0px;
+	border-radius: 10px;
+	font-family: 'Pacifico', cursive;
+	font-size: 25px;
+	color: #FFF;
+	text-decoration: none;
 	background-color: #82BF56;
 	text-shadow: 0px -2px #669644;
 	height: 75px; 
@@ -64,10 +72,16 @@ div .button
 
 .orange 
 {
+  	margin: 0px auto;
+	border-radius: 10px;
+	font-family: 'Pacifico', cursive;
+	font-size: 25px;
+	color: #FFF;
+	text-decoration: none;
 	background-color: #FFA500;
 	text-shadow: 0px -2px #FF7F50;
-	height: 100px;
-	width: 256px;
+	height: 75px;
+	width: 150px;
 }
 
 .action-button:active
@@ -90,12 +104,11 @@ div .button
 	margin:0px;
 	text-align: center;
 	text-transform: uppercase;
-	padding-bottom: 20px;
 }
 
 .button-holder {
-	padding-top: 25px;
-	padding-right: 1200px;
+	padding-top: 20px;
+	padding-right: 1000px;
 }
 
 .formz {
@@ -111,14 +124,25 @@ div .button
 }
 
 input {
-	width: 500px;
-	height: 50px;
+	width: 250px;
+	height: 100px;
 }
 
-textarea {
-	width: 500px;
-	height: 50px;
+ul {
+	list-style-type: none;
+	text-align: center;
+	font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	font-size: 1.6em;
+	letter-spacing: .2em;
+	line-height: 1.1em;
+	margin:0px;
+	text-align: center;
+	text-transform: uppercase;
 }
 
+.delete {
+	text-align: center;
+}
 
 

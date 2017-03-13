@@ -8,6 +8,7 @@ export default class AddSchnoodle extends Component {
     render() {
         return(
             <div>
+                <h1 className="view">Add Schnoodle:</h1>
                 <form onSubmit={(e) => {
                     const newSchnoodle = {
                         id: new Date(),
@@ -20,7 +21,7 @@ export default class AddSchnoodle extends Component {
                     <input ref={TITLE} required placeholder={TITLE}></input>
                     <input ref={URL} required placeholder={URL}></input>
                     <input ref={DESCRIPTION} required placeholder={DESCRIPTION}></input>
-                    <button>Add new schnoodle</button>
+                    <button className="action-button shadow animate green">Add</button>
                 </form>
             </div>
         )

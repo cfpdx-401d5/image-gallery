@@ -62,8 +62,9 @@ export default class App extends Component {
 function ViewSelector(props) {
     return (
         <div className="button-holder">
-            <button className="action-button shadow animate orange" onClick={(e, selected) => props.onViewSelect(GALLERY_TYPE)} >Gallery View</button>
-            <button className="action-button shadow animate yellow" onClick={(e, selected) => props.onViewSelect(LIST_TYPE)} >List View</button>
+            <h1 className="view">View Schnoodles:</h1>
+            <button className="action-button shadow animate red" onClick={(e, selected) => props.onViewSelect(GALLERY_TYPE)} >Gallery View</button>
+            <button className="action-button shadow animate purple" onClick={(e, selected) => props.onViewSelect(LIST_TYPE)} >List View</button>
             <button className="action-button shadow animate blue" onClick={(e, selected) => props.onViewSelect(THUMBNAIL_TYPE)} >Thumbnail View</button>
         </div>
     );
@@ -81,8 +82,21 @@ function ViewDisplay(props) {
         return <Gallery puppies={props.puppies} onDelete={props.onDelete}/>
     }
     else {
-        return <p>View schnoodles!</p>
+        return <p></p>
     }
+}
+
+function GalleryDisplay(props) {  
+        return (
+            <div className="clearfix">
+                <li>
+                    <p>Title: {props.puppies.title}</p>
+                    <img className='gallery-img' src={props.puppies.url} alt='' />
+                    <p>Description: {props.puppies.description}</p>
+                    <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies.id)}>Delete</button></div>
+                </li>
+            </div>
+        );
 }
 
 function Gallery(props) {
@@ -96,17 +110,17 @@ function Gallery(props) {
     );
 }
 
-function GalleryDisplay(props) {  
-        return (
-            <div className="clearfix">
-                <li>
-                    <p>Title: {props.puppies.title}</p>
-                    <img className='gallery-img' src={props.puppies.url} alt='' />
-                    <p>description: {props.puppies.description}</p>
-                    <button onClick={() => props.onDelete(props.puppies.id)}>Delete</button>
-                </li>
-            </div>
-        );
+function ListDisplay(props) {
+    return (
+        <div className="clearfix">
+          <li>
+            <p>Title: {props.puppies.title}</p>
+            <p>Description: {props.puppies.description}</p>
+            <p>Url: <a href={props.puppies.url}>{props.puppies.url}</a></p>
+            <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies.id)}>Delete</button></div>
+          </li>
+        </div>
+    );
 }
 
 function List(props) {
@@ -117,19 +131,6 @@ function List(props) {
     });
     return (
       <ul>{listItem}</ul>
-    );
-}
-
-function ListDisplay(props) {
-    return (
-        <div className="clearfix">
-          <li>
-            <p>title: {props.puppies.title}</p>
-            <p>description: {props.puppies.description}</p>
-            <p>url: <a href={props.puppies.url}>{props.puppies.url}</a></p>
-            <button onClick={() => props.onDelete(props.puppies.id)}>Delete</button>
-          </li>
-        </div>
     );
 }
 
@@ -150,7 +151,7 @@ function ThumbnailDisplay(props) {
       <li>
         <p height='20px' width='200'>title: {props.puppies.title}</p>
         <img className='thumbnail' src={props.puppies.url} alt='' height='100' width='100' />
-        <button onClick={() => props.onDelete(props.puppies.id)}>Delete</button>
+        <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies.id)}>Delete</button></div>
       </li>
     </div>
   );
