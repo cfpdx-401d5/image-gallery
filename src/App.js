@@ -16,6 +16,10 @@ export function Selector(props) {
   )
 }
 
+Selector.propTypes = {
+  handleClick: React.PropTypes.func
+};
+
 export function View(props) {
   if (props.viewStyle === 'thumbnail') {
     return (
@@ -49,6 +53,12 @@ export function View(props) {
     )
   }
 }
+
+View.propTypes = {
+  deleteBunny: React.PropTypes.func,
+  babyBunBuns: React.PropTypes.array,
+  viewStyle: React.PropTypes.string
+};
 
 export default class ImageGallery extends React.Component {
   constructor(props) {
@@ -101,3 +111,4 @@ export default class ImageGallery extends React.Component {
     );
   }
 }
+

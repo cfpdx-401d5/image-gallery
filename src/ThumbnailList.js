@@ -10,3 +10,8 @@ export default function ThumbnailList(props) {
         </div>
     )
 }
+
+ThumbnailList.propTypes = {
+  deleteBunny: React.PropTypes.func,
+  babyBunBuns: React.PropTypes.array
+};
