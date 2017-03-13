@@ -6,7 +6,7 @@ router
     .post('/', bodyParser, (req, res, next) => {
         return new Resource(req.body).save()
             .then(resource => {
-                res.send(resource);
+                res.status(201).send(resource);
             });
     })
     .get('/', (req, res, next) => {
