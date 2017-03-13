@@ -10,3 +10,8 @@ export default function DetailList(props) {
         </div>
     )
 }
+
+DetailList.propTypes = {
+  deleteBunny: React.PropTypes.func,
+  babyBunBuns: React.PropTypes.array
+};

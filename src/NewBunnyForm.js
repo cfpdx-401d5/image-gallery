@@ -53,16 +53,20 @@ export default class CreateBunnyForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label> 
-          Bunny Title: <input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
+          Bunny Title: <input type="text" value={this.state.title} onChange={this.handleTitleChange} required/>
         </label>
         <label> 
-          Bunny Url: <input type="text" value={this.state.url} onChange={this.handleUrlChange}/>
+          Bunny Url: <input type="text" value={this.state.url} onChange={this.handleUrlChange} required/>
         </label>
         <label> 
-          Bunny Description: <input type="text" value={this.state.description} onChange={this.handleDescriptionChange}/>
+          Bunny Description: <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} required/>
         </label>
         <input type="submit" value="Add a Bunny!" />
       </form>
     )
   }
 }
+
+CreateBunnyForm.propTypes = {
+    addBunny: React.PropTypes.func
+};
