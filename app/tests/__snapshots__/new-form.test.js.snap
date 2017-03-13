@@ -1,0 +1,41 @@
+exports[`list display list display 1`] = `
+<form>
+  <fieldset>
+    <legend>
+      Add New Image Information: 
+    </legend>
+    <TextField
+      content=""
+      controlFunc={[Function]}
+      inputType="text"
+      name="title"
+      placeholder="Type the title of your photo"
+      title="Title: " />
+    <TextArea
+      content=""
+      controlFunc={[Function]}
+      name="description"
+      placeholder="Please be thorough in your descriptions"
+      resize={false}
+      rows={5}
+      title="Description: " />
+    <TextField
+      content=""
+      controlFunc={[Function]}
+      inputType="text"
+      name="url"
+      placeholder="Paste the url to your photo here"
+      title="URL: " />
+    <button
+      className="buttons"
+      onClick={[Function]}>
+      Submit
+    </button>
+    <button
+      className="buttons"
+      onClick={[Function]}>
+      Clear Form
+    </button>
+  </fieldset>
+</form>
+`;
