@@ -8,7 +8,7 @@ const request = chai.request(app);
 const Image = require('../lib/models/image-schema');
 
 process.env.MONGODB_URI = 'mongodb://localhost:27017/image-test';
-require('../../lib/connection');
+require('../lib/connection');
 const mongoose = require('mongoose');
 
 describe('image routes', () => {
