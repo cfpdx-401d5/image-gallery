@@ -1,9 +1,0 @@
-{
-    "name": "cute-bunny-display",
-    "verson": "1.0.0",
-    "scripts": {
-        "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
-    },
-    "author": "scaulley",
-    "license": "MIT"
-}
