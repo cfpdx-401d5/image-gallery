@@ -38,8 +38,7 @@ export default class CreateBunnyForm extends React.Component {
     const newBunBun = {
         title: this.state.title,
         url: this.state.url,
-        description: this.state.description,
-        _id: new Date()
+        description: this.state.description
     }
     this.props.addBunny(newBunBun);
     this.setState({

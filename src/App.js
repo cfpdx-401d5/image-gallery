@@ -28,25 +28,37 @@ export default class App extends React.Component {
     fetch(`http://localhost:8000/images/${_id}`, {method: 'DELETE'})
       .then(res => res.json())
       .then(res => {
-        if(res.message) {
-          //res.message;
-          let babyBunBunsFiltered = this.state.babyBunBuns.filter((element, i)=>{
-            if (i !== babyBunIndex) {
-              return element
-            }
-          });
-          this.setState({
-            babyBunBuns: babyBunBunsFiltered
-        })
-      }
+          if(res.message) {
+            //res.message;
+            let babyBunBunsFiltered = this.state.babyBunBuns.filter((element, i)=>{
+                if (i !== babyBunIndex) {
+                    return element
+                }
+            });
+            this.setState({
+                babyBunBuns: babyBunBunsFiltered
+            })
+        }
     })
   }
 
   addBunny(newBunBun){
-    let babyBunBunsMultiplied = this.state.babyBunBuns.concat(newBunBun);
-    this.setState({
-      babyBunBuns: babyBunBunsMultiplied
+    fetch('http://localhost:8000/images', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(newBunBun)
     })
+      .then(res => res.json())
+      .then(res => {
+          let babyBunBunsMultiplied = this.state.babyBunBuns.concat(newBunBun);
+          this.setState({
+              babyBunBuns: babyBunBunsMultiplied
+          })
+      })
   }
 
   render() {
