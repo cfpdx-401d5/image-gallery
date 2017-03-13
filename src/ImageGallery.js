@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // import images from './images.js';
 
-function ListView(props) {
+export function ListView(props) {
   return (
     <div className='image-divs'>
       <p> Title: {props.image.title} </p>
@@ -13,7 +13,7 @@ function ListView(props) {
 }
 
 // max 100x100 thumbnail image
-function ThumbnailView(props) {
+export function ThumbnailView(props) {
   return (
     <div className='image-divs'>
       <p> Title: {props.image.title} </p>
@@ -23,7 +23,7 @@ function ThumbnailView(props) {
 }
 
 // scaled large image
-function GalleryView(props) {
+export function GalleryView(props) {
   return (
     <div className='image-divs'>
       <p> Title: {props.image.title} </p>
@@ -33,7 +33,7 @@ function GalleryView(props) {
   );
 }
 
-function ImageSelectorBar(props) {
+export function ImageSelectorBar(props) {
   return (
     <div>
       <button onClick={() => props.clickHandler('list')}> List View </button>
