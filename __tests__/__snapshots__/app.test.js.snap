@@ -37,6 +37,7 @@ exports[`DetailList Component creates a bunnylist with title, link, and descript
     babyBunBun={
       Object {
         "description": "Adorable bunny flopped over on its side",
+        "id": 2,
         "title": "Baby Bunny Goes Flop",
         "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
       }
@@ -47,17 +48,20 @@ exports[`DetailList Component creates a bunnylist with title, link, and descript
 
 exports[`Gallery Component creates full-sized, titled images of bunbuns with descriptions 1`] = `
 <div>
-  <h4>
-    Baby Bunny Goes Flop
-  </h4>
-  <img
-    alt="Baby Bunny Goes Flop"
-    height="100px"
-    src="https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg" />
+  <GalleryDisplay
+    babyBunBun={
+      Object {
+        "description": "Adorable bunny flopped over on its side",
+        "id": 3,
+        "title": "Baby Bunny Goes Flop",
+        "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
+      }
+    }
+    babyBunIndex={0} />
 </div>
 `;
 
-exports[`Overarching ImageGallery Component manages state 1`] = `
+exports[`Overarching App Component manages state 1`] = `
 <div>
   <Selector
     handleClick={[Function]} />
@@ -68,19 +72,19 @@ exports[`Overarching ImageGallery Component manages state 1`] = `
       Array [
         Object {
           "description": "Adorable bunny flopped over on its side",
-          "id": "1",
+          "id": 1,
           "title": "Baby Bunny Goes Flop",
           "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
         },
         Object {
           "description": "Baby bunny goes shopping and only gets the essentials",
-          "id": "2",
+          "id": 2,
           "title": "Bringin Home the Bacon",
           "url": "http://www.oukongstick.com/wp-content/uploads/2016/09/3-42.jpg",
         },
         Object {
           "description": "Baby bunnies inside of drinking glasses",
-          "id": "3",
+          "id": 3,
           "title": "Cruel, or Cute?",
           "url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQd-m0xBUS65gRgOUrMfk5CQW8b-pvAU6XE6CpDPgy2DqQx39ozEA",
         },
@@ -110,18 +114,16 @@ exports[`Selector component creates buttons 1`] = `
 
 exports[`ThumbnailList Component creates small titled images of babybunbuns 1`] = `
 <div>
-  <h4>
-    Baby Bunny Goes Flop
-  </h4>
-  <img
-    alt="Baby Bunny Goes Flop"
-    height="100px"
-    src="https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg" />
-  <br />
-  <button
-    onClick={[Function]}>
-    Delete Bunny
-  </button>
+  <ThumbnailDisplay
+    babyBunBun={
+      Object {
+        "description": "Adorable bunny flopped over on its side",
+        "id": 1,
+        "title": "Baby Bunny Goes Flop",
+        "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
+      }
+    }
+    babyBunIndex={0} />
 </div>
 `;
 

@@ -5,7 +5,7 @@ export default function ThumbnailList(props) {
     return (
         <div>
             {props.babyBunBuns.map( (b, i) => (
-                <ThumbnailDisplay deleteBunny={props.deleteBunny} babyBunIndex={i} babyBunBun={b} key={b.id} />
+                <ThumbnailDisplay key={b.id} deleteBunny={props.deleteBunny} babyBunIndex={i} babyBunBun={b}/>
             ))}
         </div>
     )

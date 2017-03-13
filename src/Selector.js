@@ -4,22 +4,25 @@ export default function Selector(props) {
   const buttons = [
     {
       handle: 'thumbnail',
-      name: 'Thumbnail View'
+      name: 'Thumbnail View',
+      id: 1
     },
     {
       handle: 'detail',
-      name: 'Detail View'
+      name: 'Detail View',
+      id: 2
     },
     {
       handle: 'gallery',
-      name: 'Gallery View'
+      name: 'Gallery View',
+      id: 3
     }
   ];
 
   return (
     <div>
       {buttons.map( b => 
-        <button onClick={() => props.handleClick(b.handle)}>{b.name}</button>
+        <button onClick={() => props.handleClick(b.handle)} key={b.id}>{b.name}</button>
       )}
     </div>
   )
