@@ -1,0 +1,35 @@
+exports[`list display list display 1`] = `
+<form>
+  <fieldset>
+    <legend>
+      Edit Image Information: 
+    </legend>
+    <TextField
+      controlFunc={[Function]}
+      inputType="text"
+      name="title"
+      title="Title: " />
+    <TextArea
+      controlFunc={[Function]}
+      name="description"
+      resize={false}
+      rows={5}
+      title="Description: " />
+    <TextField
+      controlFunc={[Function]}
+      inputType="text"
+      name="url"
+      title="URL: " />
+    <button
+      className="buttons"
+      onClick={[Function]}>
+      Submit
+    </button>
+    <button
+      className="buttons"
+      onClick={[Function]}>
+      Cancel
+    </button>
+  </fieldset>
+</form>
+`;

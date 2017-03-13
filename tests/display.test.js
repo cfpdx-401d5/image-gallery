@@ -2,11 +2,11 @@
 import React from 'react';
 import {shallow, render} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Display from '../src/view/display-view';
+import { DisplayList } from '../src/view/Display';
 
-describe('list display', () => {
-    it('list display', () => {
-        const rendered = shallow(<Display array={[]} />);
+describe('display', () => {
+    it('display', () => {
+        const rendered = shallow(<DisplayList array={[]} />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });
