@@ -1,6 +1,6 @@
 exports[`ImageGallery:  runs ImageGallery app 1`] = `
 <div>
-  <ImageSelectorBar
+  <ViewSelectorBar
     clickHandler={[Function]} />
   <br />
   <NewImageForm
