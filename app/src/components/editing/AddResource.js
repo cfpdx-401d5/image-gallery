@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
+import fetcher from '../../helpers/fetcher';
 
 const TITLE = 'title';
 const DESCRIPTION = 'description';
 const URL = 'url';
-
-function fetcher(options) {
-    const { method, path, body } = options;
-    return fetch(`http://localhost:8000${path}`, {
-        method: method,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body),
-    });
-}
 
 export default class AddResource extends Component {
 
