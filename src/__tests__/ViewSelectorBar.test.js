@@ -4,16 +4,16 @@ import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import { ImageSelectorBar } from '../ImageSelectorBar';
+import { ViewSelectorBar } from '../ViewSelectorBar';
 
 function testClickHandler(e) {
   return e;
 }
 
-describe('ImageSelectorBar component: ', function () {
+describe('ViewSelectorBar component: ', function () {
 
-  it('renders the ImageSelectorBar component', () => {
-    const rendered = shallow(<ImageSelectorBar clickHandler={testClickHandler} />);
+  it('renders the ViewSelectorBar component', () => {
+    const rendered = shallow(<ViewSelectorBar clickHandler={testClickHandler} />);
     expect(toJson(rendered)).toMatchSnapshot();
   });
 

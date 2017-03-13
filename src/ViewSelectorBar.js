@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-function ImageSelectorBar(props) {
+function ViewSelectorBar(props) {
   return (
     <div className='image-select'>
       <button onClick={() => props.clickHandler('detail')}> Detail View </button>
@@ -11,8 +11,8 @@ function ImageSelectorBar(props) {
   ); 
 };
 
-ImageSelectorBar.propTypes = {
+ViewSelectorBar.propTypes = {
   clickHandler: PropTypes.func.isRequired,
 };
 
-export default ImageSelectorBar;
+export default ViewSelectorBar;
