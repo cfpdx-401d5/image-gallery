@@ -34,7 +34,7 @@ import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
 import NewImageForm from './NewImageForm';
 
-function ImageSelectorBar(props) {
+export function ImageSelectorBar(props) {
   return (
     <div className='image-select'>
       <button onClick={() => props.clickHandler('detail')}> Detail View </button>
