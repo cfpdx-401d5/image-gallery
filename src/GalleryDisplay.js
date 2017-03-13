@@ -22,7 +22,7 @@ export default class GalleryDisplay extends React.Component {
                 <h4>{this.props.babyBunBun.title}</h4>
                 <img alt={this.props.babyBunBun.title} src={this.props.babyBunBun.url}/><br />
                 <button onClick={() => this.showHandler(false)}>Hide Bunny</button>
-                <button onClick={() => this.props.deleteBunny(this.props.babyBunIndex)}>Delete Bunny</button>
+                <button onClick={() => this.props.deleteBunny(this.props.babyBunIndex, this.props.babyBunBun._id)}>Delete Bunny</button>
                 <p>{this.props.babyBunBun.description}</p>
             </div>
         )

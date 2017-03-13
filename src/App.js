@@ -1,7 +1,5 @@
 import React from 'react';
 
-import babyBunBuns from '../data/bunnyimages';
-
 import CreateBunnyForm from './NewBunnyForm';
 import Selector from './Selector';
 import View from './View';
@@ -11,12 +9,13 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       viewStyle: null,
-      babyBunBuns: babyBunBuns,
+      babyBunBuns: [],
     };
     this.handleClick = this.handleClick.bind(this);
     this.deleteBunny = this.deleteBunny.bind(this);
     this.addBunny = this.addBunny.bind(this);
   }
+
 
   handleClick(viewValue) {
     console.log(viewValue);
@@ -25,14 +24,21 @@ export default class App extends React.Component {
     });
   }
 
-  deleteBunny(babyBunIndex){
-    let babyBunBunsFiltered = this.state.babyBunBuns.filter((element, i)=>{
-      if (i !== babyBunIndex) {
-        return element
+  deleteBunny(babyBunIndex, _id){
+    fetch(`http://localhost:8000/images/${_id}`, {method: 'DELETE'})
+      .then(res => res.json())
+      .then(res => {
+        if(res.message) {
+          //res.message;
+          let babyBunBunsFiltered = this.state.babyBunBuns.filter((element, i)=>{
+            if (i !== babyBunIndex) {
+              return element
+            }
+          });
+          this.setState({
+            babyBunBuns: babyBunBunsFiltered
+        })
       }
-    });
-    this.setState({
-      babyBunBuns: babyBunBunsFiltered
     })
   }
 
@@ -59,6 +65,16 @@ export default class App extends React.Component {
         />
       </div>
     );
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:8000/images')
+      .then(res => res.json())
+      .then(bunbuns => {
+        this.setState(
+          {babyBunBuns: bunbuns}
+        )
+      })
   }
 }
 

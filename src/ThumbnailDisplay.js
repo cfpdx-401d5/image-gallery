@@ -5,7 +5,7 @@ export default function ThumbnailDisplay(props) {
         <div>
             <h4>{props.babyBunBun.title}</h4>
             <img src={props.babyBunBun.url} height="100px" alt={props.babyBunBun.title}/><br />
-            <button onClick={() => props.deleteBunny(props.babyBunIndex)}>Delete Bunny</button>
+            <button onClick={() => props.deleteBunny(props.babyBunIndex, props.babyBunBun._id)}>Delete Bunny</button>
         </div>
     )
 }
