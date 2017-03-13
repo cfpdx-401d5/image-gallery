@@ -19,7 +19,7 @@ function fetcher(options) {
 export default class AddResource extends Component {
 
     addRes(newResource) {
-        fetcher({
+        return fetcher({
             path: '/resources',
             method: 'POST',
             body: {
@@ -41,8 +41,14 @@ export default class AddResource extends Component {
                         url: this.refs.url.value,
                         description: this.refs.description.value,                
                     };
-                    this.addRes(newResource);
-                    this.props.onAdd(e, newResource);
+                    this.addRes(newResource)
+                        .then(res => {
+                            console.log('then: ', res);
+                            this.props.onAdd(e, newResource);
+                        })
+                        .catch(err => {
+                            console.log('err: ', err);
+                        });
 
                 }}>
                     <input ref={TITLE} required placeholder={TITLE}/>
