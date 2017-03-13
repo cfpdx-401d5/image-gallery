@@ -7,10 +7,6 @@ const schema = new Schema({
     required: true
   },
   description: String,
-  id: {
-    type: String,
-    required: true
-  },
   url: {
     type: String,
     required: true

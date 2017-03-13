@@ -19,14 +19,14 @@ describe('images API', () => {
     let testingImage = {
         title: 'cute animals',
         description: 'this is not required',
-        id: 'anotherId123',
+        id: '',
         url: 'http://www.google.com/'
     };
 
      let anotherTestingImage = {
         title: 'cute animals again',
         description: 'this is required, not',
-        id: 'anotherId1234566',
+        id: '',
         url: 'http://www.images.google.com/'
     };
 
@@ -40,9 +40,9 @@ describe('images API', () => {
             .send(testingImage)
             .then(res => {
                 postedImages.push(res.body);
+                testingImage.id = res.body._id;
                 assert.isDefined(res.body._id);
                 assert.equal(res.body.title, testingImage.title);
-                assert.equal(res.body.id, testingImage.id);
                 assert.equal(res.body.url, testingImage.url);
             });
     });
@@ -53,6 +53,7 @@ describe('images API', () => {
             .send(anotherTestingImage)
             .then(res => {
                 postedImages.push(res.body);
+                anotherTestingImage.id = res.body._id;
             })
             .then(() => {
                 return request
@@ -64,6 +65,15 @@ describe('images API', () => {
             })
     });
 
+    it('DELETEs an image', () => {
+        return request
+            .delete(`/images/${testingImage.id}`)
+            .then(res => {
+                console.log('rez bod is ', res.body);
+                assert.deepEqual(res.body.message, `Image { _id: 58c6f9a34e96391e91405a6c,\n  title: \'cute animals\',\n  description: \'this is not required\',\n  url: \'http://www.google.
+com/\',\n  __v: 0 } has been deleted`);
+            });
+    });
 
 
 });
