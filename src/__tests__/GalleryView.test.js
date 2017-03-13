@@ -9,7 +9,7 @@ import { GalleryView } from '../ImageGallery';
 describe('GalleryView component: ', function () {
 
   it('renders the GalleryView component', () => {
-    const rendered = shallow(<GalleryView image={{ title: '_title', description: '_description', url: '_url'}} />);
+    const rendered = shallow(<GalleryView image={{ title: '_title', description: '_description', url: '_url' }} />);
     expect(toJson(rendered)).toMatchSnapshot();
   });
 
