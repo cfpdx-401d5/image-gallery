@@ -1,66 +1,21 @@
 import React from 'react';
-import babyBunBuns from '../data/bunnyimages';
-import ThumbnailList from './ThumbnailList';
-import DetailList from './DetailList';
-import GalleryList from './GalleryList';
+
 import CreateBunnyForm from './NewBunnyForm';
+import Selector from './Selector';
+import View from './View';
 
-
-export function Selector(props) {
-  return (
-    <div>
-      <button onClick={() => props.handleClick('thumbnail')}>Thumbnail View</button>
-      <button onClick={() => props.handleClick('detail')}>Detail View</button>
-      <button onClick={() => props.handleClick('gallery')}>Gallery View</button>
-    </div>
-  )
-}
-
-export function View(props) {
-  if (props.viewStyle === 'thumbnail') {
-    return (
-      <ThumbnailList 
-        deleteBunny={props.deleteBunny} 
-        babyBunBuns={props.babyBunBuns}
-      />
-    )
-  }
-  else if (props.viewStyle === 'detail') {
-    return (
-      <DetailList  
-        deleteBunny={props.deleteBunny} 
-        babyBunBuns={props.babyBunBuns}
-      />
-    )
-  }
-  else if (props.viewStyle === 'gallery') {
-    return (
-      <GalleryList 
-        deleteBunny={props.deleteBunny} 
-        showHandler={props.showHandler} 
-        showBun={props.showBun} 
-        babyBunBuns={props.babyBunBuns}
-      />
-    )
-  }
-  else {
-    return (
-      <p>Click a Button to Get Started</p>
-    )
-  }
-}
-
-export default class ImageGallery extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       viewStyle: null,
-      babyBunBuns: babyBunBuns,
+      babyBunBuns: [],
     };
     this.handleClick = this.handleClick.bind(this);
     this.deleteBunny = this.deleteBunny.bind(this);
     this.addBunny = this.addBunny.bind(this);
   }
+
 
   handleClick(viewValue) {
     console.log(viewValue);
@@ -69,29 +24,52 @@ export default class ImageGallery extends React.Component {
     });
   }
 
-  deleteBunny(babyBunIndex){
-    let babyBunBunsFiltered = this.state.babyBunBuns.filter((element, i)=>{
-      if (i !== babyBunIndex) {
-        return element
-      }
-    });
-    this.setState({
-      babyBunBuns: babyBunBunsFiltered
+  deleteBunny(babyBunIndex, _id){
+    fetch(`http://localhost:8000/images/${_id}`, {method: 'DELETE'})
+      .then(res => res.json())
+      .then(res => {
+          if(res.message) {
+            //res.message;
+            let babyBunBunsFiltered = this.state.babyBunBuns.filter((element, i)=>{
+                if (i !== babyBunIndex) {
+                    return element
+                }
+            });
+            this.setState({
+                babyBunBuns: babyBunBunsFiltered
+            })
+        }
     })
   }
 
   addBunny(newBunBun){
-    let babyBunBunsMultiplied = this.state.babyBunBuns.concat(newBunBun);
-    this.setState({
-      babyBunBuns: babyBunBunsMultiplied
+    fetch('http://localhost:8000/images', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(newBunBun)
     })
+      .then(res => res.json())
+      .then(res => {
+          let babyBunBunsMultiplied = this.state.babyBunBuns.concat(newBunBun);
+          this.setState({
+              babyBunBuns: babyBunBunsMultiplied
+          })
+      })
   }
 
   render() {
     return (
       <div>
-        <Selector handleClick={this.handleClick}/>
-        <CreateBunnyForm addBunny={this.addBunny}/>
+        <Selector 
+          handleClick={this.handleClick}
+        />
+        <CreateBunnyForm 
+          addBunny={this.addBunny}
+        />
         <View 
           deleteBunny={this.deleteBunny} 
           babyBunBuns={this.state.babyBunBuns} 
@@ -100,4 +78,15 @@ export default class ImageGallery extends React.Component {
       </div>
     );
   }
+
+  componentDidMount(){
+    fetch('http://localhost:8000/images')
+      .then(res => res.json())
+      .then(bunbuns => {
+        this.setState(
+          {babyBunBuns: bunbuns}
+        )
+      })
+  }
 }
+

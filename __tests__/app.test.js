@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme'; //this is a renderer that renders to a virtual DOM
 import toJson from 'enzyme-to-json';
 
-import ImageGallery from '../src/App.js';
-import { Selector } from '../src/App.js';
-import { View } from '../src/App.js';
+import App from '../src/App.js';
+import Selector from '../src/Selector.js';
+import View from '../src/View.js';
 
-import ThumbnailDisplay from '../src/ThumbnailDisplay.js';
-import DetailDisplay from '../src/DetailDisplay.js';
-import GalleryDisplay from '../src/GalleryDisplay.js';
+import ThumbnailList from '../src/ThumbnailList.js';
+import DetailList from '../src/DetailList.js';
+import GalleryList from '../src/GalleryList.js';
 
 import CreateBunnyForm from '../src/NewBunnyForm.js';
 
@@ -29,48 +29,51 @@ describe('View Component', () => {
     })
 })
 
-describe('Overarching ImageGallery Component', () => {
+describe('Overarching App Component', () => {
     it('manages state', () => {
-        const wrapper = shallow(<ImageGallery />);
+        const wrapper = shallow(<App />);
         const wrapped = toJson(wrapper);
         expect(wrapped).toMatchSnapshot();
     })
 })
 
-describe('ThumbnailDisplay Component', () => {
-    const testBunny = {
+describe('ThumbnailList Component', () => {
+    const testBunny = [{
         title: 'Baby Bunny Goes Flop',
         description: 'Adorable bunny flopped over on its side',
-        url: 'https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg'
-    };
+        url: 'https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg',
+        id: 1
+    }];
     it('creates small titled images of babybunbuns', () => {
-        const wrapper = shallow(<ThumbnailDisplay babyBunBun={testBunny}/>);
+        const wrapper = shallow(<ThumbnailList babyBunBuns={testBunny}/>);
         const wrapped = toJson(wrapper);
         expect(wrapped).toMatchSnapshot();
     })
 })
 
-describe('List Component', () => {
-    const testBunny = {
+describe('DetailList Component', () => {
+    const testBunny = [{
         title: 'Baby Bunny Goes Flop',
         description: 'Adorable bunny flopped over on its side',
-        url: 'https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg'
-    };
+        url: 'https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg',
+        id: 2
+    }];
     it('creates a bunnylist with title, link, and description of picture', () => {
-        const wrapper = shallow(<DetailDisplay babyBunBun={testBunny}/>);
+        const wrapper = shallow(<DetailList babyBunBuns={testBunny}/>);
         const wrapped = toJson(wrapper);
         expect(wrapped).toMatchSnapshot();
     })
 })
 
 describe('Gallery Component', () => {
-    const testBunny = {
+    const testBunny = [{
         title: 'Baby Bunny Goes Flop',
         description: 'Adorable bunny flopped over on its side',
-        url: 'https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg'
-    };
+        url: 'https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg',
+        id: 3
+    }];
     it('creates full-sized, titled images of bunbuns with descriptions', () => {
-        const wrapper = shallow(<ThumbnailDisplay babyBunBun={testBunny}/>);
+        const wrapper = shallow(<GalleryList babyBunBuns={testBunny}/>);
         const wrapped = toJson(wrapper);
         expect(wrapped).toMatchSnapshot();
     })
