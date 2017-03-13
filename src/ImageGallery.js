@@ -7,7 +7,7 @@ export function ListView(props) {
     <div className='image-divs'>
       <p> Title: {props.image.title} </p>
       <p> Description: {props.image.description} </p>
-      <p> Link: {props.image.url} </p>
+      <p> Url: {props.image.url} </p>
     </div>
   );
 }

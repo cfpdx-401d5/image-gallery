@@ -9,7 +9,7 @@ import { ThumbnailView } from '../ImageGallery';
 describe('ThumbnailView component: ', function () {
 
   it('renders the ThumbnailView component', () => {
-    const rendered = shallow(<ThumbnailView image={{Title: '_Title', Link: '_url'}} />);
+    const rendered = shallow(<ThumbnailView image={{ title: '_title', url: '_url' }} />);
     expect(toJson(rendered)).toMatchSnapshot();
   });
 

@@ -9,7 +9,7 @@ import { ListView } from '../ImageGallery';
 describe('ListView component: ', function () {
 
   it('renders the ListView component', () => {
-    const rendered = shallow(<ListView image={{Title: '_Title', Description: '_description', Link: '_url'}} />);
+    const rendered = shallow(<ListView image={{ title: '_title', description: '_description', url: '_url' }} />);    
     expect(toJson(rendered)).toMatchSnapshot();
   });
 
