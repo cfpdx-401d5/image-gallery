@@ -11,6 +11,14 @@ imageRouter
       new Image(req.body).save()
         .then(image => { res.send(image); })
         .catch(next);
-    });
+    })
+    
+    .get('/', (req, res, next) => {
+      Image.find()
+        .then(images => res.send(images))
+        .catch(next);
+    })
+
+    ;
 
 module.exports = imageRouter;

@@ -23,7 +23,14 @@ describe('images API', () => {
         url: 'http://www.google.com/'
     };
 
-    let postedImage = [];
+     let anotherTestingImage = {
+        title: 'cute animals again',
+        description: 'this is required, not',
+        id: 'anotherId1234566',
+        url: 'http://www.images.google.com/'
+    };
+
+    let postedImages = [];
 
     before(() => mongoose.connection.dropDatabase());
 
@@ -32,14 +39,31 @@ describe('images API', () => {
             .post('/images')
             .send(testingImage)
             .then(res => {
-                console.log('rezbod is ', res.body);
-                postedImage = res.body;
+                postedImages.push(res.body);
                 assert.isDefined(res.body._id);
                 assert.equal(res.body.title, testingImage.title);
                 assert.equal(res.body.id, testingImage.id);
                 assert.equal(res.body.url, testingImage.url);
             });
-    })
-    
-    ;
+    });
+
+    it('GETs all images', () => {
+        return request
+            .post('/images')
+            .send(anotherTestingImage)
+            .then(res => {
+                postedImages.push(res.body);
+            })
+            .then(() => {
+                return request
+                    .get('/images')
+                    .then(res => {
+                        assert.equal(res.body.length, postedImages.length);
+                        assert.deepEqual(res.body, postedImages);
+                    });
+            })
+    });
+
+
+
 });
