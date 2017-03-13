@@ -2,10 +2,10 @@
 import React from 'react';
 import {shallow, render} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import List from '../src/view/list-view';
+import List from '../src/view/detail-view';
 
-describe('list display', () => {
-    it('list display', () => {
+describe('detail display', () => {
+    it('detail display', () => {
         const rendered = shallow(<List array={[]} />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
