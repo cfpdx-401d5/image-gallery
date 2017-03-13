@@ -1,22 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import images from './images';
 
+import ImageSelectorBar from './ImageSelectorBar';
 import DetailList from './DetailList';
 import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
 import NewImageForm from './NewImageForm';
-
-export function ImageSelectorBar(props) {
-  return (
-    <div className='image-select'>
-      <button onClick={() => props.clickHandler('detail')}> Detail View </button>
-      <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
-      <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
-      <br />
-    </div>
-  ); 
-}
 
 // establishes default state
 export default class ImageGallery extends Component {
@@ -80,7 +70,3 @@ export default class ImageGallery extends Component {
   }
 
 }
-
-ImageSelectorBar.propTypes = {
-  clickHandler: PropTypes.func.isRequired,
-};

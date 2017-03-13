@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import { ImageSelectorBar } from '../ImageGallery';
+import { ImageSelectorBar } from '../ImageSelectorBar';
 
 function testClickHandler(e) {
   return e;
