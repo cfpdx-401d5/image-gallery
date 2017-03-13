@@ -54,4 +54,5 @@ GalleryDisplay.propTypes = {
     onDelete: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onEdit: React.PropTypes.func
+
 };

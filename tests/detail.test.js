@@ -2,11 +2,11 @@
 import React from 'react';
 import {shallow, render} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import List from '../src/view/detail-view';
+import DetailList from '../src/view/detail-view';
 
-describe('list display', () => {
-    it('list display', () => {
-        const rendered = shallow(<List array={[]} />);
+describe('detail display', () => {
+    it('detail display', () => {
+        const rendered = shallow(<DetailList array={[]} />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });

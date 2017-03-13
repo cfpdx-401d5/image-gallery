@@ -31,6 +31,7 @@ class DetailDisplay extends React.Component {
     }
 }
 
+
 export default function DetailList(props) {
     const listItem = props.array.map((item, index) => {
         return (
