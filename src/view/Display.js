@@ -40,7 +40,7 @@ function ChooseView(props) {
 function Buttons(props) {
     return (
         <div>
-            <button className='buttons' onClick={() => props.onDelete(props.item.id)}>Delete</button>
+            <button className='buttons' onClick={() => props.onDelete(props.item._id)}>Delete</button>
             <button className='buttons' onClick={() => props.edit()}>Edit</button>
             <div>{props.isEditable && <EditForm item={props.item} onChange={props.onChange} onDisplay={props.edit} onEdit={props.onEdit} />}</div>
         </div>

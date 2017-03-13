@@ -42,7 +42,6 @@ export default class BunnyForm extends React.Component {
         e.preventDefault();
 
         const formPayload = {
-            id: new Date(),
             title: this.state.title,
             description: this.state.description,
             url: this.state.url

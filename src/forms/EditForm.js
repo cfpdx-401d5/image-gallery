@@ -9,7 +9,7 @@ export default class EditForm extends React.Component {
             title: this.props.item.title,
             description: this.props.item.description,
             url: this.props.item.url,
-            id: this.props.item.id
+            id: this.props.item._id
         };
         this.handleCancelForm = this.handleCancelForm.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);

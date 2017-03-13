@@ -1,8 +1,19 @@
 import React from 'react';
 import { DisplayList } from './Display';
 import BunnyForm from '../forms/BunnyForm';
-import bunnies from '../image';
 const constants = require('../constants');
+
+function fetcher(options) {
+    const { method, path, body } = options;
+    return fetch(`http://localhost:4000${path}`, {
+        method: method,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body),
+    });
+}
 
 function ViewSelector(props) {
     const viewTypes = Object.values(constants);
@@ -19,40 +30,106 @@ function ViewSelector(props) {
 export default class ImageView extends React.Component {
     constructor(props) {
         super(props);
-        this.handleDelete = this.handleDelete.bind(this);
-        this.handleBunnyChange = this.handleBunnyChange.bind(this);
-        this.handleBunnyEdit = this.handleBunnyEdit.bind(this);
+        this.deleteBunny = this.deleteBunny.bind(this);
+        this.addBunny = this.addBunny.bind(this);
+        this.editBunny = this.editBunny.bind(this);
         this.state = {
-            bunnies: bunnies()
+            bunnies: null
         };
     }
 
     //TODO: Refactor all change handlers to one
-    handleDelete(value) {
-        const newBunnyArray = this.state.bunnies.filter(item => { //eslint-disable-line
-            if (item.id !== value) {
-                return item;
+    componentDidMount() {
+        this.getBunnies();
+    }
+
+    getBunnies() {
+        fetcher({
+            method: 'GET',
+            path: '/'
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            this.setState({
+                bunnies: res
+            });
+        })
+        .catch(err => {
+            console.error('err: ', err);
+        });
+    }
+
+    addBunny(value) {
+        fetcher({
+            method: 'POST',
+            path: '/',
+            body: value
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            const newBunnyArray = this.state.bunnies.concat(res);
+            this.setState({
+                bunnies: newBunnyArray
+            });
+        })
+        .catch(err => {
+            console.error('err: ', err);
+        });
+    }
+
+    deleteBunny(value) {
+        fetcher({
+            method: 'DELETE',
+            path: `/${value}`
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            if (res.deleted) {
+                const newBunnyArray = this.state.bunnies.filter(item => { //eslint-disable-line
+                    if (item._id !== value) {
+                        return item;
+                    }
+                });
+                this.setState({
+                    bunnies: newBunnyArray
+                });
+            }        
+        })
+        .catch(err => {
+            console.error('err: ', err);
+        });
+    }
+
+    editBunny(value) {
+        fetcher({
+            method: 'PUT',
+            path: `/${value.id}`,
+            body: {
+                title: value.title,
+                description: value.description,
+                url: value.url
             }
-        });
-        this.setState({
-            bunnies: newBunnyArray
-        });
-    }
-
-    handleBunnyChange(value) {
-        const newBunnyArray = this.state.bunnies.concat(value);
-        this.setState({
-            bunnies: newBunnyArray
-        });
-    }
-
-    handleBunnyEdit(value) {
-        this.state.bunnies.forEach((item, index) => {
-            if (value.id === item.id) {
-                let newBunnyArray = this.state.bunnies;
-                newBunnyArray[index] = value;
-                this.setState({ bunnies: newBunnyArray });
-            } 
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            this.state.bunnies.forEach((item, index) => {
+                if (value.id === item._id) {
+                    let newBunnyArray = this.state.bunnies;
+                    newBunnyArray[index] = value;
+                    this.setState({ bunnies: newBunnyArray });
+                } 
+            });
+        })
+        .catch(err => {
+            console.error('err: ', err);
         });
     }
 
@@ -73,9 +150,9 @@ export default class ImageView extends React.Component {
                     ? <OutputComponent 
                         view={this.props.view}
                         array={this.state.bunnies} 
-                        onDelete={this.handleDelete} 
-                        onChange={this.handleBunnyChange} 
-                        onEdit={this.handleBunnyEdit} />
+                        onDelete={this.deleteBunny} 
+                        onChange={this.addBunny} 
+                        onEdit={this.editBunny} />
                     : <h3>Click a button to view bunnies!</h3>
                 }          
             </div>
