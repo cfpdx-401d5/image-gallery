@@ -28,26 +28,6 @@ export default class App extends Component {
             selectedView: selected
         });
     }
-
-    onDelete(id) {
-        let currentResources = [...this.state.resources];
-        currentResources = currentResources.filter(resource => {
-            return resource.id !== id;
-        });
-        this.setState({
-            resources: currentResources
-        });
-    }
-
-    onAdd(e, newResource) {
-        e.preventDefault();
-        let newData = this.state.resources.slice();
-        newData.push(newResource);
-        this.setState({
-            resources: newData
-        });
-    }
-
     doFetch() {
         fetcher({
             path: '/resources',
@@ -62,12 +42,31 @@ export default class App extends Component {
     componentDidMount() {
         this._timerId = setInterval(() => {
             this.doFetch();
-        }, 2000);
+        }, 9000);
     }
 
     componentWillUnmount() {
         clearInterval(this._timerId);
     }
+
+    onDelete(id) {
+        let currentResources = [...this.state.resources];
+        fetcher({
+            path: `/resources/${id}`,
+            method: 'DELETE'
+        });
+        this.doFetch();
+    }
+
+    onAdd(e, newResource) {
+        e.preventDefault();
+        let newData = this.state.resources.slice();
+        newData.push(newResource);
+        this.setState({
+            resources: newData
+        });
+    }
+
 
     render() {
         return (
@@ -113,7 +112,7 @@ function ListView(props) {
     const resourceList = props.resources.map(resource => {
         return (
             <DisplayType
-                key={resource.id}
+                key={resource._id}
                 resource={resource}
                 onDelete={props.onDelete} 
             />);
