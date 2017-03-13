@@ -3,6 +3,7 @@ import AddResource from './components/editing/AddResource';
 import GalleryDisplay from './components/display/Gallery';
 import ThumbnailDisplay from './components/display/Thumbnail';
 import DetailDisplay from './components/display/Detail';
+import fetcher from './helpers/fetcher';
 
 const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
@@ -14,7 +15,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             selectedView: '',
-            resources: props.resources
+            resources: []
         };
         this.onViewSelect = this.onViewSelect.bind(this);
         this.onDelete = this.onDelete.bind(this);
@@ -45,6 +46,27 @@ export default class App extends Component {
         this.setState({
             resources: newData
         });
+    }
+
+    doFetch() {
+        fetcher({
+            path: '/resources',
+            method: 'GET',
+        })
+        .then(res => res.json())
+        .then(resources => {
+            this.setState({ resources });
+        });
+    }
+
+    componentDidMount() {
+        this._timerId = setInterval(() => {
+            this.doFetch();
+        }, 2000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this._timerId);
     }
 
     render() {
