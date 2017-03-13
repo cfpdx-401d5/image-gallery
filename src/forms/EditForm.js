@@ -53,7 +53,7 @@ export default class EditForm extends React.Component {
         return (
             <form>
                 <fieldset>
-                    <legend>Add New Image Information: </legend>
+                    <legend>Edit Image Information: </legend>
                     <TextField
                         inputType={'text'}
                             title={'Title: '}
