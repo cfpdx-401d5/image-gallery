@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 function ViewSelectorBar(props) {
   return (
-    <div className='image-select'>
+    <div className='view-select'>
       <button onClick={() => props.clickHandler('detail')}> Detail View </button>
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
