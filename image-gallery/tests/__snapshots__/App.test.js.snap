@@ -1,0 +1,13 @@
+exports[`gallery view displays gallery list 1`] = `<ul />`;
+
+exports[`list view displays list w correct properties 1`] = `<ul />`;
+
+exports[`my buttons click handlers runs my test! 1`] = `
+<div>
+  <ImageView
+    onClick={[Function]}
+    view={null} />
+</div>
+`;
+
+exports[`thumbnail view display thumbnail list 1`] = `<ul />`;
