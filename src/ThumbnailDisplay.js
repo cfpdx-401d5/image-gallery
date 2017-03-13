@@ -13,10 +13,6 @@ export default function ThumbnailDisplay(props) {
 ThumbnailDisplay.propTypes = {
   deleteBunny: React.PropTypes.func,
   babyBunIndex: React.PropTypes.number,
-  key: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
-]),
   showBuns: React.PropTypes.func,
   babyBunBun: React.PropTypes.object
 };

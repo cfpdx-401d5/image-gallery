@@ -14,9 +14,5 @@ export default function DetailDisplay(props) {
 DetailDisplay.propTypes = {
     deleteBunny: React.PropTypes.func,
     babyBunIndex: React.PropTypes.number,
-    key: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number,
-    ]),
     babyBunBun: React.PropTypes.object
 };

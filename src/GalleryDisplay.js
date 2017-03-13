@@ -38,11 +38,7 @@ export default class GalleryDisplay extends React.Component {
 GalleryDisplay.propTypes = {
     deleteBunny: React.PropTypes.func,
     showHandler: React.PropTypes.func,
-    showBun: React.PropTypes.boolean,
-    key: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number,
-    ]),
+    showBun: React.PropTypes.func,
     babyBunIndex: React.PropTypes.number,
     babyBunBun: React.PropTypes.object
 };
