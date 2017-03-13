@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import images from './images';
 
 import DetailList from './DetailList';
 import GalleryList from './GalleryList';
 import ThumbnailList from './ThumbnailList';
+import NewImageForm from './NewImageForm';
 
-function ImageSelectorBar(props) {
+export function ImageSelectorBar(props) {
   return (
     <div className='image-select'>
       <button onClick={() => props.clickHandler('detail')}> Detail View </button>
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
+      <br />
     </div>
   ); 
 }
@@ -25,6 +27,8 @@ export default class ImageGallery extends Component {
       images: images,
     };
     this.clickHandler = this.clickHandler.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
+    this.addImage = this.addImage.bind(this);
   }
 
   clickHandler(newView) {
@@ -33,26 +37,50 @@ export default class ImageGallery extends Component {
     });
   }
 
+  addImage(imageToAdd) {
+    // let newImages = this.state.images.splice();
+    let newImages = [...this.state.images]; // makes copy of images array
+    newImages.push(imageToAdd);
+    this.setState({
+      images: newImages
+    });
+  }
+
+  deleteImage(imageToDelete) {
+    let newImages = this.state.images.filter((image, idx) => {
+      if (imageToDelete !== image) {
+        return image;
+      }
+    });
+    this.setState({
+      images: newImages
+    });
+  }
+
   render() {
     let contents;
     
     if (this.state.currentView === 'thumbnail') {
-      contents = < ThumbnailList images={this.state.images} />;
+      contents = < ThumbnailList images={this.state.images} deleteImage={this.deleteImage} addImage={this.addImage} />;
     }
     else if (this.state.currentView === 'gallery') {
-      contents = < GalleryList images={this.state.images} />;
+      contents = < GalleryList images={this.state.images} deleteImage={this.deleteImage} addImage={this.addImage} />;
     }
     else {
-      contents = < DetailList images={this.state.images} />;
+      contents = < DetailList images={this.state.images} deleteImage={this.deleteImage} addImage={this.addImage} />;
     }
     return (
       <div>
-        <ImageSelectorBar
-          clickHandler={this.clickHandler}
-        />
+        <ImageSelectorBar clickHandler={this.clickHandler} />
+        <br />
+        <NewImageForm addImage={this.addImage} />
         {contents}
       </div>
     );
   }
 
 }
+
+ImageSelectorBar.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+};

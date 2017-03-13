@@ -1,0 +1,40 @@
+exports[`ImageGallery:  runs ImageGallery app 1`] = `
+<div>
+  <ImageSelectorBar
+    clickHandler={[Function]} />
+  <br />
+  <NewImageForm
+    addImage={[Function]} />
+  <DetailList
+    addImage={[Function]}
+    deleteImage={[Function]}
+    images={
+      Array [
+        Object {
+          "description": "Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?",
+          "id": 1,
+          "title": "Cute Bunny",
+          "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+        },
+        Object {
+          "description": "White Rabbit",
+          "id": 2,
+          "title": "Snow Flake",
+          "url": "http://im5.leaderhero.com/wallpaper/20140328/12835c9a-f.jpg",
+        },
+        Object {
+          "description": "Can this floppy ear bunny fly?",
+          "id": 3,
+          "title": "Floppy Bunny",
+          "url": "http://cdn.litlepups.net/2016/04/10/floppy-eared-bunny-365daysofdawn.jpg",
+        },
+        Object {
+          "description": "This bunny is going bye bye for Delete test",
+          "id": 4,
+          "title": "Crash Test Bunny",
+          "url": "http://cdn.litlepups.net/2016/04/10/floppy-eared-bunny-365daysofdawn.jpg",
+        },
+      ]
+    } />
+</div>
+`;
