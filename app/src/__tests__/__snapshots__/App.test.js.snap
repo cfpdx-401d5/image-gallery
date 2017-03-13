@@ -1,0 +1,72 @@
+exports[`App runs my app 1`] = `
+<div>
+  <ViewSelector
+    onViewSelect={[Function]} />
+  <ViewDisplay
+    onDelete={[Function]}
+    selectedView="" />
+  <AddResource
+    onAdd={[Function]} />
+</div>
+`;
+
+exports[`ListView displays detail list 1`] = `
+<div>
+  <GalleryDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "c",
+        "title": "a",
+        "url": "b",
+      }
+    } />
+  <GalleryDisplay
+    onDelete={[Function]}
+    resource={
+      Object {
+        "description": "3",
+        "title": "1",
+        "url": "2",
+      }
+    } />
+</div>
+`;
+
+exports[`ViewDisplay displays view 1`] = `
+<ListView
+  onDelete={[Function]}
+  resources={
+    Array [
+      Object {
+        "description": "c",
+        "title": "a",
+        "url": "b",
+      },
+      Object {
+        "description": "3",
+        "title": "1",
+        "url": "2",
+      },
+    ]
+  }
+  selectedView="gallery" />
+`;
+
+exports[`ViewSelector selects view 1`] = `
+<div
+  className="view-selector">
+  <button
+    onClick={[Function]}>
+    List View
+  </button>
+  <button
+    onClick={[Function]}>
+    Thumbnail View
+  </button>
+  <button
+    onClick={[Function]}>
+    Gallery View
+  </button>
+</div>
+`;

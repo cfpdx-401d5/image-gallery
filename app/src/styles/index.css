@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.thumbnail {
+  height: 100px;
+  width: 100px;
+}
+
+.gallery {
+  width: 100%;
+}
+
+.view-selector {
+  width: 800px;
+  margin: 0 auto;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+}
