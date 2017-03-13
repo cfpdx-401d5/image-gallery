@@ -13,6 +13,13 @@ router
         Resource.find()
             .then(resources => res.send(resources))
             .catch(next);
+    })
+    .delete('/:id', (req, res, next) => {
+        Resource.findByIdAndRemove(req.params.id)
+            .then(deleted => {
+                res.send({ deleted: !!deleted });
+            })
+            .catch(next);
     });
 
 module.exports = router;
