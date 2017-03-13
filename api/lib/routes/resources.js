@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Resource = require('../models/resource');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser').json();
 
 router
     .post('/', bodyParser, (req, res, next) => {
@@ -14,8 +14,5 @@ router
             .then(resources => res.send(resources))
             .catch(next);
     });
-    // .delete('/:id', (req, res, next) => {
-
-    // })
 
 module.exports = router;
