@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import images from './images.js';
+// import images from './images';
 
 export function ListView(props) {
   return (
@@ -35,8 +35,8 @@ export function GalleryView(props) {
 
 export function ImageSelectorBar(props) {
   return (
-    <div>
-      <button onClick={() => props.clickHandler('list')}> List View </button>
+    <div className='image-select'>
+      <button onClick={() => props.clickHandler('detail')}> Detail View </button>
       <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
       <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
     </div>
@@ -48,14 +48,11 @@ export default class ImageGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: 'list',
-      image: {
-        title: 'Cute Bunny',
-        description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
-        url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
-      }
+      currentView: 'detail',
+      images: images,
     };
     this.clickHandler = this.clickHandler.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
   }
 
   clickHandler(newView) {
@@ -64,16 +61,28 @@ export default class ImageGallery extends Component {
     });
   }
 
+  deleteImage(imageToDelete) {
+    let newImages = this.state.images.filter((image, idx) => {
+      if (imageToDelete !== image) {
+        return image;
+      }
+    });
+    this.setState({
+      images: newImages
+    });
+  }
+
   render() {
     let contents;
+    
     if (this.state.currentView === 'thumbnail') {
-      contents = < ThumbnailView image={this.state.image} />;
+      contents = < ThumbnailList images={this.state.images} deleteImage={this.deleteImage} />;
     }
     else if (this.state.currentView === 'gallery') {
-      contents = < GalleryView image={this.state.image} />;
+      contents = < GalleryList images={this.state.images} deleteImage={this.deleteImage} />;
     }
     else {
-      contents = < ListView image={this.state.image} />;
+      contents = < DetailList images={this.state.images} deleteImage={this.deleteImage} />;
     }
     return (
       <div>
