@@ -4,8 +4,8 @@ import {shallow, render} from 'enzyme';
 import toJson from 'enzyme-to-json';
 import DetailList from '../src/view/detail-view';
 
-describe('list display', () => {
-    it('list display', () => {
+describe('detail display', () => {
+    it('detail display', () => {
         const rendered = shallow(<DetailList array={[]} />);
         expect(toJson(rendered)).toMatchSnapshot();
     });
