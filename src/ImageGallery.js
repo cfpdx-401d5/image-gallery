@@ -27,6 +27,19 @@ export default class ImageGallery extends Component {
     });
   }
 
+  doFetch() {
+    fetch('http://localhost:3000/bunnies', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then(r => r.json())
+    .then(bunnies => {
+      console.log(bunnies);
+    });
+  }
+
   addImage(imageToAdd) {
     // let newImages = this.state.images.splice();
     let newImages = [...this.state.images]; // makes copy of images array
