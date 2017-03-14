@@ -30,7 +30,7 @@ class ThumbnailDisplay extends React.Component {
     }
 }
 
-function ThumbnailList(props) {
+export default function ThumbnailList(props) {
     const thumbnail = props.array.map((item, index) => {
         return (
             <ThumbnailDisplay key={index} item={item} onDelete={props.onDelete} onChange={props.onChange} onEdit={props.onEdit} />
@@ -53,8 +53,4 @@ ThumbnailDisplay.propTypes = {
     onDisplay: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onEdit: React.PropTypes.func
-};
-
-export {
-    ThumbnailList
 };

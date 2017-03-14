@@ -1,7 +1,7 @@
 import React from 'react';
-import { DetailList } from './detail-view';
-import { GalleryList } from './gallery-view';
-import { ThumbnailList } from './thumbnail-view';
+import DetailList from './detail-view';
+import GalleryList from './gallery-view';
+import ThumbnailList from './thumbnail-view';
 import BunnyForm from '../forms/new-form';
 import bunnies from '../image';
 

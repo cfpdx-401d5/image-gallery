@@ -31,7 +31,8 @@ class DetailDisplay extends React.Component {
     }
 }
 
-function DetailList(props) {
+
+export default function DetailList(props) {
     const listItem = props.array.map((item, index) => {
         return (
             <DetailDisplay key={index} item={item} onDelete={props.onDelete} onChange={props.onChange} onEdit={props.onEdit} />
@@ -54,8 +55,4 @@ DetailDisplay.propTypes = {
     onDisplay: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onEdit: React.PropTypes.func
-};
-
-export {
-    DetailList
 };

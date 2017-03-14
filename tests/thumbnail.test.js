@@ -2,7 +2,7 @@
 import React from 'react';
 import {shallow, render} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { ThumbnailList } from '../src/view/thumbnail-view';
+import ThumbnailList from '../src/view/thumbnail-view';
 
 describe('thumbnail view', () => {
     it('thumbnail display', () => {
