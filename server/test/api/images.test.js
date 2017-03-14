@@ -69,9 +69,7 @@ describe('images API', () => {
         return request
             .delete(`/images/${testingImage.id}`)
             .then(res => {
-                console.log('rez bod is ', res.body);
-                assert.deepEqual(res.body.message, `Image { _id: 58c6f9a34e96391e91405a6c,\n  title: \'cute animals\',\n  description: \'this is not required\',\n  url: \'http://www.google.
-com/\',\n  __v: 0 } has been deleted`);
+                assert.deepEqual(res.body.message, `Image ${testingImage.id} has been deleted`);
             });
     });
 

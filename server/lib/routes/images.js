@@ -20,14 +20,14 @@ imageRouter
     })
 
     .delete('/:id', (req, res, next) => {
-      const id = req.params.id;
+      const image = req.params.id;
 
-      Image.findByIdAndRemove(id)
-        .then(id => {
-          if (!id) {
+      Image.findByIdAndRemove(image)
+        .then(image => {
+          if (!image) {
             res.status(404).send({ error: 'Cannot Find Image' });
           } else {
-            res.send({ message: `Image ${id} has been deleted` });
+            res.send({ message: `Image ${image._id} has been deleted` });
           }
         })
         .catch(next);
