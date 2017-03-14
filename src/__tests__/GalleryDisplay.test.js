@@ -4,12 +4,12 @@ import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import {GalleryDisplay} from '../GalleryDisplay';
+import GalleryDisplay from '../GalleryDisplay';
 
 describe('GalleryDisplay component: ', function () {
 
   it('renders the GalleryDisplay component', () => {
-    const rendered = shallow(< GalleryDisplay  title='_title' description='_description' url='_url' />);
+    const rendered = shallow(< GalleryDisplay  image={{ title: '_title', description: '_description', url: '_url' }} deleteImage={() => {} } />);
     expect(toJson(rendered)).toMatchSnapshot();
   });
 

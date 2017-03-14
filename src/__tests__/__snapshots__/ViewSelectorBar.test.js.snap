@@ -1,0 +1,18 @@
+exports[`ViewSelectorBar component:  renders the ViewSelectorBar component 1`] = `
+<div
+  className="view-select">
+  <button
+    onClick={[Function]}>
+     Detail View 
+  </button>
+  <button
+    onClick={[Function]}>
+     Thumbnail View 
+  </button>
+  <button
+    onClick={[Function]}>
+     Gallery View 
+  </button>
+  <br />
+</div>
+`;
