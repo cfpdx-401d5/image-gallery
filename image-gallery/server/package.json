@@ -1,0 +1,38 @@
+{
+  "name": "image-gallery-server",
+  "version": "1.0.0",
+  "description": "backend image-gallery",
+  "main": "node server",
+  "scripts": {
+    "lint": "eslint {lib, test}/*/*.js",
+    "pretest": "npm run lint",
+    "test": "mocha --recursive",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clairefollett/image-gallery"
+  },
+  "author": "Claire Follett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clairefollett/image-gallery/issues"
+  },
+  "homepage": "https://github.com/Clairefollett/image-gallery#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.16.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "promise": "^7.1.1",
+    "superagent": "^3.4.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cors": "^2.8.1",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.4",
+    "morgan": "^1.8.1"
+  }
+}
