@@ -13,7 +13,7 @@ function GalleryDisplayBits(props) {
           {props.title} <br/>
           {props.description}
         </figcaption>
-        <DeleteImageButton deleteImage={props.deleteImage} id={props.id} />
+        <DeleteImageButton deleteImage={props.deleteImage} _id={props._id} />
       </figure>
     </article>
   );
@@ -21,7 +21,7 @@ function GalleryDisplayBits(props) {
 
 GalleryDisplayBits.propTypes = {
   deleteImage: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

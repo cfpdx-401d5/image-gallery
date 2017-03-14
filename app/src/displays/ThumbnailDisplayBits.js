@@ -12,14 +12,14 @@ function ThumbnailDisplayBits(props) {
           <img className='thumbnail' src={props.url} alt={altText} />
           <figcaption>{props.title}</figcaption>
         </figure>
-        <DeleteImageButton deleteImage={props.deleteImage} id={props.id} />
+        <DeleteImageButton deleteImage={props.deleteImage} _id={props._id} />
       </td>
     </tr>
   );
 }
 ThumbnailDisplayBits.propTypes = {
   deleteImage: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

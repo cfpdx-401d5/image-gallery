@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import shortid from 'shortid';
 
 import InputField from './InputField';
 
@@ -10,7 +9,6 @@ class FormContainer extends Component {
       title: '',
       description: '',
       url: '',
-      id: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,16 +28,17 @@ class FormContainer extends Component {
   render() {
     return (
         <form onSubmit={(e) => {
-          this.setState({ id: shortid.generate() });
-          this.props.addImage(e, this.state);
+          e.preventDefault();
+          this.props.addImage(this.state);
           e.target.reset();
+          this.setState({ title: '', description: '', url: '' });
         }}
         >
           <h4>Add a new image</h4>
           <InputField name='title' handler={this.handleInputChange} />
           <InputField name='description' handler={this.handleInputChange} />
           <InputField name='url' handler={this.handleInputChange} />
-          <button type='text'>Submit</button>
+          <button type='submit'>Submit</button>
         </form>
     );
   }

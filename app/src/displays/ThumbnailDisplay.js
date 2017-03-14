@@ -4,7 +4,7 @@ import ThumbnailDisplayBits from './ThumbnailDisplayBits';
 
 function ThumbnailDisplay(props) {
   const imagesAsTableRows = props.images.map(imageObj => {
-    return <ThumbnailDisplayBits key={imageObj.id} title={imageObj.title} url={imageObj.url} deleteImage={props.deleteImage} id={imageObj.id} />;
+    return <ThumbnailDisplayBits key={imageObj._id} title={imageObj.title} url={imageObj.url} deleteImage={props.deleteImage} _id={imageObj._id} />;
   });
 
   return (
@@ -19,7 +19,7 @@ function ThumbnailDisplay(props) {
 ThumbnailDisplay.propTypes = {
   deleteImage: PropTypes.func.isRequired, 
   images: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

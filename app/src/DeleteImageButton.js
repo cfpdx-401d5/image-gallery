@@ -4,7 +4,7 @@ function DeleteImageButton(props) {
   return (
     <button onClick={(e) => {
       e.preventDefault();
-      props.deleteImage(props.id);
+      props.deleteImage(props._id);
     }}>
       delete
     </button>
@@ -13,7 +13,7 @@ function DeleteImageButton(props) {
 
 DeleteImageButton.propTypes = {
   deleteImage: PropTypes.func.isRequired, 
-  id: PropTypes.string.isRequired,
+  // _id: PropTypes.string.isRequired,
 };
 
 
