@@ -21,6 +21,10 @@ cache:
   directories:
     - node_modules
 script:
-  - npm test
-  - npm run build
+  - cd $TRAVIS_BUILD_DIR/api-server && npm test
+  - cd $TRAVIS_BUILD_DIR/app && npm test
+
+install: 
+  - cd $TRAVIS_BUILD_DIR/api-server && npm install
+  - cd $TRAVIS_BUILD_DIR/app && npm install
       
