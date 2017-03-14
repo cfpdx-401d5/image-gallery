@@ -1,0 +1,19 @@
+exports[`GalleryView component:  renders the GalleryView component 1`] = `
+<div
+  className="image-divs">
+  <p>
+     Title: 
+    _title
+     
+  </p>
+  <p>
+     Description: 
+    _description
+     
+  </p>
+  <img
+    alt="cute bunny"
+    className="gallery"
+    src="_url" />
+</div>
+`;

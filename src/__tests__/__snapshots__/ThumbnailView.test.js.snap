@@ -1,0 +1,14 @@
+exports[`ThumbnailView component:  renders the ThumbnailView component 1`] = `
+<div
+  className="image-divs">
+  <p>
+     Title: 
+    _title
+     
+  </p>
+  <img
+    alt="cute bunny"
+    className="thumbnail"
+    src="_url" />
+</div>
+`;

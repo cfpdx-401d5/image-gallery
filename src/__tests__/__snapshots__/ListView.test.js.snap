@@ -1,0 +1,20 @@
+exports[`ListView component:  renders the ListView component 1`] = `
+<div
+  className="image-divs">
+  <p>
+     Title: 
+    _title
+     
+  </p>
+  <p>
+     Description: 
+    _description
+     
+  </p>
+  <p>
+     Url: 
+    _url
+     
+  </p>
+</div>
+`;
