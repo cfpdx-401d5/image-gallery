@@ -1,9 +1,0 @@
-exports[`App runs the GalleryApp 1`] = `
-<div>
-  <ViewSelect
-    handleClick={[Function]} />
-  <ImageView
-    classname="viewer"
-    viewSelected="listImage" />
-</div>
-`;

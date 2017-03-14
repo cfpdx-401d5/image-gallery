@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import App from './App';
-import GalleryApp from './GalleryApp';
+import GalleryApp from '../components/GalleryApp';
 
-describe('App', () => {
+describe('GalleryApp', () => {
     it('runs the GalleryApp', () => {
         const rendered = shallow(<GalleryApp />);
         const json = toJson(rendered);

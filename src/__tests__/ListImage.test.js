@@ -1,8 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import App from './App';
-import Gallery from './Gallery';
+import ListImage from '../components/ListImage';
 let image = {
     title: 'Cute Bunny',
     description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
@@ -10,9 +9,9 @@ let image = {
 };
 
 
-describe('Gallery ', () => {
-    it('runs the Gallery component', () => {
-        const rendered = shallow(<Gallery image={image} />);
+describe('ListImage ', () => {
+    it('runs the ListImage component', () => {
+        const rendered = shallow(<ListImage image={image} />);
         const json = toJson(rendered);
         expect(json).toMatchSnapshot();
     })
