@@ -21,7 +21,7 @@ function GalleryDisplayBits(props) {
 
 GalleryDisplayBits.propTypes = {
   deleteImage: PropTypes.func.isRequired,
-  _id: PropTypes.string.isRequired,
+  _id: PropTypes.string,
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

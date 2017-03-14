@@ -14,7 +14,7 @@ exports[`FormContainer runs the FormContainer 1`] = `
     handler={[Function]}
     name="url" />
   <button
-    type="text">
+    type="submit">
     Submit
   </button>
 </form>
