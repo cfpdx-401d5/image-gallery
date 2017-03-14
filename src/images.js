@@ -25,6 +25,4 @@ const images = [
   }, 
 ];
 
-export default function ImagesList() {
-  return images;
-}
+export default images;
