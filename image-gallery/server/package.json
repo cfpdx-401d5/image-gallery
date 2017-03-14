@@ -2,12 +2,12 @@
   "name": "image-gallery-server",
   "version": "1.0.0",
   "description": "backend image-gallery",
-  "main": "node server",
+  "main": "server",
   "scripts": {
     "lint": "eslint {lib, test}/*/*.js",
     "pretest": "npm run lint",
     "test": "mocha --recursive",
-    "start": "node server"
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
