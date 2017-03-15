@@ -27,7 +27,7 @@ bunnyRouter
             .catch(next);
     })
     .get('/:id', (req, res, next) => {
-        Bunny.findOne(req.params.id)
+        Bunny.findById(req.params.id)
             .then(bunny => {
                 if(!bunny){
                     res.status(404).send({ error: 'Image ID does not exists'});

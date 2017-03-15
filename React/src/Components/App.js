@@ -25,7 +25,7 @@ export default class App extends React.Component {
   }
 
   deleteBunny(babyBunIndex, _id){
-    fetch(`http://localhost:8000/bunniess/${_id}`, {method: 'DELETE'})
+    fetch(`http://localhost:8000/bunnies/${_id}`, {method: 'DELETE'})
       .then(res => res.json())
       .then(res => {
           if(res.message) {
