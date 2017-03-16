@@ -10,9 +10,7 @@ export default function MapGallery(props) {
     return (
         <div className={'mainContent'}>
             {props.images.map(image => (
-                <li key={image.id}>
-                    <DisplayGallery image={image} />
-                </li>
+                <DisplayGallery key={image._id} image={image} />
             ))}
         </div>
     );

@@ -5,7 +5,7 @@ import './index.css';
 
 
 ReactDOM.render(
-  <div id='root'>
+  <div>
     < h1 > Welcome to the Gallery</h1 >
     <GalleryApp />
   </div >,

@@ -1,0 +1,39 @@
+exports[`GalleryApp runs the GalleryApp 1`] = `
+<div>
+  <ViewSelector
+    handleClick={[Function]} />
+  <AddImage
+    onAdd={[Function]} />
+  <ImageView
+    images={
+      Array [
+        Object {
+          "description": "Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?",
+          "id": 1,
+          "title": "Cute Bunny",
+          "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+        },
+        Object {
+          "description": "This is. This is the cutest.",
+          "id": 2,
+          "title": "Clever Dog",
+          "url": "https://thumbs.dreamstime.com/z/dog-read-book-animal-school-education-reading-white-training-smart-dachshund-isolated-over-background-56012676.jpg",
+        },
+        Object {
+          "description": "Who could resist?",
+          "id": 3,
+          "title": "Frenemies",
+          "url": "http://d2mlnkprj9wd81.cloudfront.net/sites/default/files/imagecache/themeSlideshow/theme-education-hero-cats-dogs-and-us_0.jpg",
+        },
+        Object {
+          "description": "Who could resist?",
+          "id": 4,
+          "title": "Puppy puppy",
+          "url": "http://slco.org/uploadedImages/depot/publicWorks/fAnimal/20090809-IMG_7799-Edit.jpg",
+        },
+      ]
+    }
+    onDelete={[Function]}
+    viewSelected="thumbnail" />
+</div>
+`;
