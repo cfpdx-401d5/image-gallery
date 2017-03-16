@@ -1,16 +1,16 @@
 const bodyParser = require('body-parser').json();
 const express = require('express');
 
-const Bunny = require('../models/images');
+const Bunny = require('../models/bunny');
 
 const Router = express.Router;
 const bunnyRouter = Router();
 
 bunnyRouter
 
-    .get('/', bodyParser, (req, res, next) => {
+    .get('/', (req, res, next) => {
         Bunny.find()
-            .then(images => res.send(images))
+            .then(bunnies => res.send(bunnies))
             .catch(next);
     })
     .post('/', bodyParser, (req, res, next) => {
@@ -26,9 +26,8 @@ bunnyRouter
             })
             .catch(next);
     })
-    .get('/:id', bodyParser, (req, res, next) => {
-        const id = req.params.id;
-        Bunny.findOne({id})
+    .get('/:id', (req, res, next) => {
+        Bunny.findById(req.params.id)
             .then(bunny => {
                 if(!bunny){
                     res.status(404).send({ error: 'Image ID does not exists'});
@@ -40,8 +39,7 @@ bunnyRouter
             .catch(next);
     })
     .delete('/:id', (req, res, next) => {
-        const id = req.params.id;
-        Bunny.findByIdAndRemove(id)
+        Bunny.findByIdAndRemove(req.params.id)
             .then( () => res.send({message: 'You deleted a tiny little baby bun bun! You monster!'}))
             .catch(next);
     });

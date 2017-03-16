@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CreateBunnyForm from './NewBunnyForm';
+import CreateBunnyForm from './CreateBunnyForm';
 import Selector from './Selector';
 import View from './View';
 
@@ -25,7 +25,7 @@ export default class App extends React.Component {
   }
 
   deleteBunny(babyBunIndex, _id){
-    fetch(`http://localhost:8000/images/${_id}`, {method: 'DELETE'})
+    fetch(`http://localhost:8000/bunnies/${_id}`, {method: 'DELETE'})
       .then(res => res.json())
       .then(res => {
           if(res.message) {
@@ -43,7 +43,7 @@ export default class App extends React.Component {
   }
 
   addBunny(newBunBun){
-    fetch('http://localhost:8000/images', {
+    fetch('http://localhost:8000/bunnies', {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -54,7 +54,8 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-          let babyBunBunsMultiplied = this.state.babyBunBuns.concat(newBunBun);
+          delete res.__v;
+          let babyBunBunsMultiplied = this.state.babyBunBuns.concat(res);
           this.setState({
               babyBunBuns: babyBunBunsMultiplied
           })
@@ -80,7 +81,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:8000/images')
+    fetch('http://localhost:8000/bunnies')
       .then(res => res.json())
       .then(bunbuns => {
         this.setState(

@@ -10,7 +10,7 @@ import ThumbnailList from '../src/ThumbnailList.js';
 import DetailList from '../src/DetailList.js';
 import GalleryList from '../src/GalleryList.js';
 
-import CreateBunnyForm from '../src/NewBunnyForm.js';
+import CreateBunnyForm from '../src/CreateBunnyForm.js';
 
 
 describe('Selector component', () => {
