@@ -39,7 +39,6 @@ export default class App extends Component {
     }
 
     onViewSelect(selected) {
-
         this.setState({
             selectedView: selected
         })
