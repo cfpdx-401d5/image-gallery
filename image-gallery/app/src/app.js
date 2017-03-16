@@ -47,28 +47,40 @@ export default class App extends Component {
         })
     }
 
-    onDelete(value) {
-        let newSchnoodleArray = this.state.puppies.filter
-        
-        (schnoodle => { //eslint-disable-line
-            if (schnoodle._id !== value) {
-                return schnoodle;
+    onDelete(puppyId) {
+        fetchPuppies({
+            method: 'DELETE',
+            path: `/${puppyId}`
+        })
+        .then(res => {
+            if (res.status === 200) {
+                let newSchnoodleArray = this.state.puppies.filter(schnoodle => {
+                        if (schnoodle._id !== puppyId) {
+                            return schnoodle;
+                        }
+                });
+                this.setState({
+                    puppies: newSchnoodleArray
+                });
             }
-        });
-
-        this.setState({
-            puppies: newSchnoodleArray
-        });
+        })
     }
 
     onSubmit(e, value) {
       e.preventDefault();
-
-      let newSchnoodle = this.state.puppies.slice();
-      newSchnoodle.push(newSchnoodle);
-      this.setState({
-          puppies: newSchnoodle
-      })
+      fetchPuppies({
+            method: 'POST',
+            path: '/add',
+            body: value
+        })
+        .then(res => res.json())
+        .then(res => {
+            let newSchnoodle = this.state.puppies.slice();
+            newSchnoodle.push(res);
+            this.setState({
+                puppies: newSchnoodle
+            })
+        })
   }
 
   render() {
