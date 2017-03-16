@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-const TITLE = 'Title';
-const DESCRIPTION = 'Description';
-const URL = 'Url';
-
 export default class AddSchnoodle extends Component {
     render() {
         return(
@@ -11,17 +7,16 @@ export default class AddSchnoodle extends Component {
                 <h1 className="add">Add Schnoodle:</h1>
                 <form onSubmit={(e) => {
                     const newSchnoodle = {
-                        id: new Date(),
-                        title: this.refs.title.value,
-                        url: this.refs.url.value,
-                        description: this.refs.description.value,                
+                        title: this.refs.Title.value,
+                        url: this.refs.Url.value,
+                        description: this.refs.Description.value,                
                     }
                     this.props.onSubmit(e, newSchnoodle)
                 }}>
-                    <input ref={TITLE} required placeholder={TITLE}></input>
-                    <input ref={URL} required placeholder={URL}></input>
-                    <input ref={DESCRIPTION} required placeholder={DESCRIPTION}></input>
-                    <button className="action-button shadow animate green">Add</button>
+                    <input ref='Title' required placeholder='Title'></input>
+                    <input ref='Url' required placeholder='Url'></input>
+                    <input ref='Description' required placeholder='Description'></input>
+                    <button type="submit" className="action-button shadow animate green">Add</button>
                 </form>
             </div>
         )
