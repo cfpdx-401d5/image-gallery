@@ -1,0 +1,134 @@
+exports[`CreateBunnyForm Component creates a new bunny 1`] = `
+<form
+  onSubmit={[Function]}>
+  <label>
+    Bunny Title: 
+    <input
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value="" />
+  </label>
+  <label>
+    Bunny Url: 
+    <input
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value="" />
+  </label>
+  <label>
+    Bunny Description: 
+    <input
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value="" />
+  </label>
+  <input
+    type="submit"
+    value="Add a Bunny!" />
+</form>
+`;
+
+exports[`DetailList Component creates a bunnylist with title, link, and description of picture 1`] = `
+<div>
+  <DetailDisplay
+    babyBunBun={
+      Object {
+        "description": "Adorable bunny flopped over on its side",
+        "id": 2,
+        "title": "Baby Bunny Goes Flop",
+        "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
+      }
+    }
+    babyBunIndex={0} />
+</div>
+`;
+
+exports[`Gallery Component creates full-sized, titled images of bunbuns with descriptions 1`] = `
+<div>
+  <GalleryDisplay
+    babyBunBun={
+      Object {
+        "description": "Adorable bunny flopped over on its side",
+        "id": 3,
+        "title": "Baby Bunny Goes Flop",
+        "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
+      }
+    }
+    babyBunIndex={0} />
+</div>
+`;
+
+exports[`Overarching App Component manages state 1`] = `
+<div>
+  <Selector
+    handleClick={[Function]} />
+  <CreateBunnyForm
+    addBunny={[Function]} />
+  <View
+    babyBunBuns={
+      Array [
+        Object {
+          "description": "Adorable bunny flopped over on its side",
+          "id": 1,
+          "title": "Baby Bunny Goes Flop",
+          "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
+        },
+        Object {
+          "description": "Baby bunny goes shopping and only gets the essentials",
+          "id": 2,
+          "title": "Bringin Home the Bacon",
+          "url": "http://www.oukongstick.com/wp-content/uploads/2016/09/3-42.jpg",
+        },
+        Object {
+          "description": "Baby bunnies inside of drinking glasses",
+          "id": 3,
+          "title": "Cruel, or Cute?",
+          "url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQd-m0xBUS65gRgOUrMfk5CQW8b-pvAU6XE6CpDPgy2DqQx39ozEA",
+        },
+      ]
+    }
+    deleteBunny={[Function]}
+    viewStyle={null} />
+</div>
+`;
+
+exports[`Selector component creates buttons 1`] = `
+<div>
+  <button
+    onClick={[Function]}>
+    Thumbnail View
+  </button>
+  <button
+    onClick={[Function]}>
+    Detail View
+  </button>
+  <button
+    onClick={[Function]}>
+    Gallery View
+  </button>
+</div>
+`;
+
+exports[`ThumbnailList Component creates small titled images of babybunbuns 1`] = `
+<div>
+  <ThumbnailDisplay
+    babyBunBun={
+      Object {
+        "description": "Adorable bunny flopped over on its side",
+        "id": 1,
+        "title": "Baby Bunny Goes Flop",
+        "url": "https://s-media-cache-ak0.pinimg.com/736x/16/4e/8a/164e8aff9e9744e0062c9964d65da48b.jpg",
+      }
+    }
+    babyBunIndex={0} />
+</div>
+`;
+
+exports[`View Component toggles view style 1`] = `
+<p>
+  Click a Button to Get Started
+</p>
+`;

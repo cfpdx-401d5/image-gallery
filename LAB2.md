@@ -11,7 +11,7 @@ initial data of your image(s) from lab one, but you'll need to add an id (you co
 
 ```js
 const images = [{ 
-  id: new Date()
+  _id new Date()
   title: 'Cute Bunny',
   description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
   url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
