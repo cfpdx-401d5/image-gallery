@@ -1,7 +1,8 @@
 import React from 'react';
 import views from './viewTypes';
 
-// not real sure how the outputs works, but it does
+// this function receives the selection from viewselector and 
+// decides which view to display
 export default function ImageView(props) {
     const ViewComponent = views[props.viewSelected];
 
