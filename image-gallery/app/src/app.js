@@ -5,16 +5,39 @@ const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
 const THUMBNAIL_TYPE = 'thumbnail';
 
+function fetchPuppies(options) {
+    const { method, path, body } = options;
+    return fetch(`http://localhost:5000${path}`, {
+        method: method,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+}
+
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedView: '',
-            puppies: props.puppies
-        };
+            puppies: this.initializePups()
+        }
     this.onViewSelect = this.onViewSelect.bind(this);
     this.onDelete = this.onDelete.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+}
+
+    initializePups() {
+        fetchPuppies({
+            method: 'GET',
+            path: '/',
+        })
+        .then(res => res.json())
+        .then(puppies => 
+            this.setState({ puppies })
+        )
     }
 
     onViewSelect(selected) {
@@ -24,28 +47,40 @@ export default class App extends Component {
         })
     }
 
-    onDelete(value) {
-        let newSchnoodleArray = this.state.puppies.filter
-        
-        (schnoodle => { //eslint-disable-line
-            if (schnoodle.id !== value) {
-                return schnoodle;
+    onDelete(puppyId) {
+        fetchPuppies({
+            method: 'DELETE',
+            path: `/${puppyId}`
+        })
+        .then(res => {
+            if (res.status === 200) {
+                let newSchnoodleArray = this.state.puppies.filter(schnoodle => {
+                        if (schnoodle._id !== puppyId) {
+                            return schnoodle;
+                        }
+                });
+                this.setState({
+                    puppies: newSchnoodleArray
+                });
             }
-        });
-
-        this.setState({
-            puppies: newSchnoodleArray
-        });
+        })
     }
 
     onSubmit(e, value) {
       e.preventDefault();
-
-      let newSchnoodle = this.state.puppies.slice();
-      newSchnoodle.push(newSchnoodle);
-      this.setState({
-          puppies: newSchnoodle
-      })
+      fetchPuppies({
+            method: 'POST',
+            path: '/add',
+            body: value
+        })
+        .then(res => res.json())
+        .then(res => {
+            let newSchnoodle = this.state.puppies.slice();
+            newSchnoodle.push(res);
+            this.setState({
+                puppies: newSchnoodle
+            })
+        })
   }
 
   render() {
@@ -93,7 +128,7 @@ function GalleryDisplay(props) {
                     <p>Title: {props.puppies.title}</p>
                     <img className='gallery-img' src={props.puppies.url} alt='' />
                     <p>Description: {props.puppies.description}</p>
-                    <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies.id)}>Delete</button></div>
+                    <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies._id)}>Delete</button></div>
                 </li>
             </div>
         );
@@ -102,7 +137,7 @@ function GalleryDisplay(props) {
 function Gallery(props) {
     const galleryObj = props.puppies.map(puppies => {
         return (
-            <GalleryDisplay key={puppies.id} puppies={puppies} onDelete={props.onDelete} />
+            <GalleryDisplay key={puppies._id} puppies={puppies} onDelete={props.onDelete} />
         );
     });
     return (
@@ -117,7 +152,7 @@ function ListDisplay(props) {
             <p>Title: {props.puppies.title}</p>
             <p>Description: {props.puppies.description}</p>
             <p>Url: <a href={props.puppies.url}>{props.puppies.url}</a></p>
-            <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies.id)}>Delete</button></div>
+            <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies._id)}>Delete</button></div>
           </li>
         </div>
     );
@@ -126,7 +161,7 @@ function ListDisplay(props) {
 function List(props) {
     const listItem = props.puppies.map(puppies => {
         return (
-            <ListDisplay key={puppies.id} puppies={puppies} onDelete={props.onDelete}/>
+            <ListDisplay key={puppies._id} puppies={puppies} onDelete={props.onDelete}/>
         );
     });
     return (
@@ -137,7 +172,7 @@ function List(props) {
 function Thumbnail(props) {
     const thumbnail = props.puppies.map(puppies => {
         return (
-            <ThumbnailDisplay key={puppies.id} puppies={puppies} onDelete={props.onDelete}/>
+            <ThumbnailDisplay key={puppies._id} puppies={puppies} onDelete={props.onDelete}/>
         );
     });
     return (
@@ -151,7 +186,7 @@ function ThumbnailDisplay(props) {
       <li>
         <p height='20px' width='200'>title: {props.puppies.title}</p>
         <img className='thumbnail' src={props.puppies.url} alt='' height='100' width='100' />
-        <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies.id)}>Delete</button></div>
+        <div className="delete"><button className="shadow animate orange" onClick={() => props.onDelete(props.puppies._id)}>Delete</button></div>
       </li>
     </div>
   );

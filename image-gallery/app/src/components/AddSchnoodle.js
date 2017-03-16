@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-const TITLE = 'title';
-const DESCRIPTION = 'description';
-const URL = 'url';
+const TITLE = 'Title';
+const DESCRIPTION = 'Description';
+const URL = 'Url';
 
 export default class AddSchnoodle extends Component {
     render() {
         return(
             <div>
-                <h1 className="view">Add Schnoodle:</h1>
+                <h1 className="add">Add Schnoodle:</h1>
                 <form onSubmit={(e) => {
                     const newSchnoodle = {
                         id: new Date(),
