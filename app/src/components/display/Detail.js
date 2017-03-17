@@ -8,7 +8,7 @@ export default function DetailDisplay(props) {
               <li>Url: {props.resource.url}</li>
               <li>Description: {props.resource.description}</li>
           </ul>
-          <button onClick={() => props.onDelete(props.resource.id)}>delete</button>
+          <button onClick={() => props.onDelete(props.resource._id)}>delete</button>
       </div>
     );  
 };

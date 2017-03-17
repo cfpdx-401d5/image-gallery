@@ -3,6 +3,7 @@ import AddResource from './components/editing/AddResource';
 import GalleryDisplay from './components/display/Gallery';
 import ThumbnailDisplay from './components/display/Thumbnail';
 import DetailDisplay from './components/display/Detail';
+import fetcher from './helpers/fetcher';
 
 const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
@@ -14,7 +15,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             selectedView: '',
-            resources: props.resources
+            resources: []
         };
         this.onViewSelect = this.onViewSelect.bind(this);
         this.onDelete = this.onDelete.bind(this);
@@ -27,15 +28,33 @@ export default class App extends Component {
             selectedView: selected
         });
     }
+    doFetch() {
+        fetcher({
+            path: '/resources',
+            method: 'GET',
+        })
+        .then(res => res.json())
+        .then(resources => {
+            this.setState({ resources });
+        });
+    }
+
+    componentDidMount() {
+        this._timerId = setInterval(() => {
+            this.doFetch();
+        }, 9000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this._timerId);
+    }
 
     onDelete(id) {
-        let currentResources = [...this.state.resources];
-        currentResources = currentResources.filter(resource => {
-            return resource.id !== id;
+        fetcher({
+            path: `/resources/${id}`,
+            method: 'DELETE'
         });
-        this.setState({
-            resources: currentResources
-        });
+        this.doFetch();
     }
 
     onAdd(e, newResource) {
@@ -46,6 +65,7 @@ export default class App extends Component {
             resources: newData
         });
     }
+
 
     render() {
         return (
@@ -91,7 +111,7 @@ function ListView(props) {
     const resourceList = props.resources.map(resource => {
         return (
             <DisplayType
-                key={resource.id}
+                key={resource._id}
                 resource={resource}
                 onDelete={props.onDelete} 
             />);
