@@ -9,7 +9,7 @@ import ThumbnailDisplayBits from '../displays/ThumbnailDisplayBits';
 
 describe('ThumbnailDisplayBits component', function () {
     it('renders the ThumbnailDisplayBits component', () => {
-        const rendered = shallow(<ThumbnailDisplayBits deleteImage={()=> {}} id='_id' url='_url' title='_title'/>);
+        const rendered = shallow(<ThumbnailDisplayBits deleteImage={()=> {}} _id='_id' url='_url' title='_title'/>);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });

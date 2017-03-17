@@ -4,7 +4,7 @@ import GalleryDisplayBits from './GalleryDisplayBits';
 
 function GalleryDisplay(props) {
   const imagesAsArticles = props.images.map(imageObj => {
-    return <GalleryDisplayBits key={imageObj.id} title={imageObj.title} url={imageObj.url} description={imageObj.description} deleteImage={props.deleteImage} id={imageObj.id}/>;
+    return <GalleryDisplayBits key={imageObj._id} title={imageObj.title} url={imageObj.url} description={imageObj.description} deleteImage={props.deleteImage} _id={imageObj._id}/>;
   });
 
   return (
@@ -17,7 +17,7 @@ function GalleryDisplay(props) {
 GalleryDisplay.propTypes = {
   deleteImage: PropTypes.func.isRequired, 
   images: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

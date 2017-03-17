@@ -11,8 +11,8 @@ exports[`GalleryDisplayBits component renders the GalleryDisplayBits component 1
       _description
     </figcaption>
     <DeleteImageButton
-      deleteImage={[Function]}
-      id="_id" />
+      _id="_id"
+      deleteImage={[Function]} />
   </figure>
 </article>
 `;

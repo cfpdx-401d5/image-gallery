@@ -7,7 +7,6 @@ exports[`ListDisplayBits component renders the ListDisplayBits component 1`] = `
   : 
   desc
   <DeleteImageButton
-    deleteImage={[Function]}
-    id="_someId" />
+    deleteImage={[Function]} />
 </li>
 `;

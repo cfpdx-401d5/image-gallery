@@ -11,8 +11,8 @@ exports[`ThumbnailDisplayBits component renders the ThumbnailDisplayBits compone
       </figcaption>
     </figure>
     <DeleteImageButton
-      deleteImage={[Function]}
-      id="_id" />
+      _id="_id"
+      deleteImage={[Function]} />
   </td>
 </tr>
 `;

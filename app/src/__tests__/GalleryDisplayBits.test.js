@@ -13,7 +13,7 @@ function testFn(a) {
 
 describe('GalleryDisplayBits component', function () {
     it('renders the GalleryDisplayBits component', () => {
-        const rendered = shallow(<GalleryDisplayBits deleteImage={testFn} id='_id' url='_url' title='_title' description='_description'/>);
+        const rendered = shallow(<GalleryDisplayBits deleteImage={testFn} _id='_id' url='_url' title='_title' description='_description'/>);
         expect(toJson(rendered)).toMatchSnapshot();
     });
 });
