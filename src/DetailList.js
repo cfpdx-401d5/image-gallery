@@ -12,7 +12,7 @@ function DetailList(props) {
   return (
     <ul> {listDetail} </ul>
   );
-  
+
 }
 
 DetailList.propTypes = {

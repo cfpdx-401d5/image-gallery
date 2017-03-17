@@ -1,0 +1,13 @@
+exports[`ImageGallery:  runs ImageGallery app 1`] = `
+<div>
+  <ImageSelectorBar
+    clickHandler={[Function]} />
+  <br />
+  <NewImageForm
+    addImage={[Function]} />
+  <DetailList
+    addImage={[Function]}
+    deleteImage={[Function]}
+    images={[Function]} />
+</div>
+`;

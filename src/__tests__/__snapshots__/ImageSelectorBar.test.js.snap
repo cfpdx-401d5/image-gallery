@@ -1,0 +1,18 @@
+exports[`ImageSelectorBar component:  renders the ImageSelectorBar component 1`] = `
+<div
+  className="image-select">
+  <button
+    onClick={[Function]}>
+     Detail View 
+  </button>
+  <button
+    onClick={[Function]}>
+     Thumbnail View 
+  </button>
+  <button
+    onClick={[Function]}>
+     Gallery View 
+  </button>
+  <br />
+</div>
+`;
