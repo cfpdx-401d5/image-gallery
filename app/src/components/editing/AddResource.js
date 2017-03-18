@@ -35,6 +35,7 @@ export default class AddResource extends Component {
                             this.props.onAdd(newResource);
                         })
                         .catch(err => {
+                            console.log(err);
                         });
 
                 }}>
