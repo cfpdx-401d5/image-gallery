@@ -32,11 +32,9 @@ export default class AddResource extends Component {
                     };
                     this.addRes(newResource)
                         .then(res => {
-                            console.log('then: ', res);
-                            this.props.onAdd(e, newResource);
+                            this.props.onAdd(newResource);
                         })
                         .catch(err => {
-                            console.log('err: ', err);
                         });
 
                 }}>

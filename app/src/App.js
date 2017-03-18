@@ -3,7 +3,7 @@ import AddResource from './components/editing/AddResource';
 import GalleryDisplay from './components/display/Gallery';
 import ThumbnailDisplay from './components/display/Thumbnail';
 import DetailDisplay from './components/display/Detail';
-import fetcher from './helpers/fetcher';
+import fetcher from '../helpers/fetcher';
 
 const GALLERY_TYPE = 'gallery';
 const LIST_TYPE = 'list';
@@ -36,7 +36,9 @@ export default class App extends Component {
         .then(res => res.json())
         .then(resources => {
             this.setState({ resources });
-        });
+            console.log(this.state);
+        })
+        .catch(err => { console.log(err); });
     }
 
     componentDidMount() {
@@ -57,8 +59,7 @@ export default class App extends Component {
         this.doFetch();
     }
 
-    onAdd(e, newResource) {
-        e.preventDefault();
+    onAdd(newResource) {
         let newData = this.state.resources.slice();
         newData.push(newResource);
         this.setState({
