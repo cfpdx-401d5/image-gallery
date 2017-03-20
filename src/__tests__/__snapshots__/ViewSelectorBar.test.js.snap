@@ -1,6 +1,6 @@
-exports[`ImageSelectorBar component:  renders the ImageSelectorBar component 1`] = `
+exports[`ViewSelectorBar component:  renders the ViewSelectorBar component 1`] = `
 <div
-  className="image-select">
+  className="view-select">
   <button
     onClick={[Function]}>
      Detail View 

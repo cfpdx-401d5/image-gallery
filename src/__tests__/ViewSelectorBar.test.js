@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import { ViewSelectorBar } from '../ViewSelectorBar';
+import ViewSelectorBar from '../ViewSelectorBar';
 
 function testClickHandler(e) {
   return e;
