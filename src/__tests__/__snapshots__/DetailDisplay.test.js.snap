@@ -1,0 +1,24 @@
+exports[`DetailDisplay component:  renders the DetailDisplay component 1`] = `
+<div
+  className="image-divs">
+  <p>
+     Title: 
+    _title
+     
+  </p>
+  <p>
+     Description: 
+    _description
+     
+  </p>
+  <a
+    href="_url">
+     Image Link 
+  </a>
+  <button
+    className="kill-button"
+    onClick={[Function]}>
+    Delete
+  </button>
+</div>
+`;

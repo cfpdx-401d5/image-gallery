@@ -1,0 +1,22 @@
+exports[`ThumbnailDisplay component:  renders the ThumbnailDisplay component 1`] = `
+<div
+  className="image-divs">
+  <p>
+    Title: 
+    _title
+     
+  </p>
+  <a
+    href="_url">
+    <img
+      alt="cute bunny"
+      className="thumbnail"
+      src="_url" />
+  </a>
+  <button
+    className="kill-button"
+    onClick={[Function]}>
+    Delete
+  </button>
+</div>
+`;
