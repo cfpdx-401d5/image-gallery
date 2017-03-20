@@ -7,7 +7,8 @@ router
         return new Resource(req.body).save()
             .then(resource => {
                 res.status(201).send(resource);
-            });
+            })
+            .catch(next);
     })
     .get('/', (req, res, next) => {
         Resource.find()

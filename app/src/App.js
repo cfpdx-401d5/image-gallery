@@ -36,17 +36,12 @@ export default class App extends Component {
         .then(res => res.json())
         .then(resources => {
             this.setState({ resources });
-        });
+        })
+        .catch(err => { console.log(err); });
     }
 
     componentDidMount() {
-        this._timerId = setInterval(() => {
-            this.doFetch();
-        }, 9000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this._timerId);
+        this.doFetch();
     }
 
     onDelete(id) {
@@ -57,15 +52,13 @@ export default class App extends Component {
         this.doFetch();
     }
 
-    onAdd(e, newResource) {
-        e.preventDefault();
+    onAdd(newResource) {
         let newData = this.state.resources.slice();
         newData.push(newResource);
         this.setState({
             resources: newData
         });
     }
-
 
     render() {
         return (
