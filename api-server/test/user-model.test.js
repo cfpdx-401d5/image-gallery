@@ -2,15 +2,6 @@ const User = require('../lib/models/user');
 const assert = require('chai').assert;
 
 describe('user model', () => {
-    const Model = function(User) {
-        return (data) => new User(data)
-            .validate()
-            .then(
-                () => { throw new Error('validation should not have succeeded'); },
-                () => {}
-            );
-    };
-
     it('is valid with a username and password', () => {
         return new User({
             username: 'username',
