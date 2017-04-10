@@ -1,0 +1,6 @@
+exports[`DeleteImageButton runs the DeleteImageButton 1`] = `
+<button
+  onClick={[Function]}>
+  delete
+</button>
+`;

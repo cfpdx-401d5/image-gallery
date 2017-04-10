@@ -1,0 +1,38 @@
+{
+  "name": "image-gallery",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "express": "^4.15.2",
+    "jsonwebtoken-promisified": "^1.0.3",
+    "mongoose": "^4.8.7",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.17.1",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --recursive",
+    "test:watch": "mocha --watch",
+    "start:watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmd-kvn/image-gallery.git"
+  },
+  "author": "Kevin Wong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmd-kvn/image-gallery/issues"
+  },
+  "homepage": "https://github.com/cmd-kvn/image-gallery#readme",
+  "description": "An app that displays an image through 3 different view types."
+}

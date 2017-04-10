@@ -1,0 +1,21 @@
+exports[`FormContainer runs the FormContainer 1`] = `
+<form
+  onSubmit={[Function]}>
+  <h4>
+    Add a new image
+  </h4>
+  <InputField
+    handler={[Function]}
+    name="title" />
+  <InputField
+    handler={[Function]}
+    name="description" />
+  <InputField
+    handler={[Function]}
+    name="url" />
+  <button
+    type="submit">
+    Submit
+  </button>
+</form>
+`;

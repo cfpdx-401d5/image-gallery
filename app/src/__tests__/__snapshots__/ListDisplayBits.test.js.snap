@@ -1,0 +1,12 @@
+exports[`ListDisplayBits component renders the ListDisplayBits component 1`] = `
+<li>
+  <a
+    href="_url">
+    _title
+  </a>
+  : 
+  desc
+  <DeleteImageButton
+    deleteImage={[Function]} />
+</li>
+`;

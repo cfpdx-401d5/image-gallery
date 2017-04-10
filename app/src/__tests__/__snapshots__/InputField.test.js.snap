@@ -1,0 +1,8 @@
+exports[`InputField component renders the InputField component 1`] = `
+<input
+  defaultValue=""
+  name="_name"
+  onChange={[Function]}
+  placeholder="Enter _name"
+  type="text" />
+`;

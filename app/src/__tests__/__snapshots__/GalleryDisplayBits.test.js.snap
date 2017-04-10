@@ -1,0 +1,18 @@
+exports[`GalleryDisplayBits component renders the GalleryDisplayBits component 1`] = `
+<article>
+  <figure>
+    <img
+      alt="_title gallery view"
+      src="_url" />
+    <figcaption>
+      _title
+       
+      <br />
+      _description
+    </figcaption>
+    <DeleteImageButton
+      _id="_id"
+      deleteImage={[Function]} />
+  </figure>
+</article>
+`;
