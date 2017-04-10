@@ -2,10 +2,76 @@ import React, { Component } from 'react';
 import ImageView from '../ViewSelector/ImageView';
 import AddImage from '../AddImage/AddImage';
 import ViewSelector from '../ViewSelector/ViewSelector';
-
 import images from '../images/images';
 
 const localUrl = 'http://localhost:8000/images';
+
+function UserGreeting(props) {
+    return <h1>See what's new in the Gallery!</h1>;
+}
+
+function GuestGreeting(props) {
+    return <h1>Please sign in to view the images.</h1>
+}
+
+function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    if (isLoggedIn) {
+        return <UserGreeting />;
+    }
+    return <GuestGreeting />;
+}
+
+function LoginButton(props) {
+    return (
+        <button onClick={props.onClick}>
+            Login
+            </button>
+    );
+}
+
+function LogoutButton(props) {
+    return (
+        <button onClick={props.onClick}>
+            Logout
+            </button>
+    );
+}
+
+class LoginControl extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleLoginClick = this.handleLoginClick.bind(this);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+        this.state = { isLoggedIn: false };
+    }
+
+    handleLoginClick() {
+        this.setState({ isLoggedIn: true });
+    }
+
+    handleLogoutClick() {
+        this.setState({ isLoggedIn: false });
+    }
+
+    render() {
+        const isLoggedIn = this.state.isLoggedIn;
+
+        let button = null;
+        if (isLoggedIn) {
+            button = <LogoutButton onClick={this.handleLogoutClick} />;
+        } else {
+            button = <LoginButton onClick={this.handleLoginClick} />;
+        }
+
+        return (
+            <div>
+                <Greeting isLoggedIn={isLoggedIn} />
+                {button}
+            </div>
+        );
+    }
+}
 
 export default class GalleryApp extends Component {
     constructor(props) {
@@ -25,7 +91,6 @@ export default class GalleryApp extends Component {
     }
 
     onAdd(image) {
-        console.log('image', image);
         fetch(localUrl, { headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(image), method: "POST" })
             .then(res => {
                 return res.json();
@@ -71,6 +136,7 @@ export default class GalleryApp extends Component {
     render() {
         return (
             <div >
+                <LoginControl />
                 <ViewSelector handleClick={this.handleClick} />
                 <AddImage onAdd={this.onAdd} />
                 <ImageView viewSelected={this.state.viewSelected} images={this.state.images} onDelete={this.onDelete} />

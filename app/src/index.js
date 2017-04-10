@@ -6,7 +6,7 @@ import './index.css';
 
 ReactDOM.render(
   <div>
-    < h1 > Welcome to the Gallery</h1 >
+    < h1 > Welcome to the Cute Bunny Gallery</h1 >
     <GalleryApp />
   </div >,
   document.getElementById('root')
