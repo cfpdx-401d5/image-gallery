@@ -27,7 +27,11 @@ Refactorings:
   * duplicatation *2pts*
   * naming *2pts*
 <<<<<<< HEAD
+<<<<<<< HEAD
 * Project (file) Organization *2pts*
 =======
 * Project (file) Organization *2pts*
 >>>>>>> bhuneke
+=======
+* Project (file) Organization *2pts*
+>>>>>>> mizutombo

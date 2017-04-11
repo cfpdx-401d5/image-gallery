@@ -32,9 +32,18 @@ app.use(cors);
   * Allow user to choose an album to view
   * User can add new albums
 
+<<<<<<< HEAD
 ## Rubric *20pts*
 
 Refactorings:
 * Backend Server *6pts*
 * Update app to use server *8pts*
 * Code and Project Organization *4pts*
+=======
+## Rubric *10pts*
+
+Refactorings:
+* Backend Server *3pts*
+* Update app to use server *4pts*
+* Code and Project Organization *2pts*
+>>>>>>> mizutombo
