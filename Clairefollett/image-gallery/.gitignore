@@ -1,0 +1,11 @@
+app/node_modules
+server/node_modules
+/coverage
+/build
+.DS_Store
+.env
+.vscode
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+march-7-notes.js
