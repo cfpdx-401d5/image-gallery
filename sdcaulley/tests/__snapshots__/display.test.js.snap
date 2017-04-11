@@ -1,0 +1,8 @@
+exports[`list display list display 1`] = `
+<div>
+  <ViewSelector />
+  <h3>
+    Click a button to view bunnies!
+  </h3>
+</div>
+`;

@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+hr {
+  height: 5px;
+  background-color: lightskyblue;
+  border: 2px solid;
+  border-color: darkslateblue;
+  border-radius: 5px;
+  width: 90%;
+  margin: 1em;
+}
+
+fieldset {
+  width: 40%;
+  margin: 1.5em auto;
+}
+input {
+  width: 90%;
+  margin: 0.5em 0;
+}
+
+textarea {
+  width: 90%;
+  margin: 0.5em 0;
+}
+
+.gallery {
+  width: 500px;
+  height: 333px;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+}
+
+.main-buttons {
+  text-align: center;
+}
+
+.buttons {
+  background-color: lightskyblue;
+  font-size: 15px;
+  color: darkslateblue;
+  border-radius: 25%;
+  border-color: darkslateblue; 
+  padding: 10px;
+  margin: 0 2em;
+}
+
+.buttons:hover,
+.buttons:focus {
+    outline: none;
+    background-color: deepskyblue;
+}
