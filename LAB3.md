@@ -26,4 +26,8 @@ Refactorings:
 * Refactoring 
   * duplicatation *2pts*
   * naming *2pts*
+<<<<<<< HEAD
 * Project (file) Organization *2pts*
+=======
+* Project (file) Organization *2pts*
+>>>>>>> bhuneke

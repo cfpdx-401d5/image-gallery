@@ -54,4 +54,8 @@ Make sure you have snapshot tests for all your components
 - Add Image *3pt*
 - Delete Image *3pt*
 - Tests *1pts*
+<<<<<<< HEAD
 - Idomatic JavaScript and React *1pt*
+=======
+- Idomatic JavaScript and React *1pt*
+>>>>>>> bhuneke
