@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import images from './images';
+import images from '../data/images';
 
 import ViewSelectorBar from './ViewSelectorBar';
 import DetailList from './DetailList';
@@ -38,6 +38,7 @@ export default class ImageGallery extends Component {
     .then(bunnies => {
       console.log(bunnies);
     });
+    this.setState();
   }
 
   addImage(imageToAdd) {
