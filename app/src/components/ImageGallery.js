@@ -28,7 +28,7 @@ export default class ImageGallery extends Component {
   }
 
   doFetch() {
-    fetch('http://localhost:3000/bunnies', {
+    fetch('http://localhost:8000/bunnies', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
