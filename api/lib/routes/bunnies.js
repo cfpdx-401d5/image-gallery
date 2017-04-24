@@ -3,6 +3,7 @@ const Router = express.Router;
 const router = Router();
 const Bunny = require('../models/bunny');
 const bodyParser = require('body-parser').json();
+const ensureRole = require('../auth/ensure-role');
 
 router
 
@@ -16,13 +17,13 @@ router
     .catch(next);
 })
 
-.post('/', bodyParser, (req, res, next) => {
+.post('/', ensureRole('admin'), bodyParser, (req, res, next) => {
   return new Bunny(req.body).save()
     .then(bunny => res.send(bunny))
     .catch(next);
 })
 
-.delete('/:id', (req, res, next) => {
+.delete('/:id', ensureRole('admin'), (req, res, next) => {
   Bunny.findByIdAndRemove(req.params.id)
   .then(deleted => {
     res.send({ deleted: !!deleted });
